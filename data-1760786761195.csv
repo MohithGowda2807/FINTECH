@@ -1,0 +1,5 @@
+"id","date","type","category","amount","wallet","description","user_name","email"
+1,"2025-10-18","Income","Food","1000.00","Savings Account","allowance","Test User","test@example.com"
+2,"2025-10-18","Expense","Food","200.00","Savings Account","chocolates","Test User","test@example.com"
+3,"2025-10-16","Income","Food","123.00","Savings Account","gift","Test User","test@example.com"
+4,"2025-10-16","Expense","Travel","12.00","Savings Account","bus charges","Test User","test@example.com"

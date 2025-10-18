@@ -1,0 +1,6 @@
+"id","user_id","date","type","category","amount","currency","memo","wallet","to_wallet","created_at"
+5,1,"2025-10-29","Transfer","","100.00","INR","for funny :)","Savings Account","PayTM wallet","2025-10-18 17:30:46.444052"
+1,1,"2025-10-18","Income","ALLOWANCE","1234.00","INR","monthly allowance","Savings Account",NULL,"2025-10-18 17:27:07.882994"
+4,1,"2025-10-18","Expense","ENTERTAINMENT","320.00","INR","netflix subscription","Savings Account",NULL,"2025-10-18 17:29:14.457465"
+3,1,"2025-10-17","Transfer","","200.00","INR","fund reallocation","Savings Account","gpay lite","2025-10-18 17:28:22.537512"
+2,1,"2025-10-15","Expense","FOOD","120.00","INR","samosa","Savings Account",NULL,"2025-10-18 17:27:47.366697"
