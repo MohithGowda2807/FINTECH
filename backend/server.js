@@ -18,10 +18,21 @@ app.use(cors({
 app.use(express.json());
 
 // PostgreSQL connection
+// Force DATABASE_URL - no fallback
+if (!process.env.DATABASE_URL) {
+  console.error('❌ ERROR: DATABASE_URL is not set!');
+  process.exit(1);
+}
+
+console.log('🔗 Connecting to database using DATABASE_URL');
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || `postgresql://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
+
 
 // Test database connection on startup
 pool.connect((err, client, release) => {
