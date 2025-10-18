@@ -38,7 +38,6 @@ const pool = new Pool({
   }
 });
 
-
 // Test database connection on startup
 pool.connect((err, client, release) => {
   if (err) {
@@ -74,6 +73,80 @@ const authenticateToken = (req, res, next) => {
     next();
   });
 };
+
+// ============ DATABASE SETUP ROUTE (TEMPORARY) ============
+
+app.get('/api/setup-database', async (req, res) => {
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+    
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS wallets (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        wallet_name VARCHAR(255) NOT NULL,
+        balance DECIMAL(15,2) DEFAULT 0,
+        currency VARCHAR(10) DEFAULT 'INR',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE(user_id, wallet_name)
+      );
+    `);
+
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS transactions (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        date DATE NOT NULL,
+        amount DECIMAL(15,2) NOT NULL,
+        type VARCHAR(50) NOT NULL,
+        category VARCHAR(100),
+        wallet VARCHAR(100),
+        to_wallet VARCHAR(100),
+        memo TEXT,
+        currency VARCHAR(10) DEFAULT 'INR',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS investments (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        asset_type VARCHAR(100) NOT NULL,
+        fund_name VARCHAR(255) NOT NULL,
+        amount DECIMAL(15,2) NOT NULL,
+        return_rate DECIMAL(5,2),
+        tenure INTEGER,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS debts (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        debt_type VARCHAR(100) NOT NULL,
+        outstanding_principal DECIMAL(15,2) NOT NULL,
+        interest_rate DECIMAL(5,2) NOT NULL,
+        emi DECIMAL(15,2) NOT NULL,
+        emis_left INTEGER NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+
+    res.json({ success: true, message: 'All tables created successfully! 🎉' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // ============ AUTHENTICATION ROUTES ============
 
@@ -270,7 +343,7 @@ app.get('/api/transactions', authenticateToken, async (req, res) => {
   }
 });
 
-// Add transaction (ENHANCED VERSION - ONLY ONE)
+// Add transaction
 app.post('/api/transactions', authenticateToken, async (req, res) => {
   try {
     const { date, amount, type, category, wallet, to_wallet, memo, currency } = req.body;
