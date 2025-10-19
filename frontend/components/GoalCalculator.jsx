@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 export default function GoalCalculator() {
-  const [goalType, setGoalType] = useState('Car');
+  const [goalType, setGoalType] = useState('Buying a Car');
   const [targetAmount, setTargetAmount] = useState(800000);
   const [currentSavings, setCurrentSavings] = useState(0);
   const [timeHorizon, setTimeHorizon] = useState(5);
@@ -28,18 +29,34 @@ export default function GoalCalculator() {
     // Inflation-adjusted future value
     const adjustedGoal = targetAmount * Math.pow(1 + i, t);
 
-    // Amount needed to invest
-    const amountNeeded = adjustedGoal - currentSavings * Math.pow(1 + r, t);
+    // Amount needed after current savings grow
+    const futureCurrentSavings = currentSavings * Math.pow(1 + r, t);
+    const amountNeeded = adjustedGoal - futureCurrentSavings;
 
-    // Monthly SIP calculation
-    const monthlyRate = r / 12;
+    // Monthly SIP calculation using Groww formula
+    const monthlyRate = Math.pow(1 + r, 1 / 12) - 1;
     const months = t * 12;
     const monthlySIP = amountNeeded * monthlyRate / (Math.pow(1 + monthlyRate, months) - 1);
 
     // Lumpsum calculation
     const lumpsum = amountNeeded / Math.pow(1 + r, t);
 
-    // AI Tip
+    // Year-by-year breakdown
+    const yearlyData = [];
+    for (let year = 1; year <= t; year++) {
+      const m = year * 12;
+      const sipValue = monthlySIP * ((Math.pow(1 + monthlyRate, m) - 1) / monthlyRate) * (1 + monthlyRate);
+      const savingsValue = currentSavings * Math.pow(1 + r, year);
+      const goalValue = targetAmount * Math.pow(1 + i, year);
+      
+      yearlyData.push({
+        year: year,
+        invested: Math.round(monthlySIP * m + currentSavings),
+        value: Math.round(sipValue + savingsValue),
+        goal: Math.round(goalValue)
+      });
+    }
+
     const sipIncrease = Math.round((inflationRate / 2));
     
     setResult({
@@ -47,14 +64,17 @@ export default function GoalCalculator() {
       monthlySIP: Math.round(monthlySIP),
       lumpsum: Math.round(lumpsum),
       totalInvested: Math.round(monthlySIP * months + currentSavings),
-      sipIncrease
+      sipIncrease,
+      yearlyData
     });
   };
 
   return (
-    <div className="calculator-card">
-      <h2>🎯 Goal-Based Calculator</h2>
-      <p className="subtitle">Plan your financial goals with smart investment strategies</p>
+    <div className="calculator-container">
+      <h2>🎯 Goal-Based Investment Planner</h2>
+      <p style={{ textAlign: 'center', color: '#666', marginBottom: '20px' }}>
+        Plan your financial goals with smart investment strategies
+      </p>
 
       <div className="input-group">
         <label>Goal Type</label>
@@ -68,51 +88,66 @@ export default function GoalCalculator() {
       <div className="input-group">
         <label>Target Amount (₹)</label>
         <input
-          type="number"
+          type="range"
+          min="50000"
+          max="10000000"
+          step="50000"
           value={targetAmount}
           onChange={(e) => setTargetAmount(Number(e.target.value))}
-          placeholder="800000"
         />
+        <span>₹{targetAmount.toLocaleString('en-IN')}</span>
       </div>
 
       <div className="input-group">
-        <label>Current Savings (₹) - Optional</label>
+        <label>Current Savings (₹)</label>
         <input
-          type="number"
+          type="range"
+          min="0"
+          max="5000000"
+          step="10000"
           value={currentSavings}
           onChange={(e) => setCurrentSavings(Number(e.target.value))}
-          placeholder="0"
         />
+        <span>₹{currentSavings.toLocaleString('en-IN')}</span>
       </div>
 
       <div className="input-group">
         <label>Time Horizon (Years)</label>
         <input
-          type="number"
+          type="range"
+          min="1"
+          max="30"
+          step="1"
           value={timeHorizon}
           onChange={(e) => setTimeHorizon(Number(e.target.value))}
-          placeholder="5"
         />
+        <span>{timeHorizon} years</span>
       </div>
 
       <div className="input-group">
         <label>Expected Return Rate (%)</label>
         <input
-          type="number"
+          type="range"
+          min="1"
+          max="30"
+          step="0.5"
           value={returnRate}
           onChange={(e) => setReturnRate(Number(e.target.value))}
-          placeholder="12"
         />
+        <span>{returnRate}%</span>
       </div>
 
       <div className="input-group">
         <label>Inflation Rate (%)</label>
         <input
-          type="number"
+          type="range"
+          min="2"
+          max="15"
+          step="0.5"
           value={inflationRate}
           onChange={(e) => setInflationRate(Number(e.target.value))}
-          placeholder="6"
         />
+        <span>{inflationRate}%</span>
       </div>
 
       <button onClick={calculateGoal} className="calculate-btn">
@@ -120,125 +155,78 @@ export default function GoalCalculator() {
       </button>
 
       {result && (
-        <div className="result-card">
-          <h3>📊 Your Goal Plan for: {goalType}</h3>
-          
-          <div className="result-row">
-            <span>Inflation-Adjusted Goal Value:</span>
-            <strong>₹{result.adjustedGoal.toLocaleString('en-IN')}</strong>
+        <div className="results">
+          <div className="result-card">
+            <h3>Inflation-Adjusted Goal</h3>
+            <p className="amount">₹{result.adjustedGoal.toLocaleString('en-IN')}</p>
           </div>
-
-          <div className="result-row highlight">
-            <span>💰 Recommended Monthly SIP:</span>
-            <strong>₹{result.monthlySIP.toLocaleString('en-IN')}</strong>
+          <div className="result-card">
+            <h3>Monthly SIP Required</h3>
+            <p className="amount gain">₹{result.monthlySIP.toLocaleString('en-IN')}</p>
           </div>
-
-          <div className="result-row">
-            <span>Or One-Time Lumpsum Investment:</span>
-            <strong>₹{result.lumpsum.toLocaleString('en-IN')}</strong>
-          </div>
-
-          <div className="result-row">
-            <span>Total Amount You'll Invest:</span>
-            <strong>₹{result.totalInvested.toLocaleString('en-IN')}</strong>
+          <div className="result-card">
+            <h3>Or Lumpsum Today</h3>
+            <p className="amount">₹{result.lumpsum.toLocaleString('en-IN')}</p>
           </div>
 
           <div className="ai-tip">
             <h4>🤖 AI Investment Tip:</h4>
             <p>
               Increase your SIP by <strong>{result.sipIncrease}%</strong> annually 
-              to reach your goal faster and beat inflation! This step-up strategy 
-              can help you achieve your "{goalType}" goal {Math.round(timeHorizon * 0.2)} months sooner.
+              to reach your "{goalType}" goal faster and beat inflation! 
+              This step-up strategy can help you achieve your goal {Math.round(timeHorizon * 0.2)} months sooner.
             </p>
+          </div>
+
+          <div className="chart-container">
+            <LineChart width={600} height={300} data={result.yearlyData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="year" label={{ value: 'Years', position: 'insideBottom', offset: -5 }} />
+              <YAxis />
+              <Tooltip formatter={(val) => `₹${val.toLocaleString()}`} />
+              <Legend />
+              <Line type="monotone" dataKey="invested" stroke="#475569" name="Total Invested" strokeWidth={2} />
+              <Line type="monotone" dataKey="value" stroke="#22c55e" name="Your Investment" strokeWidth={3} />
+              <Line type="monotone" dataKey="goal" stroke="#D4AF37" name="Goal Value" strokeWidth={3} strokeDasharray="5 5" />
+            </LineChart>
           </div>
         </div>
       )}
 
       <style jsx>{`
-        .calculator-card {
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border-radius: 20px;
-          padding: 30px;
-          border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .subtitle {
-          color: rgba(255, 255, 255, 0.8);
-          margin-bottom: 20px;
-        }
-
-        .input-group {
-          margin-bottom: 20px;
-        }
-
-        .input-group label {
-          display: block;
-          margin-bottom: 8px;
-          color: white;
-          font-weight: 600;
-        }
-
-        .input-group input,
-        .input-group select {
-          width: 100%;
-          padding: 12px;
-          border-radius: 10px;
-          border: 2px solid rgba(255, 255, 255, 0.3);
-          background: rgba(255, 255, 255, 0.1);
-          color: white;
-          font-size: 16px;
-        }
-
-        .calculate-btn {
-          width: 100%;
-          padding: 15px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          color: white;
-          border: none;
-          border-radius: 12px;
-          font-size: 18px;
-          font-weight: 700;
-          cursor: pointer;
-          margin-top: 10px;
-          transition: transform 0.2s;
-        }
-
-        .calculate-btn:hover {
-          transform: translateY(-2px);
-        }
-
-        .result-card {
-          margin-top: 30px;
-          background: rgba(255, 255, 255, 0.15);
-          padding: 25px;
-          border-radius: 15px;
-        }
-
-        .result-row {
-          display: flex;
-          justify-content: space-between;
-          padding: 15px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .result-row.highlight {
-          background: rgba(102, 126, 234, 0.3);
-          border-radius: 10px;
-          margin: 10px 0;
-        }
-
         .ai-tip {
-          margin-top: 20px;
+          margin: 20px 0;
           padding: 20px;
-          background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
-          border-radius: 12px;
-          border: 2px solid rgba(212, 175, 55, 0.4);
+          background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(244, 208, 63, 0.05) 100%);
+          border-left: 4px solid #D4AF37;
+          border-radius: 8px;
         }
 
         .ai-tip h4 {
-          margin-bottom: 10px;
-          color: #F4D03F;
+          margin: 0 0 10px 0;
+          color: #D4AF37;
+          font-size: 18px;
+        }
+
+        .ai-tip p {
+          margin: 0;
+          color: #333;
+          line-height: 1.6;
+        }
+
+        select {
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: 2px solid #e2e8f0;
+          background: white;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        select:focus {
+          outline: none;
+          border-color: #667eea;
         }
       `}</style>
     </div>
