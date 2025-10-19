@@ -12,8 +12,8 @@ export default function SIPCalculator() {
     const r = returnRate / 100 / 12; // Monthly rate
     const n = tenure * 12; // Total months
     
-    // FV = P × [((1 + r)^n - 1) / r] × (1 + r)
-    const futureValue = P * (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+    // FV = P × [((1 + r)^n - 1) / r]
+    const futureValue = P * ((Math.pow(1 + r, n) - 1) / r);
     const totalInvested = P * n;
     const wealthGain = futureValue - totalInvested;
     
@@ -21,7 +21,7 @@ export default function SIPCalculator() {
     const yearlyData = [];
     for (let year = 1; year <= tenure; year++) {
       const months = year * 12;
-      const yearFV = P * (((Math.pow(1 + r, months) - 1) / r) * (1 + r));
+      const yearFV = P * ((Math.pow(1 + r, months) - 1) / r);
       yearlyData.push({
         year: year,
         invested: P * months,

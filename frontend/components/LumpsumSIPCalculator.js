@@ -22,7 +22,7 @@ export default function LumpsumSIPCalculator() {
     const FV_Lumpsum = L * Math.pow(1 + r, n);
 
     // Future Value of SIP
-    const FV_SIP = S * (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
+    const FV_SIP = S * ((Math.pow(1 + r, n) - 1) / r);
 
     // Total values
     const totalInvested = L + (S * 12 * t);
@@ -34,7 +34,7 @@ export default function LumpsumSIPCalculator() {
     for (let year = 1; year <= t; year++) {
       const months = year * 12;
       const lumpsumValue = L * Math.pow(1 + r, months);
-      const sipValue = S * (((Math.pow(1 + r, months) - 1) / r) * (1 + r));
+      const sipValue = S * ((Math.pow(1 + r, months) - 1) / r);
       
       yearlyData.push({
         year: year,
@@ -323,3 +323,4 @@ export default function LumpsumSIPCalculator() {
     </div>
   );
 }
+

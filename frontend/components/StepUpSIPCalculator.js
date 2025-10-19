@@ -38,13 +38,13 @@ export default function StepUpSIPCalculator() {
       const monthsRemaining = (t - year + 1) * 12;
       
       // Future value of this year's SIP contributions
-      const fvThisYear = monthlyAmount * (((Math.pow(1 + r, monthsRemaining) - 1) / r) * (1 + r));
+      const fvThisYear = monthlyAmount * ((Math.pow(1 + r, monthsRemaining) - 1) / r);
       
       totalSIPInvested += monthlyAmount * 12;
       FV_SIP += fvThisYear;
 
       // For constant SIP comparison
-      const constantSIPValue = initialSIP * (((Math.pow(1 + r, year * 12) - 1) / r) * (1 + r));
+      const constantSIPValue = initialSIP * ((Math.pow(1 + r, year * 12) - 1) / r);
       const stepUpSIPValue = FV_SIP;
 
       yearlyBreakdown.push({
@@ -68,7 +68,7 @@ export default function StepUpSIPCalculator() {
     const totalGain = totalFutureValue - totalInvested;
 
     // Calculate constant SIP for comparison
-    const constantSIPFV = initialSIP * (((Math.pow(1 + r, t * 12) - 1) / r) * (1 + r));
+    const constantSIPFV = initialSIP * ((Math.pow(1 + r, t * 12) - 1) / r);
     const constantSIPInvested = initialSIP * 12 * t;
 
     setResults({
@@ -408,3 +408,4 @@ export default function StepUpSIPCalculator() {
     </div>
   );
 }
+
