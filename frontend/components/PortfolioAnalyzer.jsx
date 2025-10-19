@@ -580,7 +580,7 @@ export default function PortfolioAnalyzer() {
                 <h3>📅 Year-by-Year Breakdown</h3>
                 <table style={{width: '100%', borderCollapse: 'collapse'}}>
                   <thead>
-                    <tr style={{background: 'linear-gradient(135deg, #0D47A1 0%, #1565C0 100%)', color: 'white'}}:
+                    <tr style={{background: 'linear-gradient(135deg, #0D47A1 0%, #1565C0 100%)', color: 'white'}}>
                       <th style={{padding: '12px', textAlign: 'left'}}>Year</th>
                       <th style={{padding: '12px', textAlign: 'right'}}>Invested Amount</th>
                       <th style={{padding: '12px', textAlign: 'right'}}>Projected Value</th>
