@@ -20,7 +20,7 @@ export default function Home() {
       justifyContent: 'center',
       alignItems: 'center',
       height: '100vh',
-      background: 'linear-gradient(135deg, #0D9488 0%, #06B6D4 50%, #0EA5E9 100%)',
+      background: 'linear-gradient(135deg, #0D47A1 0%, #1C1C1C 100%)',
       color: 'white'
     }}>
       <h1>Loading...</h1>
