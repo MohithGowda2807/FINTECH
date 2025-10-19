@@ -9,7 +9,7 @@ export default function SIPCalculator() {
 
   const calculateSIP = () => {
     const P = monthlyInvestment;
-    const r = returnRate / 100 / 12; // Monthly rate
+    const r = Math.pow(1 + returnRate / 100, 1 / 12) - 1; // Monthly rate
     const n = tenure * 12; // Total months
     
     // FV = P × [((1 + r)^n - 1) / r]
