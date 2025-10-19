@@ -8,12 +8,15 @@ import StepUpSIPCalculator from '../components/StepUpSIPCalculator';
 import PortfolioAnalyzer from '../components/PortfolioAnalyzer';
 import MoneyTracker from '../components/MoneyTracker';
 import DebtManager from '../components/DebtManager';
+import GoalCalculator from '../components/GoalCalculator';
+
 
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('sip');
   const { user, logout, isAuthenticated } = useAuth();
   const router = useRouter();
+
 
 
   useEffect(() => {
@@ -23,15 +26,18 @@ export default function Dashboard() {
   }, [isAuthenticated, router]);
 
 
+
   const handleLogout = () => {
     logout();
     router.push('/login');
   };
 
 
+
   if (!isAuthenticated) {
     return <div>Loading...</div>;
   }
+
 
 
   return (
@@ -45,6 +51,7 @@ export default function Dashboard() {
           Logout
         </button>
       </header>
+
 
 
       <nav className="nav-tabs">
@@ -73,6 +80,12 @@ export default function Dashboard() {
           Step-Up SIP
         </button>
         <button 
+          className={activeTab === 'goals' ? 'tab active' : 'tab'}
+          onClick={() => setActiveTab('goals')}
+        >
+          🎯 Goal Planner
+        </button>
+        <button 
           className={activeTab === 'portfolio' ? 'tab active' : 'tab'}
           onClick={() => setActiveTab('portfolio')}
         >
@@ -93,20 +106,24 @@ export default function Dashboard() {
       </nav>
 
 
+
       <main className="content">
         {activeTab === 'sip' && <SIPCalculator />}
         {activeTab === 'lumpsum' && <LumpsumCalculator />}
         {activeTab === 'lumpsum-sip' && <LumpsumSIPCalculator />}
         {activeTab === 'stepup-sip' && <StepUpSIPCalculator />}
+        {activeTab === 'goals' && <GoalCalculator />}
         {activeTab === 'portfolio' && <PortfolioAnalyzer />}
         {activeTab === 'tracker' && <MoneyTracker />}
         {activeTab === 'debt' && <DebtManager userId={user.id} />}
       </main>
 
 
+
       <footer className="footer">
         <p>© 2025 AI Finance Assistant | For Educational Purposes Only</p>
       </footer>
+
 
 
       <style jsx>{`
@@ -116,6 +133,7 @@ export default function Dashboard() {
           align-items: center;
           margin-bottom: 30px;
         }
+
 
 
         .logout-btn {
@@ -130,6 +148,7 @@ export default function Dashboard() {
           backdrop-filter: blur(10px);
           letter-spacing: 0.3px;
         }
+
 
 
         .logout-btn:hover {
