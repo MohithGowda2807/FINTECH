@@ -8,41 +8,44 @@ export default function SIPCalculator() {
   const [results, setResults] = useState(null);
 
   const calculateSIP = () => {
-  const P = monthlyInvestment;
-  const annualRate = returnRate / 100;
-  const n = tenure * 12;
+    const P = monthlyInvestment;
+    const annualRate = returnRate / 100;
+    const n = tenure * 12;
 
-  // Use full precision monthly rate
- const r = annualRate / 12;
+    // Use Groww's effective monthly rate
+    const r = Math.pow(1 + annualRate, 1 / 12) - 1;
 
-  // Future Value calculation
-  const futureValue = P * ((Math.pow(1 + r, n) - 1) / r);
-  const totalInvested = P * n;
-  const wealthGain = futureValue - totalInvested;
+    // Groww SIP Formula: M = P × ((1 + r)^n – 1) / r × (1 + r)
+    const futureValue = P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+    const totalInvested = P * n;
+    const wealthGain = futureValue - totalInvested;
 
-  // Year-by-year breakdown
-  const yearlyData = [];
-  for (let year = 1; year <= tenure; year++) {
-    const months = year * 12;
-    const yearFV = P * ((Math.pow(1 + r, months) - 1) / r);
-    yearlyData.push({
-      year: year,
-      invested: P * months,
-      value: Math.round(yearFV) // Round only for display
+    // Year-by-year breakdown
+    const yearlyData = [];
+    for (let year = 1; year <= tenure; year++) {
+      const months = year * 12;
+      const yearFV = P * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
+      yearlyData.push({
+        year: year,
+        invested: P * months,
+        value: Math.round(yearFV)
+      });
+    }
+
+    setResults({
+      totalInvested: Math.round(totalInvested),
+      maturityAmount: Math.round(futureValue),
+      wealthGain: Math.round(wealthGain),
+      yearlyData: yearlyData
     });
-  }
-
-  setResults({
-    totalInvested: Math.round(totalInvested),
-    maturityAmount: Math.round(futureValue),
-    wealthGain: Math.round(wealthGain),
-    yearlyData: yearlyData
-  });
-};
+  };
 
   return (
     <div className="calculator-container">
-      <h2>SIP Calculator</h2>
+      <h2>Groww-style SIP Calculator</h2>
+      <p style={{ textAlign: 'center', color: '#666', marginBottom: '20px' }}>
+        Calculate expected SIP returns using Groww’s compounding method
+      </p>
       
       <div className="input-group">
         <label>Monthly Investment (₹)</label>
@@ -83,7 +86,9 @@ export default function SIPCalculator() {
         <span>{tenure} years</span>
       </div>
 
-      <button onClick={calculateSIP} className="calculate-btn">Calculate</button>
+      <button onClick={calculateSIP} className="calculate-btn">
+        Calculate
+      </button>
 
       {results && (
         <div className="results">
@@ -105,7 +110,7 @@ export default function SIPCalculator() {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" label={{ value: 'Years', position: 'insideBottom', offset: -5 }} />
               <YAxis />
-              <Tooltip />
+              <Tooltip formatter={(val) => `₹${val.toLocaleString()}`} />
               <Legend />
               <Line type="monotone" dataKey="invested" stroke="#475569" name="Invested" strokeWidth={2} />
               <Line type="monotone" dataKey="value" stroke="#D4AF37" name="Future Value" strokeWidth={3} />

@@ -3,10 +3,9 @@ import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthContext';
 import SIPCalculator from '../components/SIPCalculator';
 import LumpsumCalculator from '../components/LumpsumCalculator';
-import LumpsumSIPCalculator from '../components/LumpsumSIPCalculator'; // NEW
-import StepUpSIPCalculator from '../components/StepUpSIPCalculator'; // NEW
 import PortfolioAnalyzer from '../components/PortfolioAnalyzer';
 import MoneyTracker from '../components/MoneyTracker';
+import DebtManager from '../components/DebtManager';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('sip');
@@ -41,51 +40,44 @@ export default function Dashboard() {
       </header>
 
       <nav className="nav-tabs">
-        <button
+        <button 
           className={activeTab === 'sip' ? 'tab active' : 'tab'}
           onClick={() => setActiveTab('sip')}
         >
           SIP Calculator
         </button>
-        <button
+        <button 
           className={activeTab === 'lumpsum' ? 'tab active' : 'tab'}
           onClick={() => setActiveTab('lumpsum')}
         >
           Lumpsum Calculator
         </button>
-        <button
-          className={activeTab === 'lumpsum-sip' ? 'tab active' : 'tab'}
-          onClick={() => setActiveTab('lumpsum-sip')}
-        >
-          Lumpsum + SIP
-        </button>
-        <button
-          className={activeTab === 'stepup-sip' ? 'tab active' : 'tab'}
-          onClick={() => setActiveTab('stepup-sip')}
-        >
-          Step-Up SIP
-        </button>
-        <button
+        <button 
           className={activeTab === 'portfolio' ? 'tab active' : 'tab'}
           onClick={() => setActiveTab('portfolio')}
         >
           Portfolio Analyzer
         </button>
-        <button
+        <button 
           className={activeTab === 'tracker' ? 'tab active' : 'tab'}
           onClick={() => setActiveTab('tracker')}
         >
           Money Tracker
+        </button>
+        <button 
+          className={activeTab === 'debt' ? 'tab active' : 'tab'}
+          onClick={() => setActiveTab('debt')}
+        >
+          Debt Manager
         </button>
       </nav>
 
       <main className="content">
         {activeTab === 'sip' && <SIPCalculator />}
         {activeTab === 'lumpsum' && <LumpsumCalculator />}
-        {activeTab === 'lumpsum-sip' && <LumpsumSIPCalculator />}
-        {activeTab === 'stepup-sip' && <StepUpSIPCalculator />}
         {activeTab === 'portfolio' && <PortfolioAnalyzer />}
         {activeTab === 'tracker' && <MoneyTracker />}
+        {activeTab === 'debt' && <DebtManager userId={user.id} />}
       </main>
 
       <footer className="footer">
@@ -119,34 +111,6 @@ export default function Dashboard() {
           transform: translateY(-2px);
           box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
           border-color: #D4AF37;
-        }
-
-        .nav-tabs {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin-bottom: 20px;
-        }
-
-        .tab {
-          padding: 10px 20px;
-          background: rgba(255, 255, 255, 0.2);
-          color: white;
-          border: 2px solid transparent;
-          border-radius: 8px;
-          cursor: pointer;
-          font-weight: 600;
-          transition: all 0.3s;
-        }
-
-        .tab.active {
-          background: white;
-          color: #667eea;
-          border-color: white;
-        }
-
-        .tab:hover {
-          background: rgba(255, 255, 255, 0.3);
         }
       `}</style>
     </div>
