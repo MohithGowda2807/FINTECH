@@ -13,55 +13,74 @@ export default function StepUpSIPCalculator() {
   const [results, setResults] = useState(null);
 
   const calculate = () => {
-    const L = Number(inputs.lumpsum);
-    const initialSIP = Number(inputs.monthlySIP);
-    const stepUp = Number(inputs.stepUpRate) / 100;
-    const annualReturn = Number(inputs.returnRate) / 100;
-    const r = annualReturn / 12; // Monthly rate
-    const t = Number(inputs.tenure);
+  const L = Number(inputs.lumpsum);
+  const initialSIP = Number(inputs.monthlySIP);
+  const stepUp = Number(inputs.stepUpRate) / 100;
+  const annualReturn = Number(inputs.returnRate) / 100;
+  const r = Math.pow(1 + annualReturn, 1 / 12) - 1;
+  const t = Number(inputs.tenure);
 
-    // Future Value of Lumpsum
-    const FV_Lumpsum = L * Math.pow(1 + annualReturn, t);
+  // Correct lumpsum FV
+  const FV_Lumpsum = L * Math.pow(1 + annualReturn, t);
 
-    // Calculate Step-Up SIP
-    let totalSIPInvested = 0;
-    let FV_SIP = 0;
-    const yearlyBreakdown = [];
-    const comparisonData = [];
+  // Correct Step-Up SIP FV
+  let totalSIPInvested = 0;
+  let FV_SIP = 0;
+  const yearlyBreakdown = [];
+  const comparisonData = [];
 
-    for (let year = 1; year <= t; year++) {
-      // SIP amount for this year
-      const sipThisYear = initialSIP * Math.pow(1 + stepUp, year - 1);
-      const monthlyAmount = sipThisYear;
-      
-      // Months remaining for this year's SIP to grow
-      const monthsRemaining = (t - year + 1) * 12;
-      
-      // Future value of this year's SIP contributions
-      const fvThisYear = monthlyAmount * ((Math.pow(1 + r, monthsRemaining) - 1) / r);
-      
-      totalSIPInvested += monthlyAmount * 12;
-      FV_SIP += fvThisYear;
+  for (let year = 1; year <= t; year++) {
+    const sipThisYear = initialSIP * Math.pow(1 + stepUp, year - 1);
+    const monthsRemaining = (t - year + 1) * 12;
+    
+    // Corrected: extra (1 + r) multiplier
+    const fvThisYear = sipThisYear * ((Math.pow(1 + r, monthsRemaining) - 1) / r) * (1 + r);
+    
+    totalSIPInvested += sipThisYear * 12;
+    FV_SIP += fvThisYear;
 
-      // For constant SIP comparison
-      const constantSIPValue = initialSIP * ((Math.pow(1 + r, year * 12) - 1) / r);
-      const stepUpSIPValue = FV_SIP;
+    // Constant SIP for this year
+    const constantSIPValue = initialSIP * ((Math.pow(1 + r, year * 12) - 1) / r) * (1 + r);
+    const stepUpSIPValue = FV_SIP;
 
-      yearlyBreakdown.push({
-        year: year,
-        sipAmount: Math.round(monthlyAmount),
-        yearlyInvestment: Math.round(monthlyAmount * 12),
-        cumulativeInvested: Math.round(totalSIPInvested),
-        futureValue: Math.round(FV_SIP)
-      });
+    yearlyBreakdown.push({
+      year: year,
+      sipAmount: Math.round(sipThisYear),
+      yearlyInvestment: Math.round(sipThisYear * 12),
+      cumulativeInvested: Math.round(totalSIPInvested),
+      futureValue: Math.round(FV_SIP)
+    });
 
-      comparisonData.push({
-        year: year,
-        constantSIP: Math.round(constantSIPValue),
-        stepUpSIP: Math.round(stepUpSIPValue),
-        difference: Math.round(stepUpSIPValue - constantSIPValue)
-      });
-    }
+    comparisonData.push({
+      year: year,
+      constantSIP: Math.round(constantSIPValue),
+      stepUpSIP: Math.round(stepUpSIPValue),
+      difference: Math.round(stepUpSIPValue - constantSIPValue)
+    });
+  }
+
+  const totalInvested = L + totalSIPInvested;
+  const totalFutureValue = FV_Lumpsum + FV_SIP;
+  const totalGain = totalFutureValue - totalInvested;
+
+  // Final constant SIP FV for the whole period
+  const constantSIPFV = initialSIP * ((Math.pow(1 + r, t * 12) - 1) / r) * (1 + r);
+  const constantSIPInvested = initialSIP * 12 * t;
+
+  setResults({
+    totalInvested: Math.round(totalInvested),
+    totalSIPInvested: Math.round(totalSIPInvested),
+    FV_Lumpsum: Math.round(FV_Lumpsum),
+    FV_SIP: Math.round(FV_SIP),
+    totalFutureValue: Math.round(totalFutureValue),
+    totalGain: Math.round(totalGain),
+    constantSIPFV: Math.round(constantSIPFV),
+    constantSIPInvested: Math.round(constantSIPInvested),
+    stepUpAdvantage: Math.round(FV_SIP - constantSIPFV),
+    yearlyBreakdown,
+    comparisonData
+  });
+};
 
     const totalInvested = L + totalSIPInvested;
     const totalFutureValue = FV_Lumpsum + FV_SIP;
