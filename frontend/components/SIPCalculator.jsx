@@ -107,8 +107,8 @@ export default function SIPCalculator() {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="invested" stroke="#06B6D4" name="Invested" strokeWidth={2} />
-              <Line type="monotone" dataKey="value" stroke="#0D9488" name="Future Value" strokeWidth={3} />
+              <Line type="monotone" dataKey="invested" stroke="#475569" name="Invested" strokeWidth={2} />
+              <Line type="monotone" dataKey="value" stroke="#D4AF37" name="Future Value" strokeWidth={3} />
             </LineChart>
           </div>
         </div>
