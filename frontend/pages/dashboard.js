@@ -86,18 +86,21 @@ export default function Dashboard() {
 
         .logout-btn {
           padding: 10px 25px;
-          background: rgba(255, 255, 255, 0.3);
+          background: rgba(255, 255, 255, 0.2);
           color: white;
-          border: 2px solid white;
-          border-radius: 8px;
+          border: 2px solid rgba(255, 255, 255, 0.5);
+          border-radius: 12px;
           font-weight: 600;
           cursor: pointer;
           transition: all 0.3s;
+          backdrop-filter: blur(10px);
         }
 
         .logout-btn:hover {
           background: white;
-          color: #667eea;
+          color: #0D9488;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
         }
       `}</style>
     </div>
