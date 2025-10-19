@@ -13,7 +13,7 @@ export default function SIPCalculator() {
   const n = tenure * 12;
 
   // Use full precision monthly rate
-  const r = Math.pow(1 + annualRate, 1 / 12) - 1;
+ const r = annualRate / 12;
 
   // Future Value calculation
   const futureValue = P * ((Math.pow(1 + r, n) - 1) / r);
