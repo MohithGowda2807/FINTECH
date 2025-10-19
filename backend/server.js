@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { Pool } = require('pg');
 require('dotenv').config();
+const chatbotRoutes = require('./routes/chatbot');
 
 const app = express();
 
@@ -33,10 +34,9 @@ console.log('🔗 Connecting to database using DATABASE_URL');
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: false
 });
+
 
 // Test database connection on startup
 pool.connect((err, client, release) => {
@@ -464,6 +464,9 @@ app.post('/api/calculate/lumpsum', (req, res) => {
     res.status(500).json({ error: 'Calculation error' });
   }
 });
+
+// ============ CHATBOT ROUTES ============
+app.use('/api/chatbot', chatbotRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
