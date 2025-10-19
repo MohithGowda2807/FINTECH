@@ -85,22 +85,24 @@ export default function Dashboard() {
         }
 
         .logout-btn {
-          padding: 10px 25px;
-          background: rgba(255, 255, 255, 0.2);
+          padding: 12px 28px;
+          background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
           color: white;
-          border: 2px solid rgba(255, 255, 255, 0.5);
+          border: 2px solid rgba(212, 175, 55, 0.4);
           border-radius: 12px;
           font-weight: 600;
           cursor: pointer;
-          transition: all 0.3s;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           backdrop-filter: blur(10px);
+          letter-spacing: 0.3px;
         }
 
         .logout-btn:hover {
-          background: white;
-          color: #0D9488;
+          background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+          color: #0D47A1;
           transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+          border-color: #D4AF37;
         }
       `}</style>
     </div>
