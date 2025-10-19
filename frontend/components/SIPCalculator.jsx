@@ -12,19 +12,19 @@ export default function SIPCalculator() {
   const annualRate = returnRate / 100;
   const n = tenure * 12;
 
-  // Use full precision monthly rate
- const r = annualRate / 12;
+  // Calculate effective monthly rate using compounding
+  const r = Math.pow(1 + annualRate, 1 / 12) - 1;
 
-  // Future Value calculation
-  const futureValue = P * ((Math.pow(1 + r, n) - 1) / r);
+  // Future Value calculation using Groww formula
+  const futureValue = P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
   const totalInvested = P * n;
   const wealthGain = futureValue - totalInvested;
 
-  // Year-by-year breakdown
+  // Year-by-year breakdown matching the formula
   const yearlyData = [];
   for (let year = 1; year <= tenure; year++) {
     const months = year * 12;
-    const yearFV = P * ((Math.pow(1 + r, months) - 1) / r);
+    const yearFV = P * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
     yearlyData.push({
       year: year,
       invested: P * months,
