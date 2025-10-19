@@ -19,7 +19,6 @@
   transform: scale(1.1);
 }
 
-/* Chat Window */
 .chatWindow {
   position: fixed;
   bottom: 20px;
@@ -35,7 +34,6 @@
   overflow: hidden;
 }
 
-/* Header */
 .chatHeader {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -57,7 +55,6 @@
   height: 30px;
 }
 
-/* Messages */
 .chatMessages {
   flex: 1;
   padding: 15px;
@@ -95,7 +92,6 @@
   border-bottom-right-radius: 4px;
 }
 
-/* Input Area */
 .chatInput {
   display: flex;
   padding: 15px;
@@ -132,7 +128,6 @@
   transform: scale(1.05);
 }
 
-/* Scrollbar */
 .chatMessages::-webkit-scrollbar {
   width: 6px;
 }
