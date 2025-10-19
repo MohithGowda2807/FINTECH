@@ -21,7 +21,7 @@ export default function SIPCalculator() {
     const yearlyData = [];
     for (let year = 1; year <= tenure; year++) {
       const months = year * 12;
-      const yearFV = P * (((Math.pow(1 + r, months) - 1) / r) * (1 + r));
+      const yearFV = P * ((Math.pow(1 + r, months) - 1) / r);
       yearlyData.push({
         year: year,
         invested: P * months,
