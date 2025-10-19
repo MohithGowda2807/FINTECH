@@ -4,21 +4,46 @@ export default function LumpsumCalculator() {
   const [initialInvestment, setInitialInvestment] = useState(100000);
   const [returnRate, setReturnRate] = useState(12);
   const [tenure, setTenure] = useState(10);
+  const [taxHarvesting, setTaxHarvesting] = useState(false);
   const [results, setResults] = useState(null);
+
+  const LTCG_EXEMPTION = 125000; // 1.25 lakh exemption
 
   const calculateLumpsum = () => {
     const P = initialInvestment;
     const r = returnRate / 100;
     const t = tenure;
-    
+
     // FV = P × (1 + r)^t
     const futureValue = P * Math.pow(1 + r, t);
     const wealthGain = futureValue - P;
-    
+
+    // "Without" tax harvesting: single redemption at end
+    const taxableWithout = Math.max(0, wealthGain - LTCG_EXEMPTION);
+
+    // "With" tax harvesting: assume yearly redemption of gains,
+    // each year up to 1.25 lakh exempt (approximate logic)
+    let cumulativePrincipal = P;
+    let totalTaxableWith = 0;
+    let lastFV = P;
+
+    for (let year = 1; year <= t; year++) {
+      // Value at this year
+      const currFV = P * Math.pow(1 + r, year);
+      const annualGain = currFV - lastFV;
+
+      // Each year's gain above exemption is taxable
+      const taxableThisYear = Math.max(0, annualGain - LTCG_EXEMPTION);
+      totalTaxableWith += taxableThisYear;
+
+      lastFV = currFV;
+    }
+
     setResults({
       futureValue: Math.round(futureValue),
       wealthGain: Math.round(wealthGain),
-      cagr: returnRate
+      taxableWithout: Math.round(taxableWithout),
+      taxableWith: Math.round(totalTaxableWith)
     });
   };
 
