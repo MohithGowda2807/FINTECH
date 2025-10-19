@@ -98,29 +98,44 @@ const response = await axios.post(`${API_URL}${endpoint}`, {
           display: flex;
           justify-content: center;
           align-items: center;
-          background: linear-gradient(135deg, #0D9488 0%, #06B6D4 50%, #0EA5E9 100%);
+          background: linear-gradient(135deg, #0D47A1 0%, #1C1C1C 100%);
+          position: relative;
+        }
+
+        .auth-container::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+          pointer-events: none;
         }
 
         .auth-box {
-          background: rgba(255, 255, 255, 0.95);
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(241, 245, 249, 0.95) 100%);
           backdrop-filter: blur(20px);
-          padding: 40px;
-          border-radius: 24px;
-          box-shadow: 0 25px 70px rgba(13, 148, 136, 0.3);
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          padding: 50px;
+          border-radius: 20px;
+          box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 175, 55, 0.1);
+          border: 1px solid rgba(212, 175, 55, 0.15);
           width: 100%;
-          max-width: 400px;
+          max-width: 450px;
+          position: relative;
+          z-index: 1;
         }
 
         h1 {
           text-align: center;
-          background: linear-gradient(135deg, #0D9488 0%, #06B6D4 100%);
+          background: linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #D4AF37 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          margin-bottom: 10px;
-          font-size: 32px;
+          margin-bottom: 15px;
+          font-size: 36px;
           font-weight: 700;
+          font-family: 'Playfair Display', serif;
         }
 
         h2 {
@@ -144,26 +159,28 @@ const response = await axios.post(`${API_URL}${endpoint}`, {
 
         input:focus {
           outline: none;
-          border-color: #0D9488;
-          box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+          border-color: #D4AF37;
+          box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1), 0 4px 12px rgba(13, 71, 161, 0.1);
+          background: #fff;
         }
 
         button[type="submit"] {
-          padding: 15px;
-          background: linear-gradient(135deg, #0D9488 0%, #06B6D4 100%);
+          padding: 16px;
+          background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
           color: white;
           border: none;
           border-radius: 12px;
-          font-size: 18px;
+          font-size: 17px;
           font-weight: 600;
           cursor: pointer;
-          transition: all 0.3s;
-          box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 8px 25px rgba(13, 71, 161, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+          letter-spacing: 0.5px;
         }
 
         button[type="submit"]:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 12px 28px rgba(13, 148, 136, 0.4);
+          box-shadow: 0 12px 35px rgba(13, 71, 161, 0.45), 0 0 0 1px rgba(212, 175, 55, 0.3);
         }
 
         button[type="submit"]:disabled {
@@ -189,10 +206,15 @@ const response = await axios.post(`${API_URL}${endpoint}`, {
         .toggle-auth button {
           background: none;
           border: none;
-          color: #0D9488;
+          color: #D4AF37;
           font-weight: 600;
           cursor: pointer;
           text-decoration: underline;
+          transition: all 0.3s;
+        }
+
+        .toggle-auth button:hover {
+          color: #0D47A1;
         }
       `}</style>
     </div>
