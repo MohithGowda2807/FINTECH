@@ -32,7 +32,7 @@ CREATE TABLE transactions (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Debts table
+-- Debts table (ENHANCED Debt Manager structure)
 CREATE TABLE debts (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -41,6 +41,8 @@ CREATE TABLE debts (
   interest_rate DECIMAL(5, 2) NOT NULL,
   emi DECIMAL(15, 2) NOT NULL,
   emis_left INTEGER NOT NULL,
+  min_payment DECIMAL(15, 2),                -- For credit cards, optional
+  extra_monthly_payment DECIMAL(15, 2) DEFAULT 0, -- Extra payment, optional
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
