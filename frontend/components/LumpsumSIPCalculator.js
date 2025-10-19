@@ -14,7 +14,7 @@ export default function LumpsumSIPCalculator() {
   const calculate = () => {
     const L = Number(inputs.lumpsum);
     const S = Number(inputs.monthlySIP);
-    const r = Number(inputs.returnRate) / 100 / 12; // Monthly rate
+    const r = Math.pow(1 + Number(inputs.returnRate) / 100, 1 / 12) - 1;
     const t = Number(inputs.tenure);
     const n = t * 12; // Total months
 
@@ -22,7 +22,7 @@ export default function LumpsumSIPCalculator() {
     const FV_Lumpsum = L * Math.pow(1 + r, n);
 
     // Future Value of SIP
-    const FV_SIP = S * ((Math.pow(1 + r, n) - 1) / r);
+    const FV_SIP = S * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
 
     // Total values
     const totalInvested = L + (S * 12 * t);
@@ -323,4 +323,5 @@ export default function LumpsumSIPCalculator() {
     </div>
   );
 }
+
 
