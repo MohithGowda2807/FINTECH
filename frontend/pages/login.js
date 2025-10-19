@@ -98,23 +98,29 @@ const response = await axios.post(`${API_URL}${endpoint}`, {
           display: flex;
           justify-content: center;
           align-items: center;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #0D9488 0%, #06B6D4 50%, #0EA5E9 100%);
         }
 
         .auth-box {
-          background: white;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(20px);
           padding: 40px;
-          border-radius: 20px;
-          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+          border-radius: 24px;
+          box-shadow: 0 25px 70px rgba(13, 148, 136, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.3);
           width: 100%;
           max-width: 400px;
         }
 
         h1 {
           text-align: center;
-          color: #667eea;
+          background: linear-gradient(135deg, #0D9488 0%, #06B6D4 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
           margin-bottom: 10px;
           font-size: 32px;
+          font-weight: 700;
         }
 
         h2 {
@@ -138,23 +144,26 @@ const response = await axios.post(`${API_URL}${endpoint}`, {
 
         input:focus {
           outline: none;
-          border-color: #667eea;
+          border-color: #0D9488;
+          box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
         }
 
         button[type="submit"] {
           padding: 15px;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          background: linear-gradient(135deg, #0D9488 0%, #06B6D4 100%);
           color: white;
           border: none;
-          border-radius: 10px;
+          border-radius: 12px;
           font-size: 18px;
           font-weight: 600;
           cursor: pointer;
-          transition: transform 0.2s;
+          transition: all 0.3s;
+          box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
         }
 
         button[type="submit"]:hover:not(:disabled) {
           transform: translateY(-2px);
+          box-shadow: 0 12px 28px rgba(13, 148, 136, 0.4);
         }
 
         button[type="submit"]:disabled {
@@ -180,7 +189,7 @@ const response = await axios.post(`${API_URL}${endpoint}`, {
         .toggle-auth button {
           background: none;
           border: none;
-          color: #667eea;
+          color: #0D9488;
           font-weight: 600;
           cursor: pointer;
           text-decoration: underline;

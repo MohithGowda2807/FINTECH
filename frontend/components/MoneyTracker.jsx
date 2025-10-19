@@ -47,8 +47,6 @@ export default function MoneyTracker() {
 
   const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api';
 
-
-
   useEffect(() => {
     if (token) {
       loadWallets();
