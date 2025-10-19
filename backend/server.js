@@ -62,6 +62,11 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
+// ============ ADD THE DEBT ROUTER FOR /api/debt ============
+// Make sure you create backend/routes/debt.js as described
+const debtRouter = require('./routes/debt');
+app.use('/api/debt', debtRouter);
+
 // ============ AUTHENTICATION ROUTES ============
 
 // User Registration
