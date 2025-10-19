@@ -5,6 +5,7 @@ import SIPCalculator from '../components/SIPCalculator';
 import LumpsumCalculator from '../components/LumpsumCalculator';
 import PortfolioAnalyzer from '../components/PortfolioAnalyzer';
 import MoneyTracker from '../components/MoneyTracker';
+import DebtManager from '../components/DebtManager';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('sip');
@@ -63,6 +64,12 @@ export default function Dashboard() {
         >
           Money Tracker
         </button>
+        <button 
+          className={activeTab === 'debt' ? 'tab active' : 'tab'}
+          onClick={() => setActiveTab('debt')}
+        >
+          Debt Manager
+        </button>
       </nav>
 
       <main className="content">
@@ -70,6 +77,7 @@ export default function Dashboard() {
         {activeTab === 'lumpsum' && <LumpsumCalculator />}
         {activeTab === 'portfolio' && <PortfolioAnalyzer />}
         {activeTab === 'tracker' && <MoneyTracker />}
+        {activeTab === 'debt' && <DebtManager userId={user.id} />}
       </main>
 
       <footer className="footer">
