@@ -38,7 +38,7 @@ export default function SIPCalculator() {
   };
 
   return (
-    <div className="glassCard calculator-container">
+    <div className="calculator-container">
       <h2>SIP Calculator</h2>
       
       <div className="input-group">

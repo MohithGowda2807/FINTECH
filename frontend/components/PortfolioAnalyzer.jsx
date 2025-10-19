@@ -226,9 +226,9 @@ export default function PortfolioAnalyzer() {
   const portfolio = calculatePortfolio();
 
   return (
-    <div className="glassCard portfolio-container">
+    <div className="portfolio-container">
       <h2>💼 Investment Portfolio Builder & Analyzer</h2>
-      <p style={{textAlign: 'center', color: '#0D9488', fontWeight: 'bold', marginBottom: '20px'}}>
+      <p style={{textAlign: 'center', color: '#10b981', fontWeight: 'bold', marginBottom: '20px'}}>
         💾 Connected to PostgreSQL Database - Fully Persistent
       </p>
 
@@ -238,8 +238,8 @@ export default function PortfolioAnalyzer() {
           onClick={() => setViewMode('overview')}
           style={{
             padding: '10px 20px',
-            background: viewMode === 'overview' ? 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)' : 'rgba(226, 232, 240, 0.8)',
-            color: viewMode === 'overview' ? 'white' : '#475569',
+            background: viewMode === 'overview' ? '#667eea' : '#e0e0e0',
+            color: viewMode === 'overview' ? 'white' : '#333',
             border: 'none',
             borderRadius: '8px',
             cursor: 'pointer',
@@ -252,8 +252,8 @@ export default function PortfolioAnalyzer() {
           onClick={() => setViewMode('comparison')}
           style={{
             padding: '10px 20px',
-            background: viewMode === 'comparison' ? 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)' : 'rgba(226, 232, 240, 0.8)',
-            color: viewMode === 'comparison' ? 'white' : '#475569',
+            background: viewMode === 'comparison' ? '#667eea' : '#e0e0e0',
+            color: viewMode === 'comparison' ? 'white' : '#333',
             border: 'none',
             borderRadius: '8px',
             cursor: 'pointer',
@@ -266,8 +266,8 @@ export default function PortfolioAnalyzer() {
           onClick={() => setViewMode('projections')}
           style={{
             padding: '10px 20px',
-            background: viewMode === 'projections' ? 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)' : 'rgba(226, 232, 240, 0.8)',
-            color: viewMode === 'projections' ? 'white' : '#475569',
+            background: viewMode === 'projections' ? '#667eea' : '#e0e0e0',
+            color: viewMode === 'projections' ? 'white' : '#333',
             border: 'none',
             borderRadius: '8px',
             cursor: 'pointer',
@@ -462,11 +462,11 @@ export default function PortfolioAnalyzer() {
               <div className="portfolio-summary">
                 <h3>📈 Portfolio Summary</h3>
                 <div className="summary-cards">
-                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #0D9488 0%, #14B8A6 100%)', color: 'white'}}>
+                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white'}}>
                     <h4>Total Invested</h4>
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>₹{portfolio.totalInvested.toLocaleString()}</p>
                   </div>
-                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%)', color: 'white'}}>
+                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: 'white'}}>
                     <h4>Weighted Avg Return</h4>
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>{portfolio.weightedReturn}% p.a.</p>
                   </div>
@@ -475,12 +475,12 @@ export default function PortfolioAnalyzer() {
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>{portfolio.portfolioRisk}/10</p>
                     <small>{portfolio.riskCategory}</small>
                   </div>
-                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #0891B2 0%, #0284C7 100%)', color: 'white'}}>
+                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', color: 'white'}}>
                     <h4>Short-Term (3Y)</h4>
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>₹{portfolio.shortTermValue.toLocaleString()}</p>
                     <small>Expected Return: {portfolio.shortTermReturn}%</small>
                   </div>
-                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)', color: 'white'}}>
+                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', color: 'white'}}>
                     <h4>Long-Term (10Y)</h4>
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>₹{portfolio.longTermValue.toLocaleString()}</p>
                     <small>Expected Return: {portfolio.weightedReturn}%</small>
@@ -523,7 +523,7 @@ export default function PortfolioAnalyzer() {
                     <YAxis />
                     <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
                     <Legend />
-                    <Bar dataKey="value" fill="#0D9488" name="Investment Amount (₹)" />
+                    <Bar dataKey="value" fill="#667eea" name="Investment Amount (₹)" />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -541,12 +541,12 @@ export default function PortfolioAnalyzer() {
                   <YAxis />
                   <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
                   <Legend />
-                  <Bar dataKey="shortTerm" fill="#0891B2" name="Short-Term (3 Years)" />
-                  <Bar dataKey="longTerm" fill="#0D9488" name="Long-Term (10 Years)" />
+                  <Bar dataKey="shortTerm" fill="#f59e0b" name="Short-Term (3 Years)" />
+                  <Bar dataKey="longTerm" fill="#10b981" name="Long-Term (10 Years)" />
                 </BarChart>
               </ResponsiveContainer>
 
-              <div style={{marginTop: '30px', padding: '20px', background: 'rgba(241, 245, 249, 0.6)', borderRadius: '16px', border: '1px solid rgba(226, 232, 240, 0.8)'}}>
+              <div style={{marginTop: '30px', padding: '20px', background: '#f9fafb', borderRadius: '10px'}}>
                 <h4>💡 Key Insights:</h4>
                 <ul style={{lineHeight: '1.8'}}>
                   <li>Short-term returns are ~30% lower due to market volatility</li>
@@ -570,8 +570,8 @@ export default function PortfolioAnalyzer() {
                     <YAxis label={{ value: 'Portfolio Value (₹)', angle: -90, position: 'insideLeft' }} />
                     <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
                     <Legend />
-                    <Line type="monotone" dataKey="invested" stroke="#0891B2" strokeWidth={2} name="Amount Invested" />
-                    <Line type="monotone" dataKey="value" stroke="#0D9488" strokeWidth={3} name="Projected Value" />
+                    <Line type="monotone" dataKey="invested" stroke="#8884d8" strokeWidth={2} name="Amount Invested" />
+                    <Line type="monotone" dataKey="value" stroke="#10b981" strokeWidth={3} name="Projected Value" />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
@@ -580,7 +580,7 @@ export default function PortfolioAnalyzer() {
                 <h3>📅 Year-by-Year Breakdown</h3>
                 <table style={{width: '100%', borderCollapse: 'collapse'}}>
                   <thead>
-                    <tr style={{background: 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)', color: 'white'}}>
+                    <tr style={{background: '#667eea', color: 'white'}}>
                       <th style={{padding: '12px', textAlign: 'left'}}>Year</th>
                       <th style={{padding: '12px', textAlign: 'right'}}>Invested Amount</th>
                       <th style={{padding: '12px', textAlign: 'right'}}>Projected Value</th>
@@ -593,11 +593,11 @@ export default function PortfolioAnalyzer() {
                       const gains = row.value - row.invested;
                       const returnPct = ((gains / row.invested) * 100).toFixed(2);
                       return (
-                        <tr key={idx} style={{background: idx % 2 === 0 ? 'rgba(241, 245, 249, 0.5)' : 'white'}}>
+                        <tr key={idx} style={{background: idx % 2 === 0 ? '#f9fafb' : 'white'}}>
                           <td style={{padding: '12px'}}>{row.year}</td>
                           <td style={{padding: '12px', textAlign: 'right'}}>₹{row.invested.toLocaleString()}</td>
-                          <td style={{padding: '12px', textAlign: 'right', fontWeight: 'bold', color: '#0D9488'}}>₹{row.value.toLocaleString()}</td>
-                          <td style={{padding: '12px', textAlign: 'right', color: gains > 0 ? '#0D9488' : '#ef4444'}}>₹{gains.toLocaleString()}</td>
+                          <td style={{padding: '12px', textAlign: 'right', fontWeight: 'bold', color: '#10b981'}}>₹{row.value.toLocaleString()}</td>
+                          <td style={{padding: '12px', textAlign: 'right', color: gains > 0 ? '#10b981' : '#ef4444'}}>₹{gains.toLocaleString()}</td>
                           <td style={{padding: '12px', textAlign: 'right'}}>{returnPct}%</td>
                         </tr>
                       );
@@ -609,9 +609,9 @@ export default function PortfolioAnalyzer() {
           )}
         </>
       ) : (
-        <div style={{textAlign: 'center', padding: '60px 20px', background: 'rgba(241, 245, 249, 0.6)', borderRadius: '16px', border: '1px solid rgba(226, 232, 240, 0.8)'}}>
+        <div style={{textAlign: 'center', padding: '60px 20px', background: '#f9fafb', borderRadius: '10px'}}>
           <h3>📊 No Investments Yet</h3>
-          <p style={{color: '#64748B', marginTop: '10px'}}>Start building your portfolio by adding your first investment above!</p>
+          <p style={{color: '#666', marginTop: '10px'}}>Start building your portfolio by adding your first investment above!</p>
         </div>
       )}
     </div>

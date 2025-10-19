@@ -388,14 +388,14 @@ export default function MoneyTracker() {
         <div style={{
           background: 'rgba(255, 255, 255, 0.98)',
           padding: '12px 16px',
-          border: '2px solid #0D9488',
+          border: '2px solid #667eea',
           borderRadius: '12px',
           boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
         }}>
           <p style={{ fontWeight: 'bold', color: '#333', marginBottom: '5px' }}>
             {payload[0].name}
           </p>
-          <p style={{ color: '#0D9488', fontSize: '18px', fontWeight: 'bold' }}>
+          <p style={{ color: '#667eea', fontSize: '18px', fontWeight: 'bold' }}>
             ₹{payload[0].value.toLocaleString()}
           </p>
           {payload[0].payload.percentage && (
@@ -410,9 +410,9 @@ export default function MoneyTracker() {
   };
 
   return (
-    <div className="glassCard money-tracker-container">
+    <div className="money-tracker-container">
       <h2>💰 Money Manager</h2>
-      <p style={{textAlign: 'center', color: '#0D9488', fontWeight: 'bold', marginBottom: '20px'}}>
+      <p style={{textAlign: 'center', color: '#10b981', fontWeight: 'bold', marginBottom: '20px'}}>
         💾 Connected to Database - Fully Persistent with Custom Wallets
       </p>
 
@@ -424,8 +424,8 @@ export default function MoneyTracker() {
             onClick={() => setViewMode(mode)}
             style={{
               padding: '12px 24px',
-              background: viewMode === mode ? 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)' : 'rgba(226, 232, 240, 0.8)',
-              color: viewMode === mode ? 'white' : '#475569',
+              background: viewMode === mode ? '#667eea' : '#e0e0e0',
+              color: viewMode === mode ? 'white' : '#333',
               border: 'none',
               borderRadius: '10px',
               cursor: 'pointer',
@@ -454,7 +454,7 @@ export default function MoneyTracker() {
                 onClick={() => setShowAddWallet(!showAddWallet)}
                 style={{
                   padding: '8px 15px',
-                  background: 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)',
+                  background: '#667eea',
                   color: 'white',
                   border: 'none',
                   borderRadius: '5px',
@@ -467,7 +467,7 @@ export default function MoneyTracker() {
             </div>
 
             {showAddWallet && (
-              <div style={{background: 'rgba(241, 245, 249, 0.6)', padding: '15px', borderRadius: '12px', marginBottom: '15px', border: '1px solid rgba(226, 232, 240, 0.8)'}}>
+              <div style={{background: '#f9fafb', padding: '15px', borderRadius: '8px', marginBottom: '15px'}}>
                 <input
                   type="text"
                   placeholder="Enter wallet name (e.g., PayTM, Google Pay)"
@@ -640,7 +640,7 @@ export default function MoneyTracker() {
               <div style={{overflowX: 'auto'}}>
                 <table style={{width: '100%', borderCollapse: 'collapse'}}>
                   <thead>
-                    <tr style={{background: 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)', color: 'white'}}>
+                    <tr style={{background: '#667eea', color: 'white'}}>
                       <th style={{padding: '12px', textAlign: 'left'}}>Date</th>
                       <th style={{padding: '12px', textAlign: 'left'}}>Type</th>
                       <th style={{padding: '12px', textAlign: 'left'}}>Category</th>
@@ -651,7 +651,7 @@ export default function MoneyTracker() {
                   </thead>
                   <tbody>
                     {transactions.slice(0, 20).map((t, idx) => (
-                      <tr key={t.id} style={{background: idx % 2 === 0 ? 'rgba(241, 245, 249, 0.5)' : 'white', borderBottom: '1px solid #E2E8F0'}}>
+                      <tr key={t.id} style={{background: idx % 2 === 0 ? '#f9fafb' : 'white', borderBottom: '1px solid #e0e0e0'}}>
                         <td style={{padding: '12px'}}>{formatDate(t.date)}</td>
                         <td style={{padding: '12px'}}>
                           <span style={{
@@ -668,7 +668,7 @@ export default function MoneyTracker() {
                         <td style={{padding: '12px'}}>
                           {t.type === 'Transfer' ? `${t.wallet} → ${t.to_wallet}` : t.wallet}
                         </td>
-                        <td style={{padding: '12px', textAlign: 'right', fontWeight: 'bold', color: t.type === 'Income' ? '#0D9488' : t.type === 'Expense' ? '#ef4444' : '#0891B2'}}>
+                        <td style={{padding: '12px', textAlign: 'right', fontWeight: 'bold', color: t.type === 'Income' ? '#10b981' : t.type === 'Expense' ? '#ef4444' : '#3b82f6'}}>
                           {t.currency} {Number(t.amount).toLocaleString()}
                         </td>
                         <td style={{padding: '12px', maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}>
@@ -688,19 +688,19 @@ export default function MoneyTracker() {
       {viewMode === 'analytics' && transactions.length > 0 && (
         <>
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-            <div style={{background: 'linear-gradient(135deg, #0D9488 0%, #14B8A6 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(13, 148, 136, 0.25)'}}>
+            <div style={{background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(0,0,0,0.15)'}}>
               <h4 style={{fontSize: '14px', opacity: 0.9}}>💵 Total Income</h4>
               <p style={{fontSize: '32px', fontWeight: 'bold', margin: '10px 0'}}>₹{stats.totalIncome.toLocaleString()}</p>
               <p style={{fontSize: '13px', opacity: 0.8}}>{transactions.filter(t => t.type === 'Income').length} transactions</p>
             </div>
 
-            <div style={{background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(239, 68, 68, 0.25)'}}>
+            <div style={{background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(0,0,0,0.15)'}}>
               <h4 style={{fontSize: '14px', opacity: 0.9}}>💸 Total Expense</h4>
               <p style={{fontSize: '32px', fontWeight: 'bold', margin: '10px 0'}}>₹{stats.totalExpense.toLocaleString()}</p>
               <p style={{fontSize: '13px', opacity: 0.8}}>{transactions.filter(t => t.type === 'Expense').length} transactions</p>
             </div>
 
-            <div style={{background: 'linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(6, 182, 212, 0.25)'}}>
+            <div style={{background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(0,0,0,0.15)'}}>
               <h4 style={{fontSize: '14px', opacity: 0.9}}>💰 Net Savings</h4>
               <p style={{fontSize: '32px', fontWeight: 'bold', margin: '10px 0'}}>₹{(stats.totalIncome - stats.totalExpense).toLocaleString()}</p>
               <p style={{fontSize: '13px', opacity: 0.8}}>Savings Rate: {stats.savingsRate}%</p>
@@ -812,7 +812,7 @@ export default function MoneyTracker() {
               <YAxis />
               <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
               <Legend />
-              <Line type="monotone" dataKey="income" stroke="#0D9488" strokeWidth={3} dot={{ fill: '#0D9488', r: 5 }} name="Income" />
+              <Line type="monotone" dataKey="income" stroke="#10b981" strokeWidth={3} dot={{ fill: '#10b981', r: 5 }} name="Income" />
               <Line type="monotone" dataKey="expense" stroke="#ef4444" strokeWidth={3} dot={{ fill: '#ef4444', r: 5 }} name="Expense" />
             </LineChart>
           </ResponsiveContainer>
@@ -836,16 +836,16 @@ export default function MoneyTracker() {
             </p>
 
             <div style={{
-              border: '3px dashed #0D9488',
+              border: '3px dashed #667eea',
               borderRadius: '15px',
               padding: '40px',
-              background: 'rgba(241, 245, 249, 0.6)',
+              background: '#f9fafb',
               marginBottom: '20px'
             }}>
               <label htmlFor="csv-upload" style={{
                 display: 'inline-block',
                 padding: '15px 40px',
-                background: 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 color: 'white',
                 borderRadius: '10px',
                 cursor: 'pointer',
@@ -868,7 +868,7 @@ export default function MoneyTracker() {
 
             {csvData.length > 0 && (
               <div style={{
-                background: '#0D9488',
+                background: '#10b981',
                 color: 'white',
                 padding: '15px',
                 borderRadius: '10px',
@@ -882,19 +882,19 @@ export default function MoneyTracker() {
           {showCsvAnalysis && csvStats && (
             <>
               <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '30px'}}>
-                <div style={{background: 'linear-gradient(135deg, #0D9488 0%, #14B8A6 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(13, 148, 136, 0.25)'}}>
+                <div style={{background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(0,0,0,0.15)'}}>
                   <h4 style={{fontSize: '14px', opacity: 0.9}}>💵 Total Income (CSV)</h4>
                   <p style={{fontSize: '32px', fontWeight: 'bold', margin: '10px 0'}}>₹{csvStats.totalIncome.toLocaleString()}</p>
                   <p style={{fontSize: '13px', opacity: 0.8}}>{csvData.filter(t => t.type === 'Income').length} transactions</p>
                 </div>
 
-                <div style={{background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(239, 68, 68, 0.25)'}}>
+                <div style={{background: 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(0,0,0,0.15)'}}>
                   <h4 style={{fontSize: '14px', opacity: 0.9}}>💸 Total Expense (CSV)</h4>
                   <p style={{fontSize: '32px', fontWeight: 'bold', margin: '10px 0'}}>₹{csvStats.totalExpense.toLocaleString()}</p>
                   <p style={{fontSize: '13px', opacity: 0.8}}>{csvData.filter(t => t.type === 'Expense').length} transactions</p>
                 </div>
 
-                <div style={{background: 'linear-gradient(135deg, #06B6D4 0%, #0EA5E9 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(6, 182, 212, 0.25)'}}>
+                <div style={{background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', padding: '25px', borderRadius: '15px', color: 'white', boxShadow: '0 8px 20px rgba(0,0,0,0.15)'}}>
                   <h4 style={{fontSize: '14px', opacity: 0.9}}>💰 Net Savings (CSV)</h4>
                   <p style={{fontSize: '32px', fontWeight: 'bold', margin: '10px 0'}}>₹{(csvStats.totalIncome - csvStats.totalExpense).toLocaleString()}</p>
                   <p style={{fontSize: '13px', opacity: 0.8}}>Savings Rate: {csvStats.savingsRate}%</p>
@@ -965,7 +965,7 @@ export default function MoneyTracker() {
                       <YAxis />
                       <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
                       <Legend />
-                      <Line type="monotone" dataKey="income" stroke="#0D9488" strokeWidth={3} dot={{ fill: '#0D9488', r: 5 }} name="Income" />
+                      <Line type="monotone" dataKey="income" stroke="#10b981" strokeWidth={3} dot={{ fill: '#10b981', r: 5 }} name="Income" />
                       <Line type="monotone" dataKey="expense" stroke="#ef4444" strokeWidth={3} dot={{ fill: '#ef4444', r: 5 }} name="Expense" />
                     </LineChart>
                   </ResponsiveContainer>
@@ -977,7 +977,7 @@ export default function MoneyTracker() {
                 <div style={{overflowX: 'auto'}}>
                   <table style={{width: '100%', borderCollapse: 'collapse'}}>
                     <thead>
-                      <tr style={{background: 'linear-gradient(135deg, #0D9488 0%, #06B6D4 100%)', color: 'white'}}>
+                      <tr style={{background: '#667eea', color: 'white'}}>
                         <th style={{padding: '12px', textAlign: 'left'}}>Date</th>
                         <th style={{padding: '12px', textAlign: 'left'}}>Type</th>
                         <th style={{padding: '12px', textAlign: 'left'}}>Category</th>
@@ -988,7 +988,7 @@ export default function MoneyTracker() {
                     </thead>
                     <tbody>
                       {csvData.slice(0, 50).map((t, idx) => (
-                        <tr key={t.id} style={{background: idx % 2 === 0 ? 'rgba(241, 245, 249, 0.5)' : 'white', borderBottom: '1px solid #E2E8F0'}}>
+                        <tr key={t.id} style={{background: idx % 2 === 0 ? '#f9fafb' : 'white', borderBottom: '1px solid #e0e0e0'}}>
                           <td style={{padding: '12px'}}>{formatDate(t.date)}</td>
                           <td style={{padding: '12px'}}>
                             <span style={{
@@ -1002,7 +1002,7 @@ export default function MoneyTracker() {
                             </span>
                           </td>
                           <td style={{padding: '12px'}}>{t.category}</td>
-                          <td style={{padding: '12px', textAlign: 'right', fontWeight: 'bold', color: t.type === 'Income' ? '#0D9488' : '#ef4444'}}>
+                          <td style={{padding: '12px', textAlign: 'right', fontWeight: 'bold', color: t.type === 'Income' ? '#10b981' : '#ef4444'}}>
                             {t.currency} {Number(t.amount).toLocaleString()}
                           </td>
                           <td style={{padding: '12px'}}>{t.wallet}</td>
