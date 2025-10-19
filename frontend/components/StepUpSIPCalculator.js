@@ -59,28 +59,7 @@ export default function StepUpSIPCalculator() {
     });
   }
 
-  const totalInvested = L + totalSIPInvested;
-  const totalFutureValue = FV_Lumpsum + FV_SIP;
-  const totalGain = totalFutureValue - totalInvested;
-
-  // Final constant SIP FV for the whole period
-  const constantSIPFV = initialSIP * ((Math.pow(1 + r, t * 12) - 1) / r) * (1 + r);
-  const constantSIPInvested = initialSIP * 12 * t;
-
-  setResults({
-    totalInvested: Math.round(totalInvested),
-    totalSIPInvested: Math.round(totalSIPInvested),
-    FV_Lumpsum: Math.round(FV_Lumpsum),
-    FV_SIP: Math.round(FV_SIP),
-    totalFutureValue: Math.round(totalFutureValue),
-    totalGain: Math.round(totalGain),
-    constantSIPFV: Math.round(constantSIPFV),
-    constantSIPInvested: Math.round(constantSIPInvested),
-    stepUpAdvantage: Math.round(FV_SIP - constantSIPFV),
-    yearlyBreakdown,
-    comparisonData
-  });
-};
+ 
 
     const totalInvested = L + totalSIPInvested;
     const totalFutureValue = FV_Lumpsum + FV_SIP;
