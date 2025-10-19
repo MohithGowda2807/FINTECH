@@ -8,34 +8,37 @@ export default function SIPCalculator() {
   const [results, setResults] = useState(null);
 
   const calculateSIP = () => {
-    const P = monthlyInvestment;
-    const r = Math.pow(1 + returnRate / 100, 1 / 12) - 1; // Monthly rate
-    const n = tenure * 12; // Total months
-    
-    // FV = P × [((1 + r)^n - 1) / r]
-    const futureValue = P * ((Math.pow(1 + r, n) - 1) / r);
-    const totalInvested = P * n;
-    const wealthGain = futureValue - totalInvested;
-    
-    // Year-by-year breakdown
-    const yearlyData = [];
-    for (let year = 1; year <= tenure; year++) {
-      const months = year * 12;
-      const yearFV = P * ((Math.pow(1 + r, months) - 1) / r);
-      yearlyData.push({
-        year: year,
-        invested: P * months,
-        value: Math.round(yearFV)
-      });
-    }
-    
-    setResults({
-      totalInvested: Math.round(totalInvested),
-      maturityAmount: Math.round(futureValue),
-      wealthGain: Math.round(wealthGain),
-      yearlyData: yearlyData
+  const P = monthlyInvestment;
+  const annualRate = returnRate / 100;
+  const n = tenure * 12;
+
+  // Use full precision monthly rate
+  const r = Math.pow(1 + annualRate, 1 / 12) - 1;
+
+  // Future Value calculation
+  const futureValue = P * ((Math.pow(1 + r, n) - 1) / r);
+  const totalInvested = P * n;
+  const wealthGain = futureValue - totalInvested;
+
+  // Year-by-year breakdown
+  const yearlyData = [];
+  for (let year = 1; year <= tenure; year++) {
+    const months = year * 12;
+    const yearFV = P * ((Math.pow(1 + r, months) - 1) / r);
+    yearlyData.push({
+      year: year,
+      invested: P * months,
+      value: Math.round(yearFV) // Round only for display
     });
-  };
+  }
+
+  setResults({
+    totalInvested: Math.round(totalInvested),
+    maturityAmount: Math.round(futureValue),
+    wealthGain: Math.round(wealthGain),
+    yearlyData: yearlyData
+  });
+};
 
   return (
     <div className="calculator-container">
