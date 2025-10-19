@@ -23,7 +23,9 @@ export default function Login() {
 
     try {
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
-      const response = await axios.post(`http://localhost:5000${endpoint}`, {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const response = await axios.post(`${API_URL}${endpoint}`, {
+
         email: formData.email,
         password: formData.password,
         name: isLogin ? undefined : formData.name
