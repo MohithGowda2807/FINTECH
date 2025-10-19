@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts'; // Add chart import if needed for visualization
+ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts'; // Add chart import if needed for visualization
 
 function DebtManager({ userId }) {
   const [debts, setDebts] = useState([]);
