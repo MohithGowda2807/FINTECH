@@ -40,7 +40,7 @@ export default function PortfolioAnalyzer() {
     'Fixed Deposit': { risk: 1, returnRange: '5-7%', category: 'Cash' }
   };
 
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8', '#82CA9D', '#FFC658', '#FF6B6B', '#4ECDC4', '#45B7D1'];
+  const COLORS = ['#0D47A1', '#1565C0', '#D4AF37', '#F4D03F', '#1976D2', '#1E88E5', '#2196F3', '#42A5F5', '#64B5F6', '#90CAF9'];
   const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api';
 
   useEffect(() => {
@@ -228,7 +228,7 @@ export default function PortfolioAnalyzer() {
   return (
     <div className="portfolio-container">
       <h2>💼 Investment Portfolio Builder & Analyzer</h2>
-      <p style={{textAlign: 'center', color: '#10b981', fontWeight: 'bold', marginBottom: '20px'}}>
+      <p style={{textAlign: 'center', color: '#D4AF37', fontWeight: 'bold', marginBottom: '20px'}}>
         💾 Connected to PostgreSQL Database - Fully Persistent
       </p>
 
@@ -238,7 +238,7 @@ export default function PortfolioAnalyzer() {
           onClick={() => setViewMode('overview')}
           style={{
             padding: '10px 20px',
-            background: viewMode === 'overview' ? '#667eea' : '#e0e0e0',
+            background: viewMode === 'overview' ? 'linear-gradient(135deg, #0D47A1 0%, #1565C0 100%)' : '#e0e0e0',
             color: viewMode === 'overview' ? 'white' : '#333',
             border: 'none',
             borderRadius: '8px',
@@ -252,7 +252,7 @@ export default function PortfolioAnalyzer() {
           onClick={() => setViewMode('comparison')}
           style={{
             padding: '10px 20px',
-            background: viewMode === 'comparison' ? '#667eea' : '#e0e0e0',
+            background: viewMode === 'comparison' ? 'linear-gradient(135deg, #0D47A1 0%, #1565C0 100%)' : '#e0e0e0',
             color: viewMode === 'comparison' ? 'white' : '#333',
             border: 'none',
             borderRadius: '8px',
@@ -266,7 +266,7 @@ export default function PortfolioAnalyzer() {
           onClick={() => setViewMode('projections')}
           style={{
             padding: '10px 20px',
-            background: viewMode === 'projections' ? '#667eea' : '#e0e0e0',
+            background: viewMode === 'projections' ? 'linear-gradient(135deg, #0D47A1 0%, #1565C0 100%)' : '#e0e0e0',
             color: viewMode === 'projections' ? 'white' : '#333',
             border: 'none',
             borderRadius: '8px',
@@ -462,11 +462,11 @@ export default function PortfolioAnalyzer() {
               <div className="portfolio-summary">
                 <h3>📈 Portfolio Summary</h3>
                 <div className="summary-cards">
-                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', color: 'white'}}>
+                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #0D47A1 0%, #1565C0 100%)', color: 'white'}}>
                     <h4>Total Invested</h4>
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>₹{portfolio.totalInvested.toLocaleString()}</p>
                   </div>
-                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', color: 'white'}}>
+                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%)', color: '#0D47A1'}}>
                     <h4>Weighted Avg Return</h4>
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>{portfolio.weightedReturn}% p.a.</p>
                   </div>
@@ -480,7 +480,7 @@ export default function PortfolioAnalyzer() {
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>₹{portfolio.shortTermValue.toLocaleString()}</p>
                     <small>Expected Return: {portfolio.shortTermReturn}%</small>
                   </div>
-                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)', color: 'white'}}>
+                  <div className="summary-card" style={{background: 'linear-gradient(135deg, #1565C0 0%, #1976D2 100%)', color: 'white'}}>
                     <h4>Long-Term (10Y)</h4>
                     <p style={{fontSize: '28px', fontWeight: 'bold'}}>₹{portfolio.longTermValue.toLocaleString()}</p>
                     <small>Expected Return: {portfolio.weightedReturn}%</small>
@@ -523,7 +523,7 @@ export default function PortfolioAnalyzer() {
                     <YAxis />
                     <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
                     <Legend />
-                    <Bar dataKey="value" fill="#667eea" name="Investment Amount (₹)" />
+                    <Bar dataKey="value" fill="#0D47A1" name="Investment Amount (₹)" />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -542,7 +542,7 @@ export default function PortfolioAnalyzer() {
                   <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
                   <Legend />
                   <Bar dataKey="shortTerm" fill="#f59e0b" name="Short-Term (3 Years)" />
-                  <Bar dataKey="longTerm" fill="#10b981" name="Long-Term (10 Years)" />
+                  <Bar dataKey="longTerm" fill="#D4AF37" name="Long-Term (10 Years)" />
                 </BarChart>
               </ResponsiveContainer>
 
@@ -570,8 +570,8 @@ export default function PortfolioAnalyzer() {
                     <YAxis label={{ value: 'Portfolio Value (₹)', angle: -90, position: 'insideLeft' }} />
                     <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
                     <Legend />
-                    <Line type="monotone" dataKey="invested" stroke="#8884d8" strokeWidth={2} name="Amount Invested" />
-                    <Line type="monotone" dataKey="value" stroke="#10b981" strokeWidth={3} name="Projected Value" />
+                    <Line type="monotone" dataKey="invested" stroke="#475569" strokeWidth={2} name="Amount Invested" />
+                    <Line type="monotone" dataKey="value" stroke="#D4AF37" strokeWidth={3} name="Projected Value" />
                   </LineChart>
                 </ResponsiveContainer>
               </div>
@@ -580,7 +580,7 @@ export default function PortfolioAnalyzer() {
                 <h3>📅 Year-by-Year Breakdown</h3>
                 <table style={{width: '100%', borderCollapse: 'collapse'}}>
                   <thead>
-                    <tr style={{background: '#667eea', color: 'white'}}>
+                    <tr style={{background: 'linear-gradient(135deg, #0D47A1 0%, #1565C0 100%)', color: 'white'}}:
                       <th style={{padding: '12px', textAlign: 'left'}}>Year</th>
                       <th style={{padding: '12px', textAlign: 'right'}}>Invested Amount</th>
                       <th style={{padding: '12px', textAlign: 'right'}}>Projected Value</th>
@@ -596,8 +596,8 @@ export default function PortfolioAnalyzer() {
                         <tr key={idx} style={{background: idx % 2 === 0 ? '#f9fafb' : 'white'}}>
                           <td style={{padding: '12px'}}>{row.year}</td>
                           <td style={{padding: '12px', textAlign: 'right'}}>₹{row.invested.toLocaleString()}</td>
-                          <td style={{padding: '12px', textAlign: 'right', fontWeight: 'bold', color: '#10b981'}}>₹{row.value.toLocaleString()}</td>
-                          <td style={{padding: '12px', textAlign: 'right', color: gains > 0 ? '#10b981' : '#ef4444'}}>₹{gains.toLocaleString()}</td>
+                          <td style={{padding: '12px', textAlign: 'right', fontWeight: 'bold', color: '#D4AF37'}}>₹{row.value.toLocaleString()}</td>
+                          <td style={{padding: '12px', textAlign: 'right', color: gains > 0 ? '#D4AF37' : '#ef4444'}}>₹{gains.toLocaleString()}</td>
                           <td style={{padding: '12px', textAlign: 'right'}}>{returnPct}%</td>
                         </tr>
                       );
