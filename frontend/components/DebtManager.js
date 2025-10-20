@@ -1,265 +1,430 @@
-import React, { useState } from 'react';
+import React, 'react';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
-// --- Calculation Logic (No changes needed here) ---
+// --- CORE CALCULATION ENGINE ---
 
-function orderDebts(debts, method) {
-  const debtsCopy = [...debts];
-  if (method === 'Avalanche') {
-    return debtsCopy.sort((a, b) => b.rate - a.rate);
-  }
-  if (method === 'Snowball') {
-    return debtsCopy.sort((a, b) => a.balance - a.balance);
-  }
-  return debtsCopy;
-}
-
+/**
+ * The primary function to simulate the entire debt payoff process.
+ * It's strategy-agnostic and relies on a sorted list of debts.
+ * @param {Array} initialDebts - The user-provided debts.
+ * @param {Number} extraPayment - The additional monthly payment.
+ * @param {String} method - 'Snowball' or 'Avalanche'.
+ * @returns {Object} - A detailed results object with summary and monthly schedule.
+ */
 function simulatePayoff(initialDebts, extraPayment, method) {
+  // Deep copy to prevent state mutation, and parse numbers
   let debts = initialDebts.map(d => ({
     ...d,
-    balance: Number(d.balance),
-    rate: Number(d.rate),
-    min_payment: Number(d.min_payment),
-    paid: 0,
+    id: d.name + d.principal, // Unique ID for tracking
+    balance: parseFloat(d.principal),
+    rate: parseFloat(d.interestRate),
+    min_payment: parseFloat(d.emi),
+    original_min_payment: parseFloat(d.emi), // Keep track for snowballing
     payoffMonth: null,
   }));
 
+  // Baseline calculation (only minimum payments)
+  const baseline = calculateBaseline(initialDebts);
+
   let month = 0;
   let totalInterestPaid = 0;
-  const totalPrincipal = debts.reduce((sum, d) => sum + d.balance, 0);
+  let schedule = [];
 
-  while (debts.some(d => d.balance > 0) && month < 600) {
+  const initialTotalDebt = debts.reduce((sum, d) => sum + d.balance, 0);
+
+  // Main simulation loop
+  while (debts.some(d => d.balance > 0) && month < 600) { // 50-year safety break
     month++;
     
-    let orderedPending = orderDebts(debts.filter(d => d.balance > 0), method);
-    
-    // Calculate freed-up payments from already paid-off debts (the snowball/avalanche effect)
-    const rolloverPayment = debts
-      .filter(d => d.balance <= 0 && d.payoffMonth !== null)
-      .reduce((sum, d) => sum + d.min_payment, 0);
+    // Sort debts for this month's priority based on the chosen strategy
+    const sortedPendingDebts = debts
+      .filter(d => d.balance > 0)
+      .sort((a, b) => {
+        if (method === 'Avalanche') return b.rate - a.rate;
+        if (method === 'Snowball') return a.balance - b.balance;
+        return 0;
+      });
 
-    const totalExtraPayment = extraPayment + rolloverPayment;
-    
-    // Process payments for all debts
+    let extraPaymentPool = extraPayment;
+
+    // The "rollover" or "snowball" effect: add the payments of paid-off debts
+    debts.forEach(d => {
+      if (d.balance === 0) {
+        extraPaymentPool += d.original_min_payment;
+      }
+    });
+
+    let interestThisMonth = 0;
+
+    // Process each debt for the current month
     for (const debt of debts) {
       if (debt.balance > 0) {
-        const interest = (debt.balance * debt.rate) / 100 / 12;
-        totalInterestPaid += interest;
+        // 1. Accrue interest
+        const monthlyInterest = debt.balance * (debt.rate / 100 / 12);
+        totalInterestPaid += monthlyInterest;
+        interestThisMonth += monthlyInterest;
+        debt.balance += monthlyInterest;
         
+        // 2. Determine payment amount
         let payment = debt.min_payment;
-        // If this is the target debt, add all extra payments to it
-        if (orderedPending.length > 0 && debt.name === orderedPending[0].name) {
-          payment += totalExtraPayment;
+        if (sortedPendingDebts.length > 0 && debt.id === sortedPendingDebts[0].id) {
+          payment += extraPaymentPool;
         }
 
-        const principalPaid = payment - interest;
-        const finalPayment = Math.min(debt.balance + interest, payment);
-        debt.balance -= (finalPayment - interest);
-
-        if (debt.balance <= 0 && debt.payoffMonth === null) {
+        // Ensure payment isn't more than what's owed
+        const finalPayment = Math.min(debt.balance, payment);
+        
+        // 3. Apply payment
+        debt.balance -= finalPayment;
+        
+        // 4. Mark as paid off if balance is zero
+        if (debt.balance <= 0.005 && debt.payoffMonth === null) {
           debt.balance = 0;
           debt.payoffMonth = month;
+          // When a debt is paid off, its min_payment becomes 0 for future iterations
+          debt.min_payment = 0; 
         }
       }
     }
+    
+    schedule.push({
+        month,
+        totalBalance: debts.reduce((sum, d) => sum + d.balance, 0),
+        interestThisMonth,
+    });
   }
 
-  const payoffSchedule = debts.map(d => ({
-    name: d.name,
-    payoffMonth: d.payoffMonth,
-    totalPaid: (d.balance + totalPrincipal).toFixed(2), // Simplified for summary
-  })).sort((a, b) => a.payoffMonth - b.payoffMonth);
+  const interestSaved = baseline.totalInterest - totalInterestPaid;
+  const timeSaved = baseline.months - month;
 
   return {
     months: month,
     totalInterest: totalInterestPaid.toFixed(2),
-    totalPrincipal: totalPrincipal.toFixed(2),
-    payoffSchedule,
+    totalPrincipal: initialTotalDebt.toFixed(2),
+    interestSaved: interestSaved.toFixed(2),
+    timeSaved: timeSaved,
+    payoffDetails: debts.map(({ name, payoffMonth }) => ({ name, payoffMonth })),
+    schedule,
   };
 }
 
+/**
+ * Calculates a baseline scenario with no extra payments.
+ */
+function calculateBaseline(initialDebts) {
+    // This is a simplified baseline. A full simulation is more accurate.
+    let baselineMonths = 0;
+    let baselineInterest = 0;
+    initialDebts.forEach(d => {
+        const principal = parseFloat(d.principal);
+        const rate = parseFloat(d.interestRate) / 100 / 12;
+        const emi = parseFloat(d.emi);
+        // Using logarithm to find n (number of payments)
+        if (emi > principal * rate) {
+            const n = -(Math.log(1 - (principal * rate) / emi) / Math.log(1 + rate));
+            baselineMonths = Math.max(baselineMonths, Math.ceil(n));
+            baselineInterest += (emi * Math.ceil(n)) - principal;
+        }
+    });
+    return { months: baselineMonths, totalInterest: baselineInterest };
+}
 
 // --- React Component ---
 
-export default function DebtPayoffCalculatorStyled() {
-  const [debts, setDebts] = useState([
-    { name: 'Credit Card', balance: '10000', rate: '18.9', min_payment: '200' },
-    { name: 'Car Loan', balance: '15000', rate: '4.5', min_payment: '350' },
-    { name: 'Student Loan', balance: '25000', rate: '6.8', min_payment: '280' },
+export default function DebtManager() {
+  const [debts, setDebts] = React.useState([
+    { name: 'HDFC Credit Card', principal: '56679', interestRate: '18', emi: '5000' },
+    { name: 'Car Loan', principal: '450000', interestRate: '8.5', emi: '12000' },
+    { name: 'Personal Loan', principal: '120000', interestRate: '14', emi: '8000' },
   ]);
-  const [newDebt, setNewDebt] = useState({ name: '', balance: '', rate: '', min_payment: '' });
-  const [extraPayment, setExtraPayment] = useState('200');
-  const [results, setResults] = useState(null);
-
-  const handleNewDebtChange = (e) => {
-    setNewDebt({ ...newDebt, [e.target.name]: e.target.value });
+  const [newDebt, setNewDebt] = React.useState({ name: '', principal: '', interestRate: '', emi: '' });
+  const [extraPayment, setExtraPayment] = React.useState('5000');
+  const [results, setResults] = React.useState(null);
+  
+  // -- Handlers --
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewDebt(prev => ({ ...prev, [name]: value }));
   };
 
   const handleAddDebt = (e) => {
     e.preventDefault();
-    if (newDebt.name && newDebt.balance && newDebt.rate && newDebt.min_payment) {
-      setDebts([...debts, newDebt]);
-      setNewDebt({ name: '', balance: '', rate: '', min_payment: '' });
+    if (newDebt.name && newDebt.principal && newDebt.interestRate && newDebt.emi) {
+      setDebts(prev => [...prev, newDebt]);
+      setNewDebt({ name: '', principal: '', interestRate: '', emi: '' }); // Reset form
     }
   };
 
-  const removeDebt = (index) => {
-    setDebts(debts.filter((_, i) => i !== index));
+  const handleRemoveDebt = (index) => {
+    setDebts(prev => prev.filter((_, i) => i !== index));
   };
-
-  const handleCalculate = () => {
-    if (debts.length === 0) {
-      setResults(null);
-      return;
+  
+  const handleCalculate = React.useCallback(() => {
+    if (debts.length > 0) {
+      const snowball = simulatePayoff(debts, parseFloat(extraPayment) || 0, 'Snowball');
+      const avalanche = simulatePayoff(debts, parseFloat(extraPayment) || 0, 'Avalanche');
+      setResults({ snowball, avalanche });
     }
-    const snowballResults = simulatePayoff(debts, Number(extraPayment), 'Snowball');
-    const avalancheResults = simulatePayoff(debts, Number(extraPayment), 'Avalanche');
-    setResults({ snowball: snowballResults, avalanche: avalancheResults });
-  };
+  }, [debts, extraPayment]);
 
+  // Automatically calculate on initial load
+  React.useEffect(() => {
+    handleCalculate();
+  }, [handleCalculate]);
+
+
+  // -- Calculated Metrics for Dashboard --
+  const totalOutstanding = debts.reduce((sum, d) => sum + parseFloat(d.principal), 0);
+  const totalMonthlyEMI = debts.reduce((sum, d) => sum + parseFloat(d.emi), 0);
+  const weightedInterest = totalOutstanding > 0 ? (
+      debts.reduce((sum, d) => sum + parseFloat(d.principal) * parseFloat(d.interestRate), 0) / totalOutstanding
+  ).toFixed(2) : 0;
+  
+  // -- Chart Data --
+  const allocationData = debts.map(d => ({ name: d.name, value: parseFloat(d.principal) }));
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'];
+
+
+  // --- JSX & Styles ---
   return (
-    <div className="calculator-container">
-      <h2>🚀 Debt Payoff Calculator</h2>
-      <p style={{ textAlign: 'center', color: '#666', marginBottom: '20px' }}>
-        Compare the Snowball and Avalanche methods to find the fastest way out of debt.
-      </p>
-
-      {/* --- Debt Input Table --- */}
-      <div className="table-section">
-        <h3>Your Debts</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Debt Name</th>
-              <th>Current Balance ($)</th>
-              <th>Interest Rate (%)</th>
-              <th>Minimum Payment ($)</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {debts.map((debt, index) => (
-              <tr key={index}>
-                <td>{debt.name}</td>
-                <td>{Number(debt.balance).toLocaleString()}</td>
-                <td>{debt.rate}%</td>
-                <td>{Number(debt.min_payment).toLocaleString()}</td>
-                <td><button className="remove-btn" onClick={() => removeDebt(index)}>Remove</button></td>
-              </tr>
-            ))}
-            {/* Form row to add new debt */}
-            <tr>
-              <td><input name="name" value={newDebt.name} onChange={handleNewDebtChange} placeholder="e.g., Personal Loan" /></td>
-              <td><input type="number" name="balance" value={newDebt.balance} onChange={handleNewDebtChange} placeholder="e.g., 5000" /></td>
-              <td><input type="number" name="rate" value={newDebt.rate} onChange={handleNewDebtChange} placeholder="e.g., 9.5" /></td>
-              <td><input type="number" name="min_payment" value={newDebt.min_payment} onChange={handleNewDebtChange} placeholder="e.g., 150" /></td>
-              <td><button className="add-btn" onClick={handleAddDebt}>Add Debt</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      {/* --- Strategy & Calculation --- */}
-      <div className="input-section">
-        <div className="input-group">
-          <label>Extra Monthly Payment ($)</label>
-          <input
-            type="number"
-            value={extraPayment}
-            onChange={(e) => setExtraPayment(e.target.value)}
-          />
-          <small>Additional amount to accelerate payoff.</small>
+    <div className="debt-manager-container">
+      <header>
+        <div className="logo">
+          <svg /* icon */ width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+          <h1>Investment Portfolio Builder <span>& Analyzer</span></h1>
         </div>
-        <button onClick={handleCalculate} className="calculate-btn">Calculate Payoff Plan</button>
-      </div>
+      </header>
 
-      {/* --- Results --- */}
-      {results && (
-        <>
-          <div className="results-grid">
-            {/* Snowball Summary */}
-            <div className="result-card" style={{ background: 'linear-gradient(135deg, #4facfe, #00f2fe)' }}>
-              <h4>Debt Snowball</h4>
-              <p className="result-value">{Math.floor(results.snowball.months / 12)}y {results.snowball.months % 12}m</p>
-              <small>Total Interest: ${Number(results.snowball.totalInterest).toLocaleString()}</small>
-            </div>
-
-            {/* Avalanche Summary */}
-            <div className="result-card" style={{ background: 'linear-gradient(135deg, #43e97b, #38f9d7)' }}>
-              <h4>Debt Avalanche</h4>
-              <p className="result-value">{Math.floor(results.avalanche.months / 12)}y {results.avalanche.months % 12}m</p>
-              <small>Total Interest: ${Number(results.avalanche.totalInterest).toLocaleString()}</small>
-            </div>
+      <main>
+        {/* -- Metric Cards -- */}
+        <section className="metrics-grid">
+          <div className="metric-card">
+            <h4>Total Outstanding Debt</h4>
+            <p>₹{totalOutstanding.toLocaleString('en-IN')}</p>
           </div>
-          
-          <div className="results-grid">
-            {/* Snowball Payoff Table */}
-            <div className="table-section">
-              <h3>Snowball Payoff Order</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Debt Name</th>
-                    <th>Payoff Month</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {results.snowball.payoffSchedule.map((row, i) => (
-                    <tr key={i}>
-                      <td>{row.name}</td>
-                      <td style={{ fontWeight: 'bold' }}>{row.payoffMonth}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Avalanche Payoff Table */}
-            <div className="table-section">
-              <h3>Avalanche Payoff Order</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Debt Name</th>
-                    <th>Payoff Month</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {results.avalanche.payoffSchedule.map((row, i) => (
-                    <tr key={i}>
-                      <td>{row.name}</td>
-                      <td style={{ fontWeight: 'bold' }}>{row.payoffMonth}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <div className="metric-card">
+            <h4>Avg. Interest Rate</h4>
+            <p>{weightedInterest}%</p>
           </div>
-        </>
-      )}
+          <div className="metric-card">
+            <h4>Total Monthly EMI</h4>
+            <p>₹{(totalMonthlyEMI + parseFloat(extraPayment || 0)).toLocaleString('en-IN')}</p>
+          </div>
+          <div className="metric-card">
+            <h4>Debt-Free By (Avalanche)</h4>
+            <p>{results ? ${Math.floor(results.avalanche.months / 12)}Y ${results.avalanche.months % 12}M : 'N/A'}</p>
+          </div>
+        </section>
 
+        {/* -- Add Debt Form -- */}
+        <section className="card">
+          <div className="card-header">
+            <h3>Add New Debt</h3>
+          </div>
+          <form onSubmit={handleAddDebt} className="add-debt-form">
+              <div className="form-group">
+                  <label>Debt Type / Name</label>
+                  <input type="text" name="name" value={newDebt.name} onChange={handleInputChange} placeholder="e.g., HDFC Index Fund" required/>
+              </div>
+              <div className="form-group">
+                  <label>Outstanding Amount (₹)</label>
+                  <input type="number" name="principal" value={newDebt.principal} onChange={handleInputChange} placeholder="50000" required/>
+              </div>
+              <div className="form-group">
+                  <label>Annual Return (%)</label>
+                  <input type="number" name="interestRate" value={newDebt.interestRate} onChange={handleInputChange} placeholder="12" required/>
+              </div>
+              <div className="form-group">
+                  <label>EMI (₹) / Min. Payment</label>
+                  <input type="number" name="emi" value={newDebt.emi} onChange={handleInputChange} placeholder="10000" required/>
+              </div>
+              <button type="submit" className="add-button">Add to Portfolio</button>
+          </form>
+        </section>
+
+        {/* -- Debt Holdings & Allocation -- */}
+        <div className="holdings-grid">
+            <section className="card" style={{ gridColumn: 'span 2' }}>
+              <div className="card-header holdings-header">
+                <h3>Your Debts ({debts.length} total)</h3>
+                <span>Total: ₹{totalOutstanding.toLocaleString('en-IN')}</span>
+              </div>
+              <div className="holdings-table">
+                  <table>
+                      <thead>
+                          <tr>
+                              <th>Name/Scheme</th>
+                              <th>Amount</th>
+                              <th>Return</th>
+                              <th>EMI</th>
+                              <th>Actions</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {debts.map((d, i) => (
+                              <tr key={i}>
+                                  <td>{d.name}</td>
+                                  <td>₹{parseFloat(d.principal).toLocaleString('en-IN')}</td>
+                                  <td>{d.interestRate}%</td>
+                                  <td>₹{parseFloat(d.emi).toLocaleString('en-IN')}</td>
+                                  <td>
+                                      <button className="btn-edit">Edit</button>
+                                      <button className="btn-delete" onClick={() => handleRemoveDebt(i)}>Delete</button>
+                                  </td>
+                              </tr>
+                          ))}
+                      </tbody>
+                  </table>
+              </div>
+            </section>
+            
+            <section className="card">
+                <div className="card-header">
+                    <h3>Asset Allocation</h3>
+                </div>
+                <div className="chart-container">
+                  <ResponsiveContainer width="100%" height={300}>
+                      <PieChart>
+                          <Pie data={allocationData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#8884d8" paddingAngle={5}>
+                              {allocationData.map((entry, index) => <Cell key={cell-${index}} fill={COLORS[index % COLORS.length]} />)}
+                          </Pie>
+                          <Tooltip formatter={(value, name) => [₹${value.toLocaleString('en-IN')}, name]}/>
+                          <Legend />
+                      </PieChart>
+                  </ResponsiveContainer>
+                </div>
+            </section>
+        </div>
+
+        {/* -- Repayment Strategy Simulation -- */}
+        <section className="card">
+            <div className="card-header">
+                <h3>Repayment Strategy Simulation</h3>
+            </div>
+            <div className="simulation-controls">
+                <label>
+                    Additional Monthly Payment (₹)
+                    <input type="number" value={extraPayment} onChange={e => setExtraPayment(e.target.value)} />
+                </label>
+                <button onClick={handleCalculate} className="recalculate-btn">Recalculate Plan</button>
+            </div>
+        </section>
+
+
+        {/* -- Results Comparison -- */}
+        {results && (
+            <section className="results-comparison">
+                {/* -- Snowball -- */}
+                <div className="card result-card">
+                    <h3 className="result-title">Debt Snowball</h3>
+                    <p className="result-subtitle">Pay off smallest debts first</p>
+                    <div className="result-metrics">
+                        <div>
+                            <span>Payoff Time</span>
+                            <strong>{Math.floor(results.snowball.months / 12)}Y {results.snowball.months % 12}M</strong>
+                        </div>
+                        <div>
+                            <span>Total Interest</span>
+                            <strong>₹{parseFloat(results.snowball.totalInterest).toLocaleString('en-IN')}</strong>
+                        </div>
+                        <div>
+                            <span>Time Saved</span>
+                            <strong className="positive">{results.snowball.timeSaved} Months</strong>
+                        </div>
+                        <div>
+                            <span>Interest Saved</span>
+                            <strong className="positive">₹{parseFloat(results.snowball.interestSaved).toLocaleString('en-IN')}</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                {/* -- Avalanche -- */}
+                <div className="card result-card">
+                    <h3 className="result-title">Debt Avalanche</h3>
+                    <p className="result-subtitle">Pay off highest interest first (Recommended)</p>
+                     <div className="result-metrics">
+                        <div>
+                            <span>Payoff Time</span>
+                            <strong>{Math.floor(results.avalanche.months / 12)}Y {results.avalanche.months % 12}M</strong>
+                        </div>
+                        <div>
+                            <span>Total Interest</span>
+                            <strong>₹{parseFloat(results.avalanche.totalInterest).toLocaleString('en-IN')}</strong>
+                        </div>
+                        <div>
+                            <span>Time Saved</span>
+                            <strong className="positive">{results.avalanche.timeSaved} Months</strong>
+                        </div>
+                         <div>
+                            <span>Interest Saved</span>
+                            <strong className="positive">₹{parseFloat(results.avalanche.interestSaved).toLocaleString('en-IN')}</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        )}
+
+      </main>
+      
       <style jsx>{`
-        .calculator-container { max-width: 1000px; margin: auto; padding: 20px; font-family: sans-serif; }
-        .input-section { display: flex; align-items: flex-end; gap: 20px; margin: 30px 0; padding: 20px; background: #f8fafc; border-radius: 10px; }
-        .input-group { flex: 1; }
-        .input-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 600; }
-        .input-group input, table input { width: 100%; box-sizing: border-box; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; }
-        .input-group small { color: #666; font-size: 13px; }
-        .calculate-btn, .add-btn, .remove-btn {
-          padding: 12px 20px; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;
+        /* --- Global & Layout --- */
+        .debt-manager-container { background-color: #f0f2f5; padding: 2rem; font-family: 'Inter', sans-serif; }
+        header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+        .logo { display: flex; align-items: center; gap: 0.5rem; color: #1e3a8a; }
+        .logo h1 { font-size: 1.5rem; font-weight: 600; }
+        .logo h1 span { font-weight: 400; color: #64748b; }
+        main { display: flex; flex-direction: column; gap: 1.5rem; }
+        .card { background: white; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); overflow: hidden; }
+        .card-header { padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb; }
+        .card-header h3 { margin: 0; font-size: 1rem; font-weight: 600; color: #334155; }
+        
+        /* -- Metric Cards -- */
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+        .metric-card { background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .metric-card h4 { margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem; font-weight: 500; }
+        .metric-card p { margin: 0; font-size: 1.75rem; font-weight: 600; color: #1e3a8a; }
+        
+        /* -- Add Debt Form -- */
+        .add-debt-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 1.5rem; align-items: flex-end;}
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { margin-bottom: 0.5rem; font-size: 0.875rem; color: #475569; }
+        .form-group input { padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; }
+        .add-button { grid-column: 1 / -1; padding: 0.875rem; background-color: #2563eb; color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background-color 0.2s; }
+        .add-button:hover { background-color: #1d4ed8; }
+        
+        /* -- Holdings Section -- */
+        .holdings-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 1.5rem; }
+        .holdings-header { display: flex; justify-content: space-between; align-items: center; }
+        .holdings-header span { font-weight: 600; color: #1e3a8a; }
+        .holdings-table table { width: 100%; border-collapse: collapse; }
+        .holdings-table th, .holdings-table td { padding: 0.75rem 1.5rem; text-align: left; border-bottom: 1px solid #e5e7eb; }
+        .holdings-table th { font-size: 0.75rem; color: #64748b; text-transform: uppercase; }
+        .holdings-table td { font-size: 0.875rem; color: #334155; }
+        .btn-edit, .btn-delete { border: none; padding: 0.3rem 0.7rem; margin-right: 0.5rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem; font-weight: 500;}
+        .btn-edit { background-color: #f1f5f9; color: #475569; }
+        .btn-delete { background-color: #fee2e2; color: #ef4444; }
+
+        /* -- Simulation & Results -- */
+        .simulation-controls { padding: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .simulation-controls label { display: flex; flex-direction: column; flex-grow: 1; }
+        .simulation-controls input { margin-top: 0.5rem; padding: 0.75rem; border-radius: 8px; border: 1px solid #cbd5e1; }
+        .recalculate-btn { padding: 0.75rem 1.5rem; background-color: #10b981; color: white; border: none; border-radius: 8px; font-weight: 600; }
+        .results-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .result-card { padding: 1.5rem; }
+        .result-title { font-size: 1.25rem; font-weight: 600; color: #1e3a8a; margin: 0; }
+        .result-subtitle { font-size: 0.875rem; color: #64748b; margin: 0.25rem 0 1.5rem 0; }
+        .result-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .result-metrics div span { font-size: 0.875rem; color: #64748b; display: block; }
+        .result-metrics div strong { font-size: 1.25rem; font-weight: 600; color: #334155; }
+        .result-metrics .positive { color: #10b981; }
+
+        @media (max-width: 1024px) {
+            .holdings-grid { grid-template-columns: 1fr; }
+            .results-comparison { grid-template-columns: 1fr; }
         }
-        .calculate-btn { background: linear-gradient(135deg, #667eea, #764ba2); }
-        .calculate-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3); }
-        .add-btn { background: #28a745; width: 100%; }
-        .remove-btn { background: #dc3545; }
-        .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
-        .result-card { padding: 25px; border-radius: 15px; color: white; text-align: center; }
-        .result-value { font-size: 28px; font-weight: bold; margin: 10px 0; }
-        .table-section { margin-top: 30px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e0e0e0; }
-        th { background: #667eea; color: white; font-weight: 600; }
-        tr:hover { background: #f9fafb; }
-        td:last-child { text-align: center; }
+        @media (max-width: 768px) {
+            .add-debt-form { grid-template-columns: 1fr; }
+        }
       `}</style>
     </div>
   );
