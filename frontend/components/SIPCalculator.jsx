@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer
@@ -175,7 +174,8 @@ export default function SIPTaxHarvestingCalculator() {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="year" label={{ value: 'Years', position: 'insideBottom', offset: -5 }} />
                 <YAxis label={{ value: 'Amount (₹)', angle: -90, position: 'insideLeft' }} />
-                <Tooltip formatter={(val) => ₹${val.toLocaleString()}} />
+                {/* THIS IS THE FIX: The string must be wrapped in backticks ` ` */}
+                <Tooltip formatter={(val) => `₹${val.toLocaleString()}`} />
                 <Legend />
                 <Line type="monotone" dataKey="invested" stroke="#8884d8" strokeWidth={2} name="Invested" />
                 <Line type="monotone" dataKey="value" stroke="#43e97b" strokeWidth={3} name="Future Value" />
@@ -204,7 +204,7 @@ export default function SIPTaxHarvestingCalculator() {
                     <td style={{ fontWeight: 'bold', color: '#10b981' }}>₹{row.value.toLocaleString()}</td>
                     <td>₹{row.gain.toLocaleString()}</td>
                     <td style={{ color: row.taxableShort > 0 ? '#ef4444' : '#999' }}>
-                      {row.taxableShort > 0 ? ₹${row.taxableShort.toLocaleString()} : '-'}
+                      {row.taxableShort > 0 ? `₹${row.taxableShort.toLocaleString()}` : '-'}
                     </td>
                   </tr>
                 ))}
