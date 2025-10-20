@@ -199,9 +199,10 @@ export default function GoalCalculator() {
               height={400}
               data={result.yearlyData}
               margin={{ top: 20, right: 40, left: 20, bottom: 40 }}
-            >
+            > 
+            
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis
+              <XAxis 
                 dataKey="year"
                 height={50}
                 tick={{ fontSize: 13 }}
