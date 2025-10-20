@@ -193,30 +193,15 @@ export default function GoalCalculator() {
           </div>
 
           <div className="chart-container">
-            {/* LineChart for investment growth */}
-            <LineChart
-              width={600}
-              height={400}
-              data={result.yearlyData}
-              margin={{ top: 20, right: 40, left: 20, bottom: 40 }}
-            >
+            <LineChart width={600} height={300} data={result.yearlyData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis
-                dataKey="year"
-                height={50}
-                tick={{ fontSize: 13 }}
-                tickMargin={10}
-                label={{ value: "Years", position: "insideBottom", offset: -10 }}
-              />
-              <YAxis
-                width={90}
-                tickFormatter={(val) => `₹${Number(val).toLocaleString("en-IN")}`}
-              />
+              <XAxis dataKey="year" label={{ value: "Years", position: "insideBottom", offset: -5 }} />
+              <YAxis />
               <Tooltip formatter={(val) => `₹${val.toLocaleString()}`} />
               <Legend />
-              <Line type="monotone" dataKey="invested" stroke="#8884d8" name="Invested" />
-              <Line type="monotone" dataKey="value" stroke="#82ca9d" name="Investment Value" />
-              <Line type="monotone" dataKey="goal" stroke="#ff7300" name="Goal Value" />
+              <Line type="monotone" dataKey="invested" stroke="#475569" name="Invested" strokeWidth={2} />
+              <Line type="monotone" dataKey="value" stroke="#22c55e" name="Your Value" strokeWidth={3} />
+              <Line type="monotone" dataKey="goal" stroke="#eab308" name="Goal Value" strokeDasharray="5 5" strokeWidth={3} />
             </LineChart>
           </div>
         </div>
