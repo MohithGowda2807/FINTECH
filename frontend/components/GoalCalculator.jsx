@@ -303,10 +303,6 @@ export default function GoalCalculator() {
       )}
 
       <style jsx>{`
-        .calculator-container {
-          max-width: 900px;
-          margin: 0 auto;
-        }
         .input-section {
             background-color: #f9fafb;
             padding: 25px;
@@ -433,3 +429,4 @@ export default function GoalCalculator() {
     </div>
   );
 }
+
