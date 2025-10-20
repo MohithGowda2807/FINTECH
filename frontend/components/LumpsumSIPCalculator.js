@@ -203,7 +203,8 @@ export default function LumpsumSIPCalculator() {
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="year" />
                 <YAxis />
-                <Tooltip formatter={(value) => ₹${value.toLocaleString()}} />
+                {/* THIS IS THE FIX: Added backticks ` ` */}
+                <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
                 <Legend />
                 <Line type="monotone" dataKey="invested" stroke="#8884d8" strokeWidth={2} name="Invested" />
                 <Line type="monotone" dataKey="lumpsumValue" stroke="#f5576c" strokeWidth={2} name="Lumpsum Value" />
