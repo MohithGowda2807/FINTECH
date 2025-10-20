@@ -25,6 +25,26 @@ export default function Taxation() {
 
   const [results, setResults] = useState(null);
 
+  // Custom labels for specific input fields
+  const labelMap = {
+    grossSalary: "Gross salary income",
+    otherIncome: "Annual income from other sources",
+    interestIncome: "Annual income from interest",
+    rentalIncome: "Annual income from let-out house property (rental income)",
+    homeLoanInterestSelf: "Annual interest paid on home loan (self-occupied)",
+    homeLoanInterestLetOut: "Annual interest paid on home loan (let-out)",
+    deduction80C: "Basic deductions u/s 80C",
+    deductionNPS: "Contribution to NPS u/s 80CCD(1B)",
+    medicalInsurance: "Medical Insurance Premium u/s 80D",
+    donation80G: "Donation to charity u/s 80G",
+    educationLoanInterest: "Interest on Educational Loan u/s 80E",
+    savingsInterest: "Interest on deposits in saving account u/s 80TTA/TTB",
+    basicSalary: "Basic Salary received per annum",
+    da: "Dearness allowance (DA) received per annum",
+    hra: "House Rent Allowance (HRA) received per annum",
+    rentPaid: "Total rent paid per annum",
+  };
+
   const calculateTax = () => {
     const {
       grossSalary,
@@ -164,9 +184,10 @@ export default function Taxation() {
         ].map((key) => (
           <div className="input-group" key={key}>
             <label>
-              {key
-                .replace(/([A-Z])/g, " $1")
-                .replace(/^./, (s) => s.toUpperCase())}{" "}
+              {labelMap[key] ||
+                key
+                  .replace(/([A-Z])/g, " $1")
+                  .replace(/^./, (s) => s.toUpperCase())}{" "}
               (₹)
             </label>
             <input
@@ -221,13 +242,13 @@ export default function Taxation() {
               </p>
             </div>
             <div className="result-card" style={{ background: "#f093fb" }}>
-              <h4>Tax Before Cess</h4>
+              <h4>Tax Before CESS</h4>
               <p className="result-value">
                 ₹{results.taxBeforeCess.toLocaleString()}
               </p>
             </div>
             <div className="result-card" style={{ background: "#f59e0b" }}>
-              <h4>Cess (4%)</h4>
+              <h4> CESS (4%)</h4>
               <p className="result-value">₹{results.cess.toLocaleString()}</p>
             </div>
             <div className="result-card" style={{ background: "#764ba2" }}>
@@ -298,3 +319,4 @@ export default function Taxation() {
     </div>
   );
 }
+
