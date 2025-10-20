@@ -4,6 +4,7 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts'; // Ad
 //hello how r u all>>?? asdfghj
 //tenten+4funny@gmail.com
 //tentanisnotfunny
+//tentan is bad boy
 function DebtManager({ userId }) {
   const [debts, setDebts] = useState([]);
   const [form, setForm] = useState({
