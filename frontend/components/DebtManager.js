@@ -141,7 +141,8 @@ export default function DebtManager() {
             <div className="metric-card"><h4>Total Monthly Payment</h4><p>₹{(totalMonthlyEMI + (parseFloat(extraPayment) || 0)).toLocaleString('en-IN')}</p></div>
             
             {/* THIS IS THE FIXED LINE */}
-            <div className="metric-card"><h4>Debt-Free By (Avalanche)</h4><p>{results ? ${Math.floor(results.avalanche.months / 12)}Y ${results.avalanche.months % 12}M : 'N/A'}</p></div>
+           <div className="metric-card"><h4>Debt-Free By (Avalanche)</h4><p>{results ? `${Math.floor(results.avalanche.months / 12)}Y ${results.avalanche.months % 12}M` : 'N/A'}</p></div>
+
 
         </section>
 
