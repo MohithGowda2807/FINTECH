@@ -1,4 +1,4 @@
-import React, 'useState' from 'react';
+import React, { useState } from 'react';
 
 export default function LumpsumCalculator() {
   const [inputs, setInputs] = useState({
@@ -247,3 +247,4 @@ export default function LumpsumCalculator() {
     </div>
   );
 }
+
