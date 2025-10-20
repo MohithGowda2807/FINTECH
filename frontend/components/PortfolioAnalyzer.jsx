@@ -105,7 +105,19 @@ export default function PortfolioAnalyzer() {
   
   const updateInvestment = async () => {
     try {
-        const response = await axios.put(`${API_URL}/portfolio/${editingInvestment.id}`, newInvestment, { headers: { 'Authorization': `Bearer ${token}` } });
+        // --- FIX STARTS HERE ---
+        // Create a complete object to send to the API.
+        // This merges the original investment data (including the 'id') 
+        // with the new data from the form.
+        const investmentToUpdate = { ...editingInvestment, ...newInvestment };
+        // --- FIX ENDS HERE ---
+
+        const response = await axios.put(
+            `${API_URL}/portfolio/${editingInvestment.id}`, 
+            investmentToUpdate, // Send the complete object
+            { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        
         setInvestments(investments.map(inv => (inv.id === editingInvestment.id ? response.data : inv)));
         showNotification('✅ Investment updated successfully!');
         resetForm();
