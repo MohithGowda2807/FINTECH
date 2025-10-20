@@ -198,7 +198,8 @@ export default function LumpsumSIPCalculator() {
           {/* Charts */}
           <div className="chart-section">
             <h3>📈 Growth Projection - Year by Year</h3>
-            <ResponsiveContainer width="100%" height={400}>
+            <ResponsiveContainer width="100%" height={400}
+             margin={{ top: 20, right: 40, left: 80, bottom: 20 }}>
               <LineChart data={results.yearlyData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="year" />
