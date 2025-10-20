@@ -1,353 +1,261 @@
-import React, { useState } from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import React, { useState } from 'react';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function GoalCalculator() {
-  const [goalType, setGoalType] = useState("Buying a Car");
-  const [customGoal, setCustomGoal] = useState("");
-  const [targetAmount, setTargetAmount] = useState(800000);
-  const [currentSavings, setCurrentSavings] = useState(0);
-  const [timeHorizon, setTimeHorizon] = useState(5);
-  const [returnRate, setReturnRate] = useState(12);
-  const [inflationRate, setInflationRate] = useState(6);
-  const [result, setResult] = useState(null);
+  const [inputs, setInputs] = useState({
+    goalAmount: 1000000,
+    returnRate: 12,
+    tenure: 10,
+  });
 
-  const goalTypes = [
-    "Buying a Car",
-    "Purchasing a Laptop/Gadget",
-    "Planning a Foreign Trip",
-    "Building Emergency Fund",
-    "House Down Payment",
-    "Dream Watch/Jewelry",
-    "Wedding",
-    "Education",
-    "Other",
-  ];
+  const [results, setResults] = useState(null);
 
-  const getFinalGoalType = () =>
-    goalType === "Other" ? customGoal || "Custom Goal" : goalType;
+  const calculate = () => {
+    const FV = Number(inputs.goalAmount);
+    const r = Math.pow(1 + Number(inputs.returnRate) / 100, 1 / 12) - 1;
+    const t = Number(inputs.tenure);
+    const n = t * 12;
 
-  const calculateGoal = () => {
-    const r = returnRate / 100;
-    const i = inflationRate / 100;
-    const t = timeHorizon;
+    // Required Monthly SIP to reach goal
+    const SIP = FV / (((Math.pow(1 + r, n) - 1) / r) * (1 + r));
 
-    const adjustedGoal = targetAmount * Math.pow(1 + i, t);
-    const futureCurrentSavings = currentSavings * Math.pow(1 + r, t);
-    const amountNeeded = adjustedGoal - futureCurrentSavings;
+    // Required Lumpsum Investment to reach goal
+    const Lumpsum = FV / Math.pow(1 + r, n);
 
-    const monthlyRate = Math.pow(1 + r, 1 / 12) - 1;
-    const months = t * 12;
-    const monthlySIP =
-      amountNeeded * monthlyRate / (Math.pow(1 + monthlyRate, months) - 1);
-    const lumpsum = amountNeeded / Math.pow(1 + r, t);
-
+    // Yearly breakdown (for chart)
     const yearlyData = [];
     for (let year = 1; year <= t; year++) {
-      const m = year * 12;
-      const sipValue =
-        monthlySIP *
-          ((Math.pow(1 + monthlyRate, m) - 1) / monthlyRate) *
-          (1 + monthlyRate);
-      const savingsValue = currentSavings * Math.pow(1 + r, year);
-      const goalValue = targetAmount * Math.pow(1 + i, year);
+      const months = year * 12;
+      const lumpsumValue = Lumpsum * Math.pow(1 + r, months);
+      const sipValue = SIP * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
       yearlyData.push({
         year,
-        invested: Math.round(monthlySIP * m + currentSavings),
-        value: Math.round(sipValue + savingsValue),
-        goal: Math.round(goalValue),
+        lumpsumValue: Math.round(lumpsumValue),
+        sipValue: Math.round(sipValue),
+        totalValue: Math.round(lumpsumValue + sipValue),
       });
     }
 
-    const sipIncrease = Math.round(inflationRate / 2);
-    setResult({
-      adjustedGoal: Math.round(adjustedGoal),
-      monthlySIP: Math.round(monthlySIP),
-      lumpsum: Math.round(lumpsum),
-      totalInvested: Math.round(monthlySIP * months + currentSavings),
-      sipIncrease,
+    setResults({
+      FV: Math.round(FV),
+      SIP: Math.round(SIP),
+      Lumpsum: Math.round(Lumpsum),
       yearlyData,
     });
   };
 
-  const getSliderStyle = (value, max) => ({
-    background: `linear-gradient(to right, #4f46e5 ${(value / max) * 100}%, #d1d5db ${(value / max) * 100}%)`,
-  });
-
-  const handleRangeInput = (setter) => (e) => setter(Number(e.target.value));
-  const handleTextInput = (setter) => (e) => setter(Number(e.target.value) || 0);
-
   return (
-    <div className="calculator-wrapper">
-      <div className="calculator-card">
-        <h1 className="title">🎯 Goal-Based Investment Planner</h1>
-        <p className="subtitle">
-          Plan your financial goals with smart investment strategies
-        </p>
+    <div className="calculator-container">
+      <h2>🎯 Goal Calculator</h2>
+      <p style={{ textAlign: 'center', color: '#666', marginBottom: '30px' }}>
+        Find how much you need to invest today or monthly to reach your target amount
+      </p>
 
-        {/* Goal Type */}
-        <div className="form-group">
-          <label>Goal Type</label>
-          <select
-            value={goalType}
-            onChange={(e) => setGoalType(e.target.value)}
-            className="dropdown"
-          >
-            {goalTypes.map((goal) => (
-              <option key={goal} value={goal}>
-                {goal}
-              </option>
-            ))}
-          </select>
-
-          {goalType === "Other" && (
-            <input
-              type="text"
-              placeholder="Enter your goal"
-              value={customGoal}
-              onChange={(e) => setCustomGoal(e.target.value)}
-              className="text-input"
-            />
-          )}
+      {/* Input Section */}
+      <div className="input-section">
+        <div className="input-group">
+          <label>Goal Amount (₹)</label>
+          <input
+            type="number"
+            value={inputs.goalAmount}
+            onChange={(e) => setInputs({ ...inputs, goalAmount: e.target.value })}
+            placeholder="1000000"
+          />
+          <small>Future amount you want to achieve</small>
         </div>
 
-        {/* Input Sliders */}
-        {[
-          { label: "Target Amount (₹)", val: targetAmount, min: 50000, max: 10000000, step: 50000, setter: setTargetAmount },
-          { label: "Current Savings (₹)", val: currentSavings, min: 0, max: 5000000, step: 10000, setter: setCurrentSavings },
-          { label: "Time Horizon (Years)", val: timeHorizon, min: 1, max: 30, step: 1, setter: setTimeHorizon },
-          { label: "Expected Return Rate (%)", val: returnRate, min: 1, max: 30, step: 0.5, setter: setReturnRate },
-          { label: "Inflation Rate (%)", val: inflationRate, min: 2, max: 15, step: 0.5, setter: setInflationRate },
-        ].map((f, i) => (
-          <div key={i} className="form-group">
-            <label>{f.label}</label>
-            <div className="slider-row">
-              <input
-                type="range"
-                min={f.min}
-                max={f.max}
-                step={f.step}
-                value={f.val}
-                onChange={handleRangeInput(f.setter)}
-                style={getSliderStyle(f.val, f.max)}
-              />
-              <input
-                type="number"
-                min={f.min}
-                max={f.max}
-                step={f.step}
-                value={f.val}
-                onChange={handleTextInput(f.setter)}
-                className="number-input"
-              />
-            </div>
-          </div>
-        ))}
+        <div className="input-group">
+          <label>Expected Annual Return (%)</label>
+          <input
+            type="number"
+            value={inputs.returnRate}
+            onChange={(e) => setInputs({ ...inputs, returnRate: e.target.value })}
+            placeholder="12"
+            step="0.5"
+          />
+          <small>Average annual growth rate (CAGR)</small>
+        </div>
 
-        <button className="calculate-btn" onClick={calculateGoal}>
-          Calculate My Goal 🚀
+        <div className="input-group">
+          <label>Investment Duration (Years)</label>
+          <input
+            type="number"
+            value={inputs.tenure}
+            onChange={(e) => setInputs({ ...inputs, tenure: e.target.value })}
+            placeholder="10"
+            min="1"
+            max="40"
+          />
+          <small>Total investment period (1–40 years)</small>
+        </div>
+
+        <button onClick={calculate} className="calculate-btn">
+          Calculate Investment Needed
         </button>
-
-        {result && (
-          <div className="results">
-            <div className="cards">
-              <div className="card">
-                <h3>Inflation-Adjusted Goal</h3>
-                <p>₹{result.adjustedGoal.toLocaleString("en-IN")}</p>
-              </div>
-              <div className="card highlight">
-                <h3>Monthly SIP Required</h3>
-                <p>₹{result.monthlySIP.toLocaleString("en-IN")}</p>
-              </div>
-              <div className="card">
-                <h3>Or Lumpsum Today</h3>
-                <p>₹{result.lumpsum.toLocaleString("en-IN")}</p>
-              </div>
-            </div>
-
-            <div className="ai-tip">
-              <h4>🤖 AI Investment Tip:</h4>
-              <p>
-                Increase your SIP by <strong>{result.sipIncrease}%</strong>{" "}
-                annually to reach your "<strong>{getFinalGoalType()}</strong>"
-                goal faster and beat inflation.
-              </p>
-            </div>
-
-            <div className="chart-section">
-              <ResponsiveContainer width="100%" height={320}>
-                <LineChart data={result.yearlyData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="year" />
-                  <YAxis />
-                  <Tooltip formatter={(val) => `₹${val.toLocaleString()}`} />
-                  <Legend />
-                  <Line
-                    type="monotone"
-                    dataKey="invested"
-                    stroke="#6366f1"
-                    name="Invested"
-                    strokeWidth={2}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="value"
-                    stroke="#22c55e"
-                    name="Your Investment"
-                    strokeWidth={3}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="goal"
-                    stroke="#eab308"
-                    name="Goal Value"
-                    strokeWidth={3}
-                    strokeDasharray="5 5"
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-        )}
       </div>
 
+      {/* Results */}
+      {results && (
+        <>
+          <div className="results-grid">
+            <div className="result-card" style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' }}>
+              <h4>Target Goal</h4>
+              <p className="result-value">₹{results.FV.toLocaleString()}</p>
+              <small>Future value you want to achieve</small>
+            </div>
+
+            <div className="result-card" style={{ background: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' }}>
+              <h4>Required Lumpsum Investment</h4>
+              <p className="result-value">₹{results.Lumpsum.toLocaleString()}</p>
+              <small>Invest this amount once today</small>
+            </div>
+
+            <div className="result-card" style={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' }}>
+              <h4>Required Monthly SIP</h4>
+              <p className="result-value">₹{results.SIP.toLocaleString()}</p>
+              <small>Invest this amount every month</small>
+            </div>
+          </div>
+
+          {/* Chart Section */}
+          <div className="chart-section">
+            <h3>📈 Growth Projection - Year by Year</h3>
+            <ResponsiveContainer width="100%" height={400}>
+              <LineChart data={results.yearlyData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="year" label={{ value: 'Years', position: 'insideBottom', offset: -5 }} />
+                <YAxis label={{ value: 'Amount (₹)', angle: -90, position: 'insideLeft' }} />
+                <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
+                <Legend />
+                <Line type="monotone" dataKey="lumpsumValue" stroke="#f5576c" strokeWidth={2} name="Lumpsum Growth" />
+                <Line type="monotone" dataKey="sipValue" stroke="#4facfe" strokeWidth={2} name="SIP Growth" />
+                <Line type="monotone" dataKey="totalValue" stroke="#43e97b" strokeWidth={3} name="Total Value" />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Bar Chart */}
+          <div className="chart-section">
+            <h3>📊 Contribution Breakdown</h3>
+            <ResponsiveContainer width="100%" height={400}>
+              <BarChart data={results.yearlyData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="year" />
+                <YAxis />
+                <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
+                <Legend />
+                <Bar dataKey="lumpsumValue" fill="#f5576c" name="Lumpsum Growth" />
+                <Bar dataKey="sipValue" fill="#4facfe" name="SIP Growth" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Table Section */}
+          <div className="table-section">
+            <h3>📅 Year-by-Year Breakdown</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th>Lumpsum Value</th>
+                  <th>SIP Value</th>
+                  <th>Total Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                {results.yearlyData.map((row) => (
+                  <tr key={row.year}>
+                    <td>{row.year}</td>
+                    <td>₹{row.lumpsumValue.toLocaleString()}</td>
+                    <td>₹{row.sipValue.toLocaleString()}</td>
+                    <td style={{ fontWeight: 'bold', color: '#10b981' }}>₹{row.totalValue.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
       <style jsx>{`
-        .calculator-wrapper {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: linear-gradient(135deg, #e0f2fe, #eef2ff);
-          min-height: 100vh;
-          padding: 30px;
-        }
-        .calculator-card {
-          background: white;
-          max-width: 700px;
-          width: 100%;
-          padding: 30px;
-          border-radius: 20px;
-          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        }
-        .title {
-          text-align: center;
-          font-size: 28px;
-          color: #334155;
-          margin-bottom: 8px;
-        }
-        .subtitle {
-          text-align: center;
-          color: #64748b;
-          margin-bottom: 25px;
-        }
-        .form-group {
+        .input-group {
           margin-bottom: 20px;
         }
-        label {
-          font-weight: 600;
-          color: #374151;
+        .input-group label {
           display: block;
           margin-bottom: 8px;
+          color: #333;
+          font-weight: 600;
         }
-        .dropdown, .text-input {
+        .input-group input {
           width: 100%;
-          padding: 10px;
-          border-radius: 10px;
-          border: 1.5px solid #cbd5e1;
-          outline: none;
-          font-size: 15px;
-        }
-        .slider-row {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-        input[type="range"] {
-          flex: 1;
-          height: 8px;
-          border-radius: 10px;
-          cursor: pointer;
-        }
-        .number-input {
-          width: 100px;
-          padding: 6px 10px;
-          text-align: right;
+          padding: 12px;
+          border: 2px solid #e0e0e0;
           border-radius: 8px;
-          border: 1.5px solid #cbd5e1;
+          font-size: 16px;
+        }
+        .input-group small {
+          display: block;
+          margin-top: 5px;
+          color: #666;
+          font-size: 13px;
         }
         .calculate-btn {
           width: 100%;
-          background: linear-gradient(135deg, #6366f1, #8b5cf6);
+          padding: 15px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           color: white;
           border: none;
-          padding: 14px;
-          font-size: 16px;
-          font-weight: bold;
-          border-radius: 12px;
+          border-radius: 10px;
+          font-size: 18px;
+          font-weight: 600;
           cursor: pointer;
-          transition: all 0.2s ease;
+          margin-top: 20px;
         }
         .calculate-btn:hover {
           transform: translateY(-2px);
-          box-shadow: 0 4px 10px rgba(99, 102, 241, 0.4);
+          box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
-        .results {
-          margin-top: 30px;
+        .results-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          margin: 30px 0;
         }
-        .cards {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 15px;
-        }
-        .card {
-          flex: 1;
-          min-width: 180px;
-          background: #f8fafc;
-          border-radius: 12px;
-          padding: 15px;
+        .result-card {
+          padding: 25px;
+          border-radius: 15px;
+          color: white;
           text-align: center;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
-        .card.highlight {
-          background: #eef2ff;
-          border: 1.5px solid #6366f1;
+        .result-card h4 {
+          margin: 0 0 10px 0;
+          font-size: 16px;
+          opacity: 0.9;
         }
-        .card h3 {
-          font-size: 15px;
-          color: #475569;
-        }
-        .card p {
-          font-size: 20px;
+        .result-value {
+          font-size: 28px;
           font-weight: bold;
-          color: #111827;
-          margin-top: 8px;
+          margin: 10px 0;
         }
-        .ai-tip {
-          margin-top: 25px;
-          background: #ecfeff;
-          padding: 15px;
-          border-radius: 10px;
-          border-left: 5px solid #0ea5e9;
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 20px;
         }
-        .ai-tip h4 {
-          margin-bottom: 5px;
-          color: #0f172a;
+        th,
+        td {
+          padding: 12px;
+          text-align: right;
+          border-bottom: 1px solid #e0e0e0;
         }
-        .chart-section {
-          margin-top: 25px;
-          height: 320px;
+        th {
+          background: #667eea;
+          color: white;
+          font-weight: 600;
         }
-        @media (max-width: 768px) {
-          .calculator-card { padding: 20px; }
-          .cards { flex-direction: column; }
-          .chart-section { height: 250px; }
+        tr:hover {
+          background: #f9fafb;
         }
       `}</style>
     </div>
