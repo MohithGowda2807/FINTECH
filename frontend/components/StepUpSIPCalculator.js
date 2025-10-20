@@ -137,6 +137,8 @@ export default function StepUpSIPCalculator() {
                 value={inputs.stepUpRate}
                 onChange={(e) => setInputs({...inputs, stepUpRate: e.target.value})}
                 step="1"
+                min="0"
+                max="100"
                 />
             </div>
             <div className="input-group">
@@ -146,6 +148,8 @@ export default function StepUpSIPCalculator() {
                 value={inputs.returnRate}
                 onChange={(e) => setInputs({...inputs, returnRate: e.target.value})}
                 step="0.5"
+                min="0"
+                max="100"
                 />
             </div>
             <div className="input-group">
@@ -155,6 +159,7 @@ export default function StepUpSIPCalculator() {
                 value={inputs.tenure}
                 onChange={(e) => setInputs({...inputs, tenure: e.target.value})}
                 min="1"
+                max="100"
                 />
             </div>
         </div>
@@ -201,7 +206,7 @@ export default function StepUpSIPCalculator() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-                <XAxis dataKey="year" label={{ value: "Years", position: 'insideBottom', offset: -15, fill: '#666' }} tick={{ fill: '#666', fontSize: 12 }} stroke="#ccc" />
+                <XAxis type="number" dataKey="year" domain={['dataMin', 'dataMax']} label={{ value: "Years", position: 'insideBottom', offset: -15, fill: '#666' }} tick={{ fill: '#666', fontSize: 12 }} stroke="#ccc" />
                 <YAxis tickFormatter={formatAxis} label={{ value: 'Amount (₹)', angle: -90, position: 'insideLeft', fill: '#666' }} tick={{ fill: '#666', fontSize: 12 }} stroke="#ccc" />
                 <Tooltip content={<CustomTooltip />}/>
                 <Legend wrapperStyle={{ paddingTop: "20px" }}/>
@@ -226,7 +231,7 @@ export default function StepUpSIPCalculator() {
                     </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="year" label={{ value: 'Years', position: 'insideBottom', offset: -15, fill: '#666' }} tick={{ fill: '#666', fontSize: 12 }}/>
+                <XAxis type="number" dataKey="year" domain={['dataMin', 'dataMax']} label={{ value: 'Years', position: 'insideBottom', offset: -15, fill: '#666' }} tick={{ fill: '#666', fontSize: 12 }}/>
                 <YAxis tickFormatter={formatAxis} label={{ value: 'Value (₹)', angle: -90, position: 'insideLeft', fill: '#666' }} tick={{ fill: '#666', fontSize: 12 }}/>
                 <Tooltip content={<CustomTooltip />}/>
                 <Legend wrapperStyle={{ paddingTop: "20px" }}/>
@@ -294,3 +299,4 @@ export default function StepUpSIPCalculator() {
     </div>
   );
 }
+
