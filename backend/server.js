@@ -5,12 +5,6 @@ const bcrypt = require('bcrypt');
 const { Pool } = require('pg');
 require('dotenv').config();
 
-// ADD THE DEBUGGING CODE RIGHT HERE
-console.log("--- CHECKING ENVIRONMENT VARIABLES ---");
-console.log("DATABASE_URL variable is:", process.env.DATABASE_URL);
-console.log("------------------------------------");
-
-
 const app = express();
 
 // CORS Configuration
@@ -23,20 +17,19 @@ app.use(cors({
 
 app.use(express.json());
 
-// PostgreSQL connection
+// PostgreSQL connection - CONFIGURED FOR RENDER & LOCAL
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT || 5432,
+  connectionString: process.env.DATABASE_URL,
+  // Required for Render's database connections
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 // Test database connection on startup
 pool.connect((err, client, release) => {
   if (err) {
     console.error('❌ Error connecting to database:', err.stack);
-    console.error('❌ Please check your .env file settings!');
   } else {
     console.log('✅ Database connected successfully!');
     release();
