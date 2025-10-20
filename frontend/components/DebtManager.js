@@ -3,6 +3,7 @@ import axios from 'axios';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts'; // Add chart import if needed for visualization
 //hello how r u all>>?? asdfghj
 //tenten+4funny@gmail.com
+//tentanisnotfunny
 function DebtManager({ userId }) {
   const [debts, setDebts] = useState([]);
   const [form, setForm] = useState({
