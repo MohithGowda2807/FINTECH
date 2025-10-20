@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
-// --- CORE CALCULATION ENGINE (Logic is sound, no changes needed) ---
-
+// --- CORE CALCULATION ENGINE (Logic is sound) ---
 function simulatePayoff(initialDebts, extraPayment, method) {
     let debts = initialDebts.map(d => ({
         ...d,
@@ -13,7 +12,6 @@ function simulatePayoff(initialDebts, extraPayment, method) {
         original_min_payment: parseFloat(d.emi) || 0,
         payoffMonth: null,
     }));
-
     const baseline = calculateBaseline(initialDebts);
     let month = 0;
     let totalInterestPaid = 0;
@@ -51,7 +49,6 @@ function simulatePayoff(initialDebts, extraPayment, method) {
     }
     const interestSaved = baseline.totalInterest - totalInterestPaid;
     const timeSaved = baseline.months > 0 ? baseline.months - month : 0;
-
     return {
         months: month,
         totalInterest: totalInterestPaid.toFixed(2),
@@ -89,20 +86,15 @@ export default function DebtManager() {
   const [newDebt, setNewDebt] = useState({ name: '', principal: '', interestRate: '', emi: '' });
   const [extraPayment, setExtraPayment] = useState('5000');
   const [results, setResults] = useState(null);
-  
-  // FIX: State to track if the component is mounted on the client
   const [isClient, setIsClient] = useState(false);
 
-  // FIX: useEffect to set isClient to true after initial render on the client
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewDebt(prev => ({ ...prev, [name]: value }));
+    setNewDebt(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
   const handleAddDebt = (e) => {
     e.preventDefault();
     if (newDebt.name && newDebt.principal && newDebt.interestRate && newDebt.emi) {
@@ -110,16 +102,15 @@ export default function DebtManager() {
       setNewDebt({ name: '', principal: '', interestRate: '', emi: '' });
     }
   };
-
   const handleRemoveDebt = (index) => {
     setDebts(prev => prev.filter((_, i) => i !== index));
   };
-
   const handleCalculate = useCallback(() => {
     if (debts.length > 0) {
-      const snowball = simulatePayoff(debts, parseFloat(extraPayment) || 0, 'Snowball');
-      const avalanche = simulatePayoff(debts, parseFloat(extraPayment) || 0, 'Avalanche');
-      setResults({ snowball, avalanche });
+      setResults({
+        snowball: simulatePayoff(debts, parseFloat(extraPayment) || 0, 'Snowball'),
+        avalanche: simulatePayoff(debts, parseFloat(extraPayment) || 0, 'Avalanche'),
+      });
     } else {
       setResults(null);
     }
@@ -131,10 +122,7 @@ export default function DebtManager() {
 
   const totalOutstanding = debts.reduce((sum, d) => sum + (parseFloat(d.principal) || 0), 0);
   const totalMonthlyEMI = debts.reduce((sum, d) => sum + (parseFloat(d.emi) || 0), 0);
-  const weightedInterest = totalOutstanding > 0 ? (
-      debts.reduce((sum, d) => sum + (parseFloat(d.principal) || 0) * (parseFloat(d.interestRate) || 0), 0) / totalOutstanding
-  ).toFixed(2) : 0;
-  
+  const weightedInterest = totalOutstanding > 0 ? (debts.reduce((sum, d) => sum + (parseFloat(d.principal) || 0) * (parseFloat(d.interestRate) || 0), 0) / totalOutstanding).toFixed(2) : 0;
   const allocationData = debts.map(d => ({ name: d.name, value: parseFloat(d.principal) || 0 }));
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#AF19FF'];
 
@@ -147,13 +135,14 @@ export default function DebtManager() {
         </div>
       </header>
       <main>
-        {/* ... Metric Cards and Forms ... */}
-        {/* -- NOTE: All other JSX remains identical -- */}
         <section className="metrics-grid">
             <div className="metric-card"><h4>Total Outstanding Debt</h4><p>₹{totalOutstanding.toLocaleString('en-IN')}</p></div>
             <div className="metric-card"><h4>Avg. Interest Rate</h4><p>{weightedInterest}%</p></div>
             <div className="metric-card"><h4>Total Monthly Payment</h4><p>₹{(totalMonthlyEMI + (parseFloat(extraPayment) || 0)).toLocaleString('en-IN')}</p></div>
+            
+            {/* THIS IS THE FIXED LINE */}
             <div className="metric-card"><h4>Debt-Free By (Avalanche)</h4><p>{results ? ${Math.floor(results.avalanche.months / 12)}Y ${results.avalanche.months % 12}M : 'N/A'}</p></div>
+
         </section>
 
         <section className="card">
@@ -170,39 +159,31 @@ export default function DebtManager() {
         <div className="holdings-grid">
             <section className="card" style={{ gridColumn: 'span 2' }}>
                 <div className="card-header holdings-header"><h3>Your Debts ({debts.length} total)</h3><span>Total: ₹{totalOutstanding.toLocaleString('en-IN')}</span></div>
-                <div className="holdings-table">
-                    <table>
-                        <thead><tr><th>Debt Name</th><th>Amount</th><th>Interest Rate</th><th>EMI</th><th>Actions</th></tr></thead>
-                        <tbody>{debts.map((d, i) => (<tr key={i}><td>{d.name}</td><td>₹{(parseFloat(d.principal) || 0).toLocaleString('en-IN')}</td><td>{d.interestRate}%</td><td>₹{(parseFloat(d.emi) || 0).toLocaleString('en-IN')}</td><td><button className="btn-edit" title="Edit functionality to be implemented">Edit</button><button className="btn-delete" onClick={() => handleRemoveDebt(i)}>Delete</button></td></tr>))}</tbody>
-                    </table>
-                </div>
+                <div className="holdings-table"><table><thead><tr><th>Debt Name</th><th>Amount</th><th>Interest Rate</th><th>EMI</th><th>Actions</th></tr></thead>
+                <tbody>{debts.map((d, i) => (<tr key={i}><td>{d.name}</td><td>₹{(parseFloat(d.principal) || 0).toLocaleString('en-IN')}</td><td>{d.interestRate}%</td><td>₹{(parseFloat(d.emi) || 0).toLocaleString('en-IN')}</td><td><button className="btn-edit" title="Edit functionality to be implemented">Edit</button><button className="btn-delete" onClick={() => handleRemoveDebt(i)}>Delete</button></td></tr>))}</tbody>
+                </table></div>
             </section>
-            
             <section className="card">
                 <div className="card-header"><h3>Debt Allocation</h3></div>
                 <div className="chart-container">
-                    {/* FIX: Conditionally render the chart only on the client */}
                     {isClient && (
-                        <ResponsiveContainer width="100%" height={300}>
-                            <PieChart>
-                                <Pie data={allocationData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#8884d8" paddingAngle={5}>
-                                    {allocationData.map((entry, index) => <Cell key={cell-${index}} fill={COLORS[index % COLORS.length]} />)}
-                                </Pie>
-                                <Tooltip formatter={(value, name) => [₹${value.toLocaleString('en-IN')}, name]}/>
-                                <Legend />
-                            </PieChart>
-                        </ResponsiveContainer>
+                    <ResponsiveContainer width="100%" height={300}>
+                        <PieChart>
+                            <Pie data={allocationData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#8884d8" paddingAngle={5}>
+                                {allocationData.map((entry, index) => <Cell key={cell-${index}} fill={COLORS[index % COLORS.length]} />)}
+                            </Pie>
+                            <Tooltip formatter={(value, name) => [₹${value.toLocaleString('en-IN')}, name]}/>
+                            <Legend />
+                        </PieChart>
+                    </ResponsiveContainer>
                     )}
                 </div>
             </section>
         </div>
 
-         <section className="card">
+        <section className="card">
             <div className="card-header"><h3>Repayment Strategy Simulation</h3></div>
-            <div className="simulation-controls">
-                <label>Additional Monthly Payment (₹)<input type="number" value={extraPayment} onChange={e => setExtraPayment(e.target.value)} /></label>
-                <button onClick={handleCalculate} className="recalculate-btn">Recalculate Plan</button>
-            </div>
+            <div className="simulation-controls"><label>Additional Monthly Payment (₹)<input type="number" value={extraPayment} onChange={e => setExtraPayment(e.target.value)} /></label><button onClick={handleCalculate} className="recalculate-btn">Recalculate Plan</button></div>
         </section>
 
         {results && (
@@ -227,13 +208,12 @@ export default function DebtManager() {
                 </div>
             </section>
         )}
-
       </main>
       
       <style jsx>{`
         /* --- Styles are unchanged --- */
         .debt-manager-container { background-color: #f0f2f5; padding: 2rem; font-family: 'Inter', sans-serif; }
-        .chart-container { width: 100%; height: 300px; /* Give a fixed height to the container */ }
+        .chart-container { width: 100%; height: 300px; }
         header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
         .logo { display: flex; align-items: center; gap: 0.5rem; color: #1e3a8a; }
         .logo h1 { font-size: 1.5rem; font-weight: 600; }
