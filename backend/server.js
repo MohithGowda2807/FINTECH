@@ -5,11 +5,17 @@ const bcrypt = require('bcrypt');
 const { Pool } = require('pg');
 require('dotenv').config();
 
+// ADD THE DEBUGGING CODE RIGHT HERE
+console.log("--- CHECKING ENVIRONMENT VARIABLES ---");
+console.log("DATABASE_URL variable is:", process.env.DATABASE_URL);
+console.log("------------------------------------");
+
+
 const app = express();
 
 // CORS Configuration
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  origin: ['http://localhost:3000', 'http://localhost:3001', 'https://finance-assistant-website.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -64,8 +70,8 @@ const authenticateToken = (req, res, next) => {
 
 // ============ ADD THE DEBT ROUTER FOR /api/debt ============
 // Make sure you create backend/routes/debt.js as described
-const debtRouter = require('./routes/debt');
-app.use('/api/debt', debtRouter);
+// const debtRouter = require('./routes/debt');
+// app.use('/api/debt', debtRouter);
 
 // ============ AUTHENTICATION ROUTES ============
 
@@ -386,5 +392,7 @@ app.post('/api/calculate/lumpsum', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
+  console.log(`🔗 Connecting to database...`);
   console.log(`Server running on port ${PORT}`);
 });
+
