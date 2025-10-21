@@ -4,11 +4,18 @@ import styles from '../styles/Chatbot.module.css';
 export default function FinanceChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Hi! I'm your Finance Assistant powered by AI. Ask me about SIP, investments, or how to use our calculators!", sender: 'bot' }
+    {
+      text: "Hi! I'm your Finance Assistant powered by Google Gemini AI. Ask me about SIP, investments, or how to use our calculators!",
+      sender: 'bot'
+    }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
+  // GOOGLE GEMINI API KEY (replace this value!)
+  const API_KEY = "AIzaSyBYacM9fPyA5e9GS7YIDwQ3fQ0UcvsUsCc";
+
+  // Handle message send
   const handleSend = async () => {
     if (input.trim() === '') return;
 
@@ -18,33 +25,45 @@ export default function FinanceChatbot() {
     setIsTyping(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/chatbot/message', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ message: input }),
-      });
+      // Call Gemini API directly
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [
+              {
+                role: "user",
+                parts: [{ text: input }]
+              }
+            ]
+          }),
+        }
+      );
 
       const data = await response.json();
-      
-      const botMessage = { 
-        text: data.reply || data.fallback || 'Sorry, I could not process your request.', 
-        sender: 'bot' 
+
+      // Extract model reply safely
+      const botMessage = {
+        text:
+          data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+          "Sorry, I couldn’t generate a response.",
+        sender: 'bot'
       };
 
       setTimeout(() => {
         setMessages(prev => [...prev, botMessage]);
         setIsTyping(false);
       }, 500);
-
     } catch (error) {
-      console.error('Chatbot error:', error);
-      const errorMessage = { 
-        text: 'Sorry, I am having trouble connecting. Please try again later.', 
-        sender: 'bot' 
+      console.error('Gemini API error:', error);
+      const errorMessage = {
+        text:
+          'Sorry, Gemini AI is temporarily unreachable. Please try again later.',
+        sender: 'bot'
       };
-      
+
       setTimeout(() => {
         setMessages(prev => [...prev, errorMessage]);
         setIsTyping(false);
@@ -52,27 +71,31 @@ export default function FinanceChatbot() {
     }
   };
 
+  // Handle Enter key press
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') handleSend();
   };
 
   return (
     <>
+      {/* Floating Chat Icon */}
       {!isOpen && (
         <button className={styles.chatButton} onClick={() => setIsOpen(true)}>
           💬
         </button>
       )}
 
+      {/* Chat Window */}
       {isOpen && (
         <div className={styles.chatWindow}>
           <div className={styles.chatHeader}>
-            <span>🤖 Finance Assistant (AI)</span>
+            <span>🤖 Finance Assistant (Gemini AI)</span>
             <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
               ✕
             </button>
           </div>
 
+          {/* Messages Section */}
           <div className={styles.chatMessages}>
             {messages.map((msg, idx) => (
               <div
@@ -84,14 +107,17 @@ export default function FinanceChatbot() {
                 {msg.text}
               </div>
             ))}
-            
+
             {isTyping && (
               <div className={`${styles.message} ${styles.botMessage}`}>
-                <span style={{ fontStyle: 'italic', color: '#999' }}>AI is thinking...</span>
+                <span style={{ fontStyle: 'italic', color: '#999' }}>
+                  AI is thinking...
+                </span>
               </div>
             )}
           </div>
 
+          {/* Input Field */}
           <div className={styles.chatInput}>
             <input
               type="text"
