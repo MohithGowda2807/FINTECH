@@ -1,535 +1,535 @@
-"Date","Type","Category","Amount","Currency","Memo","Wallet"
-"16/10/2025, 14:14","Expense","Food","-10.00","JPY","Lotto Choco Pie","Cash"
-"16/10/2025, 13:40","Income","Cashback","50.00","JPY","200 Points Redemption","PNB RuPay Credit Card"
-"14/10/2025, 18:18","Income","Cashback","25.00","JPY","100 Points Redemption","PNB RuPay Credit Card"
-"14/10/2025, 18:11","Expense","Food","-89.00","JPY","5 BarOne, 2 Love Bites, 3 Cheese Biscuit, 1 Red Velvat, 1 ChocoShake","PNB RuPay Credit Card"
-"14/10/2025, 18:11","Expense","Food","-50.00","JPY","5 Brownies","PNB RuPay Credit Card"
-"14/10/2025, 18:10","Expense","Food","-55.00","JPY","Aloo Cheese Chilly Sandwich","PNB RuPay Credit Card"
-"14/10/2025, 13:16","Expense","Food","-5.00","JPY","Lolipop","Cash"
-"14/10/2025, 13:16","Expense","Food","-50.00","JPY","Bisi Bele Bath","PNB RuPay Credit Card"
-"11/10/2025, 18:29","Expense","Food","-35.00","JPY","Masala Puri","PNB RuPay Credit Card"
-"11/10/2025, 17:13","Income","Cashback","6.00","JPY","Fuse Chocolate Cashback","PayTM UPI Lite"
-"10/10/2025, 13:45","Expense","Food","-60.00","JPY","Hot Choco Fudge","PayTM UPI Lite"
-"10/10/2025, 08:23","Expense","Food","-10.00","JPY","2 apple cake","PNB RuPay Credit Card"
-"09/10/2025, 08:15","Income","Interest","183.00","JPY","","SBI Savings"
-"09/10/2025, 08:15","Expense","Investment","-241.00","JPY","Gold Mutual Fund","SBI Savings"
-"08/10/2025, 13:41","Transfer","Transfer","50.00","JPY","","Cash -> SBI Savings"
-"07/10/2025, 09:19","Expense","Refundable","-25.00","JPY","Pen","Groww UPI Lite"
-"06/10/2025, 14:50","Expense","Food","-20.00","JPY","Bonda","PNB RuPay Credit Card"
-"05/10/2025, 20:43","Transfer","Transfer","7.32","JPY","","SBI Savings -> PhonePe UPI Lite"
-"05/10/2025, 09:18","Income","Bonus","12.00","JPY","","SBI Savings"
-"04/10/2025, 20:48","Expense","Food","-10.00","JPY","2 Jumbo Ring","PNB RuPay Credit Card"
-"04/10/2025, 12:54","Expense","Food","-10.00","JPY","2 Cupcakes","Cash"
-"04/10/2025, 12:54","Expense","Food","-10.00","JPY","Swiss Roll","PNB RuPay Credit Card"
-"04/10/2025, 10:03","Transfer","Transfer","2.65","JPY","","Mobikwik Wallet -> SBI Savings"
-"04/10/2025, 09:51","Transfer","Transfer","393.00","JPY","Credit Card Payment","PNB Savings -> PNB RuPay Credit Card"
-"03/10/2025, 14:29","Income","Cashback","1.21","JPY","","Mobikwik Wallet"
-"02/10/2025, 18:33","Transfer","Transfer","15.00","JPY","","PhonePe UPI Lite -> PNB Savings"
-"02/10/2025, 18:27","Expense","Food","-15.00","JPY","3 Jeera Papad","PNB RuPay Credit Card"
-"02/10/2025, 18:26","Transfer","Transfer","50.00","JPY","","Cash at Home -> Cash"
-"02/10/2025, 16:00","Income","Cashback","1.44","JPY","","Mobikwik Wallet"
-"02/10/2025, 12:16","Expense","Investment","-1036.00","JPY","Gold Mutual Fund","SBI Savings"
-"02/10/2025, 12:16","Income","Refund","236.00","JPY","","SBI Savings"
-"02/10/2025, 12:15","Income","Bonus","800.00","JPY","Metro","SBI Savings"
-"01/10/2025, 18:11","Expense","Food","-20.00","JPY","4 Cup Cake","PhonePe UPI Lite"
-"01/10/2025, 18:10","Expense","Safety","-150.00","JPY","Wallet","Cash"
-"01/10/2025, 18:10","Income","Bonus","200.00","JPY","","Cash"
-"01/10/2025, 16:54","Transfer","Transfer","7.00","JPY","","SBI Savings -> Groww UPI Lite"
-"01/10/2025, 16:53","Transfer","Transfer","2.60","JPY","","Mobikwik Wallet -> SBI Savings"
-"01/10/2025, 16:53","Transfer","Transfer","5.00","JPY","","Indian Bank Savings -> SBI Savings"
-"01/10/2025, 13:37","Expense","Investment","-400.00","JPY","Gold Mutual Fund","Fixed Deposit"
-"01/10/2025, 13:37","Income","Cashback","1.29","JPY","","Mobikwik Wallet"
-"01/10/2025, 09:20","Income","Interest","5.00","JPY","","Indian Bank Savings"
-"01/10/2025, 08:32","Transfer","Transfer","10.00","JPY","","SBI Savings -> PNB Savings"
-"01/10/2025, 08:32","Income","Interest","10.00","JPY","","SBI Savings"
-"01/10/2025, 08:29","Transfer","Transfer","112.32","JPY","","PhonePe UPI Lite -> PNB Savings"
-"01/10/2025, 07:50","Expense","Food","-80.00","JPY","Choco Burfi + Pista Burfi","PNB RuPay Credit Card"
-"01/10/2025, 07:50","Expense","Food","-35.00","JPY","10 Melody 5 Moong dal","PNB RuPay Credit Card"
-"29/09/2025, 17:16","Expense","Education","-3.00","JPY","Printout","PNB RuPay Credit Card"
-"29/09/2025, 15:23","Income","Cashback","1.31","JPY","","Mobikwik Wallet"
-"28/09/2025, 17:46","Expense","Investment","-106.00","JPY","Gold Mutual Fund","SBI Savings"
-"28/09/2025, 17:45","Transfer","Transfer","7.54","JPY","","Mobikwik Wallet -> SBI Savings"
-"28/09/2025, 17:45","Expense","Refundable","-20.00","JPY","Brush","Groww UPI Lite"
-"28/09/2025, 17:42","Transfer","Transfer","301.26","JPY","","SBI Savings -> Groww UPI Lite"
-"28/09/2025, 17:42","Transfer","Transfer","400.00","JPY","","Cash at Home -> SBI Savings"
-"28/09/2025, 17:27","Income","Refund","50.00","JPY","","Cash at Home"
-"28/09/2025, 17:24","Expense","Refundable","-7.00","JPY","Bun","Groww UPI Lite"
-"28/09/2025, 14:09","Expense","Refundable","-48.00","JPY","Milk","Groww UPI Lite"
-"28/09/2025, 14:08","Income","Cashback","1.25","JPY","","Mobikwik Wallet"
-"27/09/2025, 15:13","Income","Cashback","1.33","JPY","","Mobikwik Wallet"
-"27/09/2025, 14:43","Expense","Refundable","-85.00","JPY","Milk Curd","Groww UPI Lite"
-"26/09/2025, 12:04","Income","Cashback","1.32","JPY","","Mobikwik Wallet"
-"25/09/2025, 20:23","Income","Cashback","1.31","JPY","","Mobikwik Wallet"
-"25/09/2025, 19:11","Expense","Food","-30.00","JPY","Butterscotch Softy","PNB RuPay Credit Card"
-"25/09/2025, 19:11","Expense","Refundable","-30.00","JPY","Popcorn","Cash at Home"
-"25/09/2025, 19:10","Income","Refund","170.00","JPY","","Cash at Home"
-"24/09/2025, 20:05","Transfer","Transfer","8.24","JPY","","SBI Savings -> Groww UPI Lite"
-"24/09/2025, 19:30","Expense","Food","-13.97","JPY","Lava Cake","Groww UPI Lite"
-"24/09/2025, 19:28","Expense","Refundable","-60.53","JPY","Bakarvada","Groww UPI Lite"
-"24/09/2025, 11:14","Income","Cashback","1.33","JPY","","Mobikwik Wallet"
-"23/09/2025, 16:16","Income","Cashback","1.00","JPY","","Mobikwik Wallet"
-"23/09/2025, 16:15","Expense","Refundable","-39.00","JPY","Data Add on","Groww UPI Lite"
-"23/09/2025, 16:15","Transfer","Transfer","1.33","JPY","","Mobikwik Wallet -> SBI Savings"
-"23/09/2025, 16:15","Income","Cashback","1.33","JPY","","Mobikwik Wallet"
-"22/09/2025, 22:27","Income","Bonus","20.00","JPY","","Cash at Home"
-"22/09/2025, 22:26","Transfer","Transfer","6.04","JPY","","Mobikwik Wallet -> SBI Savings"
-"22/09/2025, 13:30","Income","Cashback","1.08","JPY","","Mobikwik Wallet"
-"21/09/2025, 17:45","Income","Cashback","1.35","JPY","","Mobikwik Wallet"
-"20/09/2025, 17:33","Income","Cashback","1.15","JPY","","Mobikwik Wallet"
-"19/09/2025, 19:31","Transfer","Transfer","75.00","JPY","","SBI Savings -> PayTM UPI Lite"
-"19/09/2025, 19:30","Expense","Investment","-500.00","JPY","Gold Mutual Fund","PayTM UPI Lite"
-"19/09/2025, 19:29","Transfer","Transfer","75.70","JPY","","Groww UPI Lite -> SBI Savings"
-"19/09/2025, 14:47","Expense","Refundable","-43.00","JPY","Holige","Groww UPI Lite"
-"19/09/2025, 13:22","Expense","Refundable","-35.00","JPY","Cake","Groww UPI Lite"
-"19/09/2025, 13:22","Expense","Refundable","-594.30","JPY","Domino's","Groww UPI Lite"
-"19/09/2025, 13:21","Income","Cashback","1.24","JPY","","Mobikwik Wallet"
-"19/09/2025, 09:56","Income","Refund","798.00","JPY","","Groww UPI Lite"
-"19/09/2025, 09:55","Expense","Refundable","-78.00","JPY","Bread + Dolo 650","Groww UPI Lite"
-"18/09/2025, 18:02","Income","Cashback","1.22","JPY","","Mobikwik Wallet"
-"17/09/2025, 18:56","Expense","Investment","-122.00","JPY","Gold Mutual Fund","SBI Savings"
-"17/09/2025, 18:54","Transfer","Transfer","11.59","JPY","","Mobikwik Wallet -> SBI Savings"
-"17/09/2025, 18:53","Income","Cashback","1.41","JPY","","Mobikwik Wallet"
-"17/09/2025, 18:41","Income","Bonus","100.00","JPY","","SBI Savings"
-"17/09/2025, 18:40","Expense","Food","-20.00","JPY","Melody","PNB RuPay Credit Card"
-"17/09/2025, 18:40","Expense","Refundable","-20.00","JPY","Bun","Groww UPI Lite"
-"17/09/2025, 18:40","Expense","Refundable","-95.00","JPY","Dosa Batter","Groww UPI Lite"
-"17/09/2025, 18:39","Transfer","Transfer","168.00","JPY","","SBI Savings -> Groww UPI Lite"
-"17/09/2025, 18:39","Income","Refund","170.00","JPY","","SBI Savings"
-"16/09/2025, 19:27","Income","Cashback","0.83","JPY","","Mobikwik Wallet"
-"16/09/2025, 18:51","Expense","Food","-30.00","JPY","Vanilla Softy + Cream Roll","PhonePe UPI Lite"
-"15/09/2025, 20:23","Expense","Food","-10.00","JPY","Moong Dal","SBI Savings"
-"15/09/2025, 20:23","Expense","Refundable","-68.00","JPY","Milk, Brush","Groww UPI Lite"
-"15/09/2025, 19:35","Income","Cashback","1.34","JPY","","Mobikwik Wallet"
-"15/09/2025, 18:32","Expense","Travel","-95.00","JPY","Aquarium","SBI Savings"
-"15/09/2025, 17:54","Expense","Travel","-45.00","JPY","Planet on Sphere","SBI Savings"
-"15/09/2025, 17:53","Expense","Travel","-45.00","JPY","Jungle 3d","SBI Savings"
-"15/09/2025, 17:52","Expense","Travel","-100.00","JPY","Visveswaraya Museum","SBI Savings"
-"15/09/2025, 13:24","Expense","Refundable","-22.00","JPY","Battery","SBI Savings"
-"15/09/2025, 09:38","Transfer","Transfer","205.00","JPY","","Indian Bank Savings -> SBI Savings"
-"15/09/2025, 09:38","Income","Interest","205.00","JPY","","Indian Bank Savings"
-"14/09/2025, 21:37","Income","Bonus","50.00","JPY","","Cash at Home"
-"14/09/2025, 17:48","Income","Cashback","0.67","JPY","","Mobikwik Wallet"
-"13/09/2025, 16:56","Income","Cashback","0.58","JPY","","Mobikwik Wallet"
-"13/09/2025, 14:11","Expense","Refundable","-140.00","JPY","Lunch","SBI Savings"
-"13/09/2025, 14:10","Expense","Refundable","-30.00","JPY","Desert Cake","SBI Savings"
-"12/09/2025, 20:22","Expense","Refundable","-20.00","JPY","Pen Pencil","SBI Savings"
-"12/09/2025, 20:18","Transfer","Transfer","60.00","JPY","","SBI Savings -> PNB Savings"
-"12/09/2025, 20:18","Transfer","Transfer","100.00","JPY","","SBI Savings -> Groww UPI Lite"
-"12/09/2025, 17:56","Expense","Refundable","-30.00","JPY","Kaara Boondi, Cornflakes","SBI Savings"
-"12/09/2025, 17:56","Transfer","Transfer","500.00","JPY","","Cash at Home -> SBI Savings"
-"12/09/2025, 13:35","Income","Cashback","0.70","JPY","","Mobikwik Wallet"
-"12/09/2025, 11:56","Expense","Banking charges","-0.01","JPY","SMS Charges","Indian Bank Savings"
-"11/09/2025, 20:41","Income","Refund","500.00","JPY","","Cash at Home"
-"11/09/2025, 17:42","Expense","Refundable","-40.00","JPY","Pav","Groww UPI Lite"
-"11/09/2025, 16:41","Income","Bonus","300.00","JPY","","Cash at Home"
-"11/09/2025, 16:22","Income","Cashback","1.47","JPY","","Mobikwik Wallet"
-"10/09/2025, 17:55","Expense","Food","-20.00","JPY","Vanilla Softy","PNB RuPay Credit Card"
-"10/09/2025, 16:19","Income","Cashback","1.44","JPY","","Mobikwik Wallet"
-"09/09/2025, 15:47","Income","Cashback","1.44","JPY","","Mobikwik Wallet"
-"08/09/2025, 15:53","Expense","Investment","-2304.00","JPY","Nifty 50","SBI FD Saving"
-"08/09/2025, 15:09","Expense","Refundable","-60.00","JPY","Lunch Mingos","Groww UPI Lite"
-"08/09/2025, 14:23","Income","Cashback","1.71","JPY","","Mobikwik Wallet"
-"08/09/2025, 14:06","Expense","Transportation","-12.00","JPY","Bus","Cash at Home"
-"07/09/2025, 18:17","Expense","Food","-30.00","JPY","Gobi Manchuri","PNB RuPay Credit Card"
-"07/09/2025, 15:07","Income","Interest","7.00","JPY","","PNB Savings"
-"07/09/2025, 14:58","Transfer","Transfer","12.27","JPY","","Mobikwik Wallet -> SBI Savings"
-"07/09/2025, 14:58","Expense","Refundable","-100.00","JPY","Aadhar Update","Cash at Home"
-"07/09/2025, 14:57","Transfer","Transfer","265.00","JPY","","SBI Savings -> Groww UPI Lite"
-"07/09/2025, 14:56","Income","Refund","275.00","JPY","","SBI Savings"
-"07/09/2025, 14:51","Expense","Investment","-203.00","JPY","Gold Mutual Fund","SBI Savings"
-"07/09/2025, 14:50","Transfer","Transfer","181.00","JPY","","Indian Bank Savings -> SBI Savings"
-"07/09/2025, 14:50","Income","Cashback","1.70","JPY","","Mobikwik Wallet"
-"07/09/2025, 14:46","Expense","Investment","-230.00","JPY","Gold Mutual Fund","SBI Savings"
-"07/09/2025, 14:46","Transfer","Transfer","55.00","JPY","","SBI Savings -> Groww UPI Lite"
-"07/09/2025, 14:42","Expense","Refundable","-130.00","JPY","Puliogare mix","Groww UPI Lite"
-"07/09/2025, 14:41","Expense","Refundable","-135.00","JPY","Bise Bele Bath","Groww UPI Lite"
-"07/09/2025, 14:41","Income","Refund","285.00","JPY","","SBI Savings"
-"07/09/2025, 10:06","Income","Interest","181.00","JPY","","Indian Bank Savings"
-"06/09/2025, 20:31","Expense","Refundable","-15.00","JPY","","Groww UPI Lite"
-"06/09/2025, 11:24","Income","Cashback","1.69","JPY","","Mobikwik Wallet"
-"05/09/2025, 18:47","Expense","Refundable","-40.00","JPY","Cornflake Misture","Groww UPI Lite"
-"05/09/2025, 18:47","Expense","Gifts","-100.00","JPY","Mohith's Snacks","PNB RuPay Credit Card"
-"05/09/2025, 11:54","Income","Cashback","1.40","JPY","","Mobikwik Wallet"
-"04/09/2025, 19:26","Income","Gift","100.00","JPY","Mohith's Budget","PNB Savings"
-"04/09/2025, 17:56","Expense","Refundable","-20.00","JPY","","Cash at Home"
-"04/09/2025, 12:39","Income","Cashback","1.55","JPY","","Mobikwik Wallet"
-"03/09/2025, 16:21","Expense","Investment","-112.00","JPY","Gold Mutual Fund","SBI Savings"
-"03/09/2025, 15:33","Income","Dividend","44.00","JPY","ICICI Dividend","SBI Savings"
-"03/09/2025, 12:39","Income","Bonus","68.20","JPY","","SBI Savings"
-"03/09/2025, 12:39","Income","Cashback","3.20","JPY","","Mobikwik Wallet"
-"02/09/2025, 08:44","Expense","Investment","-120.00","JPY","Gold Mutual Fund","SBI Savings"
-"02/09/2025, 08:44","Transfer","Transfer","100.00","JPY","","PNB Savings -> SBI Savings"
-"02/09/2025, 08:38","Income","Cashback","2.73","JPY","","Mobikwik Wallet"
-"02/09/2025, 08:38","Transfer","Transfer","19.46","JPY","","Mobikwik Wallet -> SBI Savings"
-"01/09/2025, 14:03","Income","Cashback","0.75","JPY","","Mobikwik Wallet"
-"31/08/2025, 13:25","Income","Cashback","2.87","JPY","","Mobikwik Wallet"
-"30/08/2025, 18:56","Expense","Food","-30.00","JPY","Bonda + Jeera papad","PNB RuPay Credit Card"
-"30/08/2025, 17:47","Expense","Education","-155.00","JPY","Book : Rework","PayTM UPI Lite"
-"30/08/2025, 17:47","Transfer","Transfer","700.00","JPY","","SBI FD Saving -> PayTM UPI Lite"
-"30/08/2025, 10:47","Income","Cashback","3.07","JPY","","Mobikwik Wallet"
-"30/08/2025, 10:06","Income","Interest","4.00","JPY","","SBI FD Saving"
-"29/08/2025, 22:20","Expense","Refundable","-20.00","JPY","Lime juice","PNB RuPay Credit Card"
-"29/08/2025, 10:24","Income","Bonus","0.22","JPY","","SBI Savings"
-"29/08/2025, 10:21","Income","Cashback","2.92","JPY","","Mobikwik Wallet"
-"29/08/2025, 10:20","Expense","Investment","-100.00","JPY","Gold Mutual Fund","SBI Savings"
-"29/08/2025, 10:20","Transfer","Transfer","10.00","JPY","","Mobikwik Wallet -> SBI Savings"
-"29/08/2025, 10:08","Income","Bonus","60.00","JPY","Books","SBI Savings"
-"28/08/2025, 21:08","Transfer","Transfer","70.00","JPY","","SBI Savings -> Groww UPI Lite"
-"28/08/2025, 21:07","Income","Refund","100.00","JPY","","SBI Savings"
-"28/08/2025, 11:01","Income","Cashback","2.95","JPY","","Mobikwik Wallet"
-"27/08/2025, 17:36","Expense","Investment","-1278.00","JPY","Nifty 50","SBI Savings"
-"27/08/2025, 17:36","Income","Cashback","1.84","JPY","","Mobikwik Wallet"
-"27/08/2025, 15:11","Transfer","Transfer","1278.00","JPY","","Indian Bank Savings -> SBI Savings"
-"27/08/2025, 15:11","Income","Interest","1278.00","JPY","","Indian Bank Savings"
-"26/08/2025, 14:38","Expense","Refundable","-70.00","JPY","Snacks","Groww UPI Lite"
-"26/08/2025, 13:15","Income","Cashback","3.09","JPY","","Mobikwik Wallet"
-"25/08/2025, 23:29","Expense","Investment","-225.00","JPY","Gold Mutual Fund","SBI Savings"
-"25/08/2025, 23:29","Transfer","Transfer","310.00","JPY","","SBI Savings -> Groww UPI Lite"
-"25/08/2025, 23:28","Income","Refund","435.00","JPY","","SBI Savings"
-"25/08/2025, 19:20","Expense","Food","-15.00","JPY","Samosa","PNB Savings"
-"25/08/2025, 16:10","Income","Cashback","2.51","JPY","","Mobikwik Wallet"
-"24/08/2025, 20:00","Income","Bonus","32.00","JPY","","Cash at Home"
-"24/08/2025, 19:24","Expense","Refundable","-310.00","JPY","Lunch","Groww UPI Lite"
-"24/08/2025, 12:02","Income","Cashback","3.29","JPY","","Mobikwik Wallet"
-"23/08/2025, 20:10","Expense","Investment","-240.00","JPY","Gold Mutual Fund","SBI Savings"
-"23/08/2025, 20:10","Transfer","Transfer","256.00","JPY","","SBI Savings -> Groww UPI Lite"
-"23/08/2025, 20:10","Income","Refund","496.00","JPY","","SBI Savings"
-"23/08/2025, 18:38","Expense","Investment","-500.00","JPY","Gold Mutual Fund","SBI Savings"
-"23/08/2025, 18:38","Income","Bonus","500.00","JPY","Visiting Grandparents","SBI Savings"
-"23/08/2025, 18:37","Income","Bonus","70.00","JPY","","Cash at Home"
-"23/08/2025, 12:36","Income","Cashback","3.26","JPY","","Mobikwik Wallet"
-"22/08/2025, 11:36","Income","Cashback","2.91","JPY","","Mobikwik Wallet"
-"21/08/2025, 16:02","Expense","Investment","-101.00","JPY","Cooperate Bond","SBI Savings"
-"21/08/2025, 16:02","Transfer","Transfer","30.52","JPY","","Mobikwik Wallet -> SBI Savings"
-"21/08/2025, 16:00","Expense","Food","-10.00","JPY","Bonda","PNB RuPay Credit Card"
-"21/08/2025, 14:51","Expense","Refundable","-60.00","JPY","Aloo Parotha","Groww UPI Lite"
-"21/08/2025, 12:12","Expense","Refundable","-46.00","JPY","Bus","Groww UPI Lite"
-"21/08/2025, 12:11","Expense","Refundable","-150.00","JPY","Bus Pass","Groww UPI Lite"
-"21/08/2025, 12:11","Income","Cashback","2.32","JPY","","Mobikwik Wallet"
-"20/08/2025, 18:14","Income","Refund","61.00","JPY","","Groww UPI Lite"
-"20/08/2025, 11:26","Income","Cashback","2.84","JPY","","Mobikwik Wallet"
-"19/08/2025, 14:09","Income","Bonus","0.91","JPY","","SBI Savings"
-"19/08/2025, 14:08","Expense","Investment","-517.00","JPY","Gold Mutual Fund","SBI Savings"
-"19/08/2025, 14:08","Income","Cashback","2.73","JPY","","Mobikwik Wallet"
-"19/08/2025, 02:43","Expense","Refundable","-32.00","JPY","Goodlife","Groww UPI Lite"
-"18/08/2025, 20:40","Expense","Refundable","-29.00","JPY","Curd","Groww UPI Lite"
-"18/08/2025, 14:37","Transfer","Transfer","557.00","JPY","","Indian Bank Savings -> SBI Savings"
-"18/08/2025, 14:36","Income","Interest","557.00","JPY","","Indian Bank Savings"
-"18/08/2025, 12:37","Transfer","Transfer","100.00","JPY","Credit Card Payment","PNB Savings -> PNB RuPay Credit Card"
-"18/08/2025, 10:09","Transfer","Transfer","289.89","JPY","","SBI Savings -> PNB Savings"
-"18/08/2025, 10:09","Income","Investment Redemption","289.84","JPY","","SBI Savings"
-"18/08/2025, 09:10","Income","Cashback","3.66","JPY","","Mobikwik Wallet"
-"17/08/2025, 12:15","Income","Allowance","3000.00","JPY","For Education","SBI FD Saving"
-"17/08/2025, 12:00","Transfer","Transfer","281.00","JPY","","SBI Savings -> Groww UPI Lite"
-"17/08/2025, 12:00","Income","Refund","411.00","JPY","","SBI Savings"
-"17/08/2025, 11:59","Expense","Refundable","-281.00","JPY","Milk Curd Paneer","Groww UPI Lite"
-"17/08/2025, 10:36","Income","Cashback","3.13","JPY","","Mobikwik Wallet"
-"17/08/2025, 10:05","Transfer","Transfer","400.00","JPY","","PayTM UPI Lite -> PhonePe UPI Lite"
-"16/08/2025, 17:25","Expense","Refundable","-120.00","JPY","Ironing clothes","Cash at Home"
-"16/08/2025, 17:25","Income","Bonus","105.00","JPY","","Cash at Home"
-"16/08/2025, 12:07","Income","Cashback","2.67","JPY","","Mobikwik Wallet"
-"15/08/2025, 10:13","Income","Cashback","3.67","JPY","","Mobikwik Wallet"
-"15/08/2025, 08:28","Transfer","Transfer","175.00","JPY","","SBI Savings -> Groww UPI Lite"
-"15/08/2025, 08:28","Income","Refund","158.00","JPY","","SBI Savings"
-"14/08/2025, 21:44","Expense","Refundable","-50.00","JPY","","Groww UPI Lite"
-"14/08/2025, 20:50","Expense","Gifts","-20.00","JPY","Donation","Cash at Home"
-"14/08/2025, 17:47","Expense","Refundable","-125.00","JPY","","Groww UPI Lite"
-"14/08/2025, 17:46","Expense","Refundable","-103.00","JPY","","SBI Savings"
-"14/08/2025, 17:46","Income","Refund","120.00","JPY","","SBI Savings"
-"14/08/2025, 17:11","Expense","Refundable","-10.00","JPY","","PhonePe UPI Lite"
-"14/08/2025, 15:55","Income","Bonus","4.00","JPY","","Cash at Home"
-"14/08/2025, 15:11","Expense","Investment","-500.00","JPY","Small Cap Mutual Fund","SBI Savings"
-"14/08/2025, 15:08","Income","Refund","500.00","JPY","","SBI Savings"
-"14/08/2025, 15:08","Expense","Refundable","-250.00","JPY","Lunch","Cash at Home"
-"14/08/2025, 13:15","Income","Cashback","3.38","JPY","","Mobikwik Wallet"
-"13/08/2025, 16:48","Expense","Investment","-530.00","JPY","Gold Mutual Fund","SBI Savings"
-"13/08/2025, 16:48","Transfer","Transfer","40.00","JPY","","SBI Savings -> Groww UPI Lite"
-"13/08/2025, 16:47","Transfer","Transfer","480.00","JPY","","Mobikwik Wallet -> SBI Savings"
-"13/08/2025, 16:47","Transfer","Transfer","90.00","JPY","","PhonePe UPI Lite -> SBI Savings"
-"13/08/2025, 16:32","Income","Refund","100.00","JPY","","Cash at Home"
-"13/08/2025, 13:55","Income","Cashback","6.56","JPY","","Mobikwik Wallet"
-"13/08/2025, 10:33","Expense","Gifts","-70.00","JPY","Mohith's Snacks","PNB RuPay Credit Card"
-"12/08/2025, 15:29","Transfer","Transfer","130.00","JPY","","SBI Savings -> Mobikwik Wallet"
-"12/08/2025, 15:24","Expense","Food","-70.00","JPY","My Snacks","SBI Savings"
-"12/08/2025, 15:24","Income","Gift","200.00","JPY","Mohith's Budget","SBI Savings"
-"12/08/2025, 15:24","Income","Refund","90.00","JPY","","Cash at Home"
-"12/08/2025, 13:42","Expense","Refundable","-40.00","JPY","Lunch","Groww UPI Lite"
-"12/08/2025, 12:07","Income","Cashback","2.26","JPY","","Mobikwik Wallet"
-"12/08/2025, 07:35","Expense","Investment","-600.00","JPY","Small Cap Mutual Fund","SBI Savings"
-"12/08/2025, 07:35","Transfer","Transfer","1.00","JPY","","Mobikwik Wallet -> SBI Savings"
-"12/08/2025, 07:35","Transfer","Transfer","55.00","JPY","","Groww UPI Lite -> SBI Savings"
-"12/08/2025, 07:35","Transfer","Transfer","544.00","JPY","","Indian Bank Savings -> SBI Savings"
-"11/08/2025, 21:48","Income","Interest","544.00","JPY","","Indian Bank Savings"
-"11/08/2025, 18:10","Expense","Refundable","-100.00","JPY","","Cash at Home"
-"11/08/2025, 17:46","Expense","Food","-10.00","JPY","Papad Pipe","PNB RuPay Credit Card"
-"11/08/2025, 13:30","Income","Dividend","10.00","JPY","HDFC Dividend","Mobikwik Wallet"
-"11/08/2025, 12:29","Transfer","Transfer","55.00","JPY","","SBI Savings -> Groww UPI Lite"
-"11/08/2025, 08:31","Income","Cashback","0.62","JPY","","Mobikwik Wallet"
-"11/08/2025, 08:31","Income","Cashback","0.51","JPY","","Mobikwik Wallet"
-"11/08/2025, 08:31","Income","Cashback","0.40","JPY","","Mobikwik Wallet"
-"11/08/2025, 08:31","Income","Cashback","0.40","JPY","","Mobikwik Wallet"
-"11/08/2025, 08:30","Income","Cashback","0.75","JPY","","Mobikwik Wallet"
-"10/08/2025, 21:49","Income","Refund","55.00","JPY","","SBI Savings"
-"10/08/2025, 20:00","Income","Bonus","125.00","JPY","","Cash at Home"
-"10/08/2025, 08:51","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"10/08/2025, 08:51","Income","Cashback","0.42","JPY","","Mobikwik Wallet"
-"10/08/2025, 08:51","Income","Cashback","0.78","JPY","","Mobikwik Wallet"
-"10/08/2025, 08:51","Income","Cashback","0.78","JPY","","Mobikwik Wallet"
-"10/08/2025, 08:50","Income","Cashback","0.72","JPY","","Mobikwik Wallet"
-"09/08/2025, 20:43","Expense","Investment","-330.00","JPY","Gold Mutual Fund","SBI Savings"
-"09/08/2025, 20:35","Transfer","Transfer","329.49","JPY","","Indian Bank Savings -> SBI Savings"
-"09/08/2025, 10:40","Income","Cashback","0.78","JPY","","Mobikwik Wallet"
-"09/08/2025, 10:40","Income","Cashback","0.72","JPY","","Mobikwik Wallet"
-"09/08/2025, 10:32","Income","Interest","329.00","JPY","","Indian Bank Savings"
-"09/08/2025, 10:23","Income","Cashback","1.50","JPY","","Mobikwik Wallet"
-"09/08/2025, 10:23","Income","Cashback","0.45","JPY","","Mobikwik Wallet"
-"09/08/2025, 10:22","Income","Cashback","0.37","JPY","","Mobikwik Wallet"
-"08/08/2025, 11:14","Income","Cashback","0.52","JPY","","Mobikwik Wallet"
-"08/08/2025, 10:54","Income","Cashback","0.66","JPY","","Mobikwik Wallet"
-"08/08/2025, 10:54","Income","Cashback","0.57","JPY","","Mobikwik Wallet"
-"08/08/2025, 10:53","Income","Cashback","0.35","JPY","","Mobikwik Wallet"
-"08/08/2025, 10:53","Income","Cashback","0.43","JPY","","Mobikwik Wallet"
-"07/08/2025, 14:40","Income","Cashback","0.70","JPY","","Mobikwik Wallet"
-"07/08/2025, 14:40","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"07/08/2025, 14:40","Income","Cashback","0.38","JPY","","Mobikwik Wallet"
-"07/08/2025, 14:39","Income","Cashback","0.34","JPY","","Mobikwik Wallet"
-"07/08/2025, 14:39","Income","Cashback","0.67","JPY","","Mobikwik Wallet"
-"07/08/2025, 13:51","Expense","Food","-10.00","JPY","Tedhe Medhe","PNB RuPay Credit Card"
-"06/08/2025, 12:36","Income","Cashback","0.38","JPY","","Mobikwik Wallet"
-"06/08/2025, 12:36","Income","Cashback","0.49","JPY","","Mobikwik Wallet"
-"06/08/2025, 12:36","Income","Cashback","0.31","JPY","","Mobikwik Wallet"
-"06/08/2025, 12:36","Income","Cashback","0.57","JPY","","Mobikwik Wallet"
-"06/08/2025, 12:35","Income","Cashback","0.69","JPY","","Mobikwik Wallet"
-"05/08/2025, 20:04","Expense","Food","-10.00","JPY","Jeera Papad","PNB RuPay Credit Card"
-"05/08/2025, 20:00","Income","Bonus","3.00","JPY","","Cash at Home"
-"05/08/2025, 14:13","Income","Cashback","0.47","JPY","","Mobikwik Wallet"
-"05/08/2025, 14:13","Income","Cashback","0.97","JPY","","Mobikwik Wallet"
-"05/08/2025, 14:13","Income","Cashback","0.49","JPY","","Mobikwik Wallet"
-"04/08/2025, 12:04","Income","Cashback","0.63","JPY","","Mobikwik Wallet"
-"04/08/2025, 12:04","Income","Cashback","0.65","JPY","","Mobikwik Wallet"
-"04/08/2025, 12:04","Income","Cashback","0.35","JPY","","Mobikwik Wallet"
-"04/08/2025, 12:04","Income","Cashback","0.28","JPY","","Mobikwik Wallet"
-"03/08/2025, 13:20","Income","Cashback","0.82","JPY","","Mobikwik Wallet"
-"03/08/2025, 13:20","Income","Cashback","0.57","JPY","","Mobikwik Wallet"
-"03/08/2025, 11:06","Income","Cashback","0.43","JPY","","Mobikwik Wallet"
-"03/08/2025, 10:46","Income","Cashback","0.30","JPY","","Mobikwik Wallet"
-"02/08/2025, 17:18","Transfer","Transfer","300.00","JPY","","Cash at Home -> Groww UPI Lite"
-"02/08/2025, 16:44","Expense","Refundable","-55.00","JPY","Wheat Bread","Groww UPI Lite"
-"02/08/2025, 13:13","Expense","Refundable","-40.00","JPY","Gone Mad + Masala Bun","Groww UPI Lite"
-"02/08/2025, 11:23","Income","Cashback","0.66","JPY","","Mobikwik Wallet"
-"02/08/2025, 11:17","Income","Cashback","0.40","JPY","","Mobikwik Wallet"
-"02/08/2025, 11:12","Income","Cashback","9.86","JPY","","Mobikwik Wallet"
-"02/08/2025, 11:12","Income","Cashback","0.79","JPY","","Mobikwik Wallet"
-"02/08/2025, 11:12","Income","Cashback","0.44","JPY","","Mobikwik Wallet"
-"01/08/2025, 20:51","Income","Refund","260.00","JPY","","Cash at Home"
-"01/08/2025, 18:39","Expense","Refundable","-135.00","JPY","Idly + Paneer Fried Rice","Groww UPI Lite"
-"01/08/2025, 16:32","Income","Cashback","0.41","JPY","","Mobikwik Wallet"
-"01/08/2025, 12:01","Income","Cashback","0.92","JPY","","Mobikwik Wallet"
-"01/08/2025, 11:55","Transfer","Transfer","300.00","JPY","","PayTM UPI Lite -> Mobikwik Wallet"
-"01/08/2025, 11:54","Transfer","Transfer","100.00","JPY","","PayTM UPI Lite -> PhonePe UPI Lite"
-"01/08/2025, 11:54","Income","Cashback","0.53","JPY","","Mobikwik Wallet"
-"01/08/2025, 11:47","Income","Cashback","0.68","JPY","","Mobikwik Wallet"
-"01/08/2025, 11:47","Income","Cashback","0.39","JPY","","Mobikwik Wallet"
-"01/08/2025, 11:46","Transfer","Transfer","0.26","JPY","","Mobikwik Wallet -> SBI Savings"
-"31/07/2025, 16:29","Income","Cashback","0.26","JPY","","Mobikwik Wallet"
-"31/07/2025, 16:29","Transfer","Transfer","40.93","JPY","","Mobikwik Wallet -> SBI Savings"
-"31/07/2025, 16:23","Transfer","Transfer","393.00","JPY","","Indian Bank Savings -> SBI Savings"
-"31/07/2025, 13:37","Expense","Food","-5.00","JPY","Masala Papad","Mobikwik Wallet"
-"31/07/2025, 13:02","Income","Cashback","0.42","JPY","","Mobikwik Wallet"
-"31/07/2025, 13:02","Income","Cashback","0.28","JPY","","Mobikwik Wallet"
-"31/07/2025, 12:57","Income","Cashback","0.40","JPY","","Mobikwik Wallet"
-"31/07/2025, 12:57","Income","Cashback","0.40","JPY","","Mobikwik Wallet"
-"31/07/2025, 12:54","Income","Dividend","1.25","JPY","IDFC Dividend","SBI Savings"
-"30/07/2025, 19:26","Income","Interest","365.00","JPY","","Indian Bank Savings"
-"30/07/2025, 10:49","Transfer","Transfer","1200.00","JPY","","SBI Savings -> Fixed Deposit"
-"30/07/2025, 10:48","Transfer","Transfer","1200.00","JPY","","PayTM UPI Lite -> SBI Savings"
-"30/07/2025, 10:45","Income","Cashback","0.28","JPY","","Mobikwik Wallet"
-"30/07/2025, 10:44","Income","Cashback","0.26","JPY","","Mobikwik Wallet"
-"29/07/2025, 11:22","Income","Cashback","0.40","JPY","","Mobikwik Wallet"
-"29/07/2025, 11:21","Income","Cashback","0.40","JPY","","Mobikwik Wallet"
-"29/07/2025, 11:21","Income","Cashback","0.38","JPY","","Mobikwik Wallet"
-"29/07/2025, 11:21","Income","Cashback","0.39","JPY","","Mobikwik Wallet"
-"28/07/2025, 13:19","Transfer","Transfer","50.00","JPY","","Cash at Home -> Groww UPI Lite"
-"28/07/2025, 13:19","Income","Cashback","0.41","JPY","","Mobikwik Wallet"
-"28/07/2025, 12:27","Income","Cashback","0.57","JPY","","Mobikwik Wallet"
-"27/07/2025, 21:01","Transfer","Transfer","303.00","JPY","","SBI Savings -> Groww UPI Lite"
-"27/07/2025, 20:59","Income","Refund","303.00","JPY","","SBI Savings"
-"27/07/2025, 20:58","Income","Cashback","0.28","JPY","","Mobikwik Wallet"
-"27/07/2025, 20:21","Expense","Refundable","-125.00","JPY","Auto","Groww UPI Lite"
-"27/07/2025, 12:34","Income","Cashback","0.36","JPY","","Mobikwik Wallet"
-"27/07/2025, 12:34","Income","Cashback","0.93","JPY","","Mobikwik Wallet"
-"27/07/2025, 10:13","Expense","Refundable","-138.00","JPY","Auto","Groww UPI Lite"
-"26/07/2025, 14:40","Income","Cashback","0.36","JPY","","Mobikwik Wallet"
-"26/07/2025, 14:40","Income","Cashback","0.41","JPY","","Mobikwik Wallet"
-"25/07/2025, 18:31","Income","Refund","70.00","JPY","","Cash at Home"
-"25/07/2025, 17:59","Expense","Refundable","-80.00","JPY","Bun + Rusk","Groww UPI Lite"
-"25/07/2025, 15:56","Income","Cashback","1.00","JPY","","Mobikwik Wallet"
-"25/07/2025, 11:28","Income","Cashback","0.36","JPY","","Mobikwik Wallet"
-"25/07/2025, 11:25","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"25/07/2025, 11:25","Income","Cashback","0.27","JPY","","Mobikwik Wallet"
-"25/07/2025, 11:25","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"24/07/2025, 18:34","Expense","Food","-5.00","JPY","Full Toss","Mobikwik Wallet"
-"24/07/2025, 15:35","Income","Cashback","0.93","JPY","","Mobikwik Wallet"
-"24/07/2025, 12:17","Income","Cashback","0.67","JPY","","Mobikwik Wallet"
-"24/07/2025, 12:16","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"24/07/2025, 12:09","Income","Cashback","0.48","JPY","","Mobikwik Wallet"
-"24/07/2025, 11:48","Income","Cashback","0.28","JPY","","Mobikwik Wallet"
-"23/07/2025, 18:04","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"23/07/2025, 18:02","Expense","Food","-30.00","JPY","Munch Cereal + Piknik + Soya Chips","Mobikwik Wallet"
-"23/07/2025, 16:11","Transfer","Transfer","498.00","JPY","","SBI Savings -> Groww UPI Lite"
-"23/07/2025, 16:11","Income","Refund","498.00","JPY","","SBI Savings"
-"23/07/2025, 12:51","Income","Refund","100.00","JPY","","Cash at Home"
-"23/07/2025, 12:28","Expense","Refundable","-60.00","JPY","Medicine","Cash at Home"
-"22/07/2025, 11:30","Expense","Transportation","-6.00","JPY","Bus","Mobikwik Wallet"
-"22/07/2025, 11:26","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"22/07/2025, 11:26","Expense","Transportation","-24.00","JPY","Bus","Mobikwik Wallet"
-"22/07/2025, 11:10","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"22/07/2025, 11:09","Expense","Transportation","-12.00","JPY","Bus","Mobikwik Wallet"
-"21/07/2025, 20:21","Transfer","Transfer","215.00","JPY","","Groww UPI Lite -> PayTM UPI Lite"
-"21/07/2025, 20:06","Transfer","Transfer","137.00","JPY","","SBI Savings -> Groww UPI Lite"
-"21/07/2025, 20:04","Income","Bonus","136.75","JPY","Idea Lab","SBI Savings"
-"21/07/2025, 20:04","Income","Cashback","0.44","JPY","","Mobikwik Wallet"
-"21/07/2025, 20:00","Expense","Refundable","-50.00","JPY","Poster","PayTM UPI Lite"
-"21/07/2025, 17:38","Income","Cashback","0.61","JPY","","Mobikwik Wallet"
-"21/07/2025, 17:37","Transfer","Transfer","2600.00","JPY","","Indian Bank Savings -> SBI Savings"
-"20/07/2025, 18:13","Income","Cashback","0.50","JPY","","Mobikwik Wallet"
-"20/07/2025, 18:12","Expense","Food","-10.00","JPY","Munch Cereal","Mobikwik Wallet"
-"20/07/2025, 15:29","Income","Cashback","0.90","JPY","","Mobikwik Wallet"
-"20/07/2025, 10:59","Income","Refund","20.00","JPY","","Cash at Home"
-"20/07/2025, 10:08","Transfer","Transfer","200.00","JPY","","SBI Savings -> Groww UPI Lite"
-"20/07/2025, 10:07","Income","Bonus","45.00","JPY","","Cash at Home"
-"20/07/2025, 10:07","Transfer","Transfer","200.00","JPY","","Cash -> SBI Savings"
-"19/07/2025, 23:26","Income","Cashback","10.00","JPY","","Mobikwik Wallet"
-"18/07/2025, 20:58","Income","Cashback","7.50","JPY","","Mobikwik Wallet"
-"18/07/2025, 20:28","Expense","Refundable","-165.00","JPY","Vada Pav + Bread + Vegetable","PayTM UPI Lite"
-"18/07/2025, 18:07","Income","Gift","200.00","JPY","","Cash"
-"18/07/2025, 13:44","Transfer","Transfer","1165.00","JPY","","PayTM UPI Lite -> SBI Savings"
-"18/07/2025, 13:44","Transfer","Transfer","1280.37","JPY","","Groww UPI Lite -> SBI Savings"
-"18/07/2025, 13:33","Transfer","Transfer","2.00","JPY","","SBI Savings -> Mobikwik Wallet"
-"18/07/2025, 13:31","Transfer","Transfer","30.00","JPY","","Cash -> SBI Savings"
-"18/07/2025, 13:31","Transfer","Transfer","120.00","JPY","","Cash at Home -> SBI Savings"
-"18/07/2025, 13:31","Transfer","Transfer","500.00","JPY","","Emergency Cash -> SBI Savings"
-"18/07/2025, 13:30","Income","Refund","2.00","JPY","Hall Ticket","SBI Savings"
-"18/07/2025, 09:55","Expense","Education","-4.00","JPY","Hall Ticket","Mobikwik Wallet"
-"18/07/2025, 09:55","Expense","Food","-40.00","JPY","Idly","Cash"
-"18/07/2025, 08:17","Income","Allowance","70.00","JPY","","Cash"
-"17/07/2025, 18:55","Expense","Lost","-0.01","JPY","Missing???","Mobikwik Wallet"
-"17/07/2025, 18:51","Income","Cashback","2.55","JPY","","Mobikwik Wallet"
-"17/07/2025, 18:31","Expense","Food","-30.00","JPY","Brownie","Mobikwik Wallet"
-"17/07/2025, 18:31","Transfer","Transfer","100.00","JPY","","Cash at Home -> SBI Savings"
-"17/07/2025, 18:30","Transfer","Transfer","500.00","JPY","","Emergency Cash -> SBI Savings"
-"16/07/2025, 18:24","Income","Cashback","2.55","JPY","","Mobikwik Wallet"
-"16/07/2025, 18:17","Income","Cashback","1.00","JPY","","Mobikwik Wallet"
-"16/07/2025, 18:16","Expense","Food","-15.00","JPY","Choco Rasgulla + Papad pipe","Mobikwik Wallet"
-"16/07/2025, 18:16","Income","Cashback","1.00","JPY","","Mobikwik Wallet"
-"16/07/2025, 18:16","Expense","Food","-10.00","JPY","Marshmallow Choco Dip","Mobikwik Wallet"
-"16/07/2025, 18:15","Transfer","Transfer","50.00","JPY","","SBI Savings -> Groww UPI Lite"
-"16/07/2025, 18:15","Transfer","Transfer","50.00","JPY","","SBI Savings -> Mobikwik Wallet"
-"16/07/2025, 18:15","Transfer","Transfer","100.00","JPY","Yono Cash Deposit","Cash -> SBI Savings"
-"16/07/2025, 17:26","Income","Gift","100.00","JPY","","Cash"
-"16/07/2025, 16:02","Transfer","Transfer","435.00","JPY","","SBI Savings -> Groww UPI Lite"
-"16/07/2025, 16:01","Income","Refund","435.00","JPY","","SBI Savings"
-"16/07/2025, 13:30","Transfer","Transfer","100.00","JPY","","SBI Savings -> PayTM UPI Lite"
-"16/07/2025, 13:30","Income","Gift","100.00","JPY","","SBI Savings"
-"15/07/2025, 18:17","Income","Cashback","8.10","JPY","","Mobikwik Wallet"
-"15/07/2025, 16:38","Income","Cashback","3.94","JPY","","Mobikwik Wallet"
-"15/07/2025, 13:50","Transfer","Transfer","334.00","JPY","","SBI Savings -> PayTM UPI Lite"
-"15/07/2025, 13:49","Income","Refund","334.00","JPY","","SBI Savings"
-"14/07/2025, 19:59","Transfer","Transfer","2.00","JPY","","Cash -> Cash at Home"
-"14/07/2025, 19:59","Expense","Education","-70.00","JPY","Books","PhonePe UPI Lite"
-"14/07/2025, 18:26","Expense","Refundable","-40.00","JPY","Jumper Wires","PayTM UPI Lite"
-"14/07/2025, 17:41","Transfer","Transfer","172.00","JPY","","SBI Savings -> PayTM UPI Lite"
-"14/07/2025, 16:36","Expense","Gifts","-162.00","JPY","Mohith's Profit","SBI Savings"
-"14/07/2025, 16:36","Income","Refund","334.00","JPY","","SBI Savings"
-"14/07/2025, 14:52","Expense","Refundable","-23.00","JPY","Bus","PayTM UPI Lite"
-"14/07/2025, 14:21","Expense","Refundable","-320.00","JPY","Project","PayTM UPI Lite"
-"14/07/2025, 12:28","Expense","Refundable","-23.00","JPY","Bus","PayTM UPI Lite"
-"13/07/2025, 12:08","Expense","Investment","-2000.00","JPY","Money Multipler Deposit","Indian Bank Savings"
-"13/07/2025, 08:22","Expense","Banking charges","-5.90","JPY","IMPS Transfer Fee","PNB Savings"
-"13/07/2025, 08:22","Transfer","Transfer","2000.00","JPY","","PNB Savings -> Indian Bank Savings"
-"13/07/2025, 08:21","Expense","Banking charges","-4.13","JPY","SMS Charges","PNB Savings"
-"13/07/2025, 07:43","Transfer","Transfer","58.93","JPY","","PhonePe UPI Lite -> Mobikwik Wallet"
-"12/07/2025, 18:06","Expense","Food","-10.00","JPY","Fritz","PhonePe UPI Lite"
-"12/07/2025, 13:46","Expense","Refundable","-100.00","JPY","Haircut","Cash at Home"
-"12/07/2025, 11:01","Expense","Safety","-17.00","JPY","Cyber Fraud Insurance","PhonePe UPI Lite"
-"11/07/2025, 14:11","Income","Interest","292.00","JPY","","Indian Bank Savings"
-"11/07/2025, 14:01","Income","Cashback","1.00","JPY","","Mobikwik Wallet"
-"11/07/2025, 08:00","Expense","Others","-150.00","JPY","Petrol","PayTM UPI Lite"
-"10/07/2025, 19:55","Income","Cashback","25.00","JPY","","Mobikwik Wallet"
-"10/07/2025, 16:39","Expense","Transportation","-35.00","JPY","Bus","PhonePe UPI Lite"
-"10/07/2025, 13:05","Expense","Food","-5.00","JPY","Cheese biscuit","Groww UPI Lite"
-"10/07/2025, 13:05","Transfer","Transfer","17.40","JPY","","SBI Savings -> Groww UPI Lite"
-"10/07/2025, 13:03","Expense","Food","-10.00","JPY","Cheese biscuit + Kurkure","Mobikwik Wallet"
-"10/07/2025, 13:03","Income","Dividend","17.40","JPY","PNB Dividend","SBI Savings"
-"10/07/2025, 09:24","Expense","Banking charges","-354.00","JPY","Debit Card Charges","Indian Bank Savings"
-"09/07/2025, 15:20","Income","Gift","1.00","JPY","Transfer from Mohith","Mobikwik Wallet"
-"09/07/2025, 15:08","Expense","Food","-50.00","JPY","Domino's","Cash"
-"09/07/2025, 12:53","Transfer","Transfer","52.00","JPY","","Cash at Home -> Cash"
-"09/07/2025, 12:53","Income","Allowance","100.00","JPY","","Cash at Home"
-"08/07/2025, 20:13","Expense","Refundable","-50.00","JPY","Project","SBI Savings"
-"08/07/2025, 15:38","Expense","Food","-20.00","JPY","Pani Puri","PhonePe UPI Lite"
-"08/07/2025, 13:21","Transfer","Transfer","10.00","JPY","","SBI Savings -> Mobikwik Wallet"
-"08/07/2025, 08:38","Expense","Investment","-3500.00","JPY","Fixed deposit","PNB Savings"
-"08/07/2025, 08:24","Transfer","Transfer","3500.00","JPY","Cheque","Indian Bank Savings -> PNB Savings"
-"08/07/2025, 08:14","Income","Interest","183.00","JPY","","Indian Bank Savings"
-"07/07/2025, 19:20","Income","Cashback","1.00","JPY","","Mobikwik Wallet"
-"07/07/2025, 19:19","Transfer","Transfer","10.00","JPY","First payment","Mobikwik Wallet -> SBI Savings"
-"07/07/2025, 19:19","Transfer","Transfer","10.00","JPY","Test","SBI Savings -> Mobikwik Wallet"
-"07/07/2025, 12:52","Income","Refund","10.00","JPY","","SBI Savings"
-"05/07/2025, 17:00","Expense","Refundable","-10.00","JPY","Testing refund","PhonePe UPI Lite"
-"05/07/2025, 09:52","Transfer","Transfer","310.82","JPY","","SBI Savings -> Groww UPI Lite"
-"05/07/2025, 09:52","Transfer","Transfer","310.82","JPY","Auto Transfer","Groww Stock Wallet -> SBI Savings"
-"04/07/2025, 18:04","Expense","Food","-10.00","JPY","Ice cream","PhonePe UPI Lite"
-"04/07/2025, 14:00","Expense","Food","-50.00","JPY","Brownie","Cash"
-"04/07/2025, 10:27","Transfer","Transfer","50.00","JPY","","Groww UPI Lite -> SBI Savings"
-"04/07/2025, 07:42","Income","Allowance","50.00","JPY","","Cash"
-"03/07/2025, 14:00","Expense","Food","-60.00","JPY","Chips + Omelette","Cash"
-"03/07/2025, 08:55","Expense","Others","-24.10","JPY","Fee","Groww Stock Wallet"
-"03/07/2025, 08:53","Transfer","Transfer","10000.00","JPY","","SBI Savings -> Groww Stock Wallet"
-"03/07/2025, 08:51","Transfer","Transfer","10000.00","JPY","","PNB Savings -> SBI Savings"
-"03/07/2025, 08:13","Income","Investment Redemption","28.48","JPY","","Groww Stock Wallet"
-"02/07/2025, 18:56","Income","Allowance","3270.00","JPY","","SBI Savings"
-"02/07/2025, 17:55","Transfer","Transfer","75.15","JPY","","SBI Savings -> Groww UPI Lite"
-"02/07/2025, 17:55","Income","Dividend","75.15","JPY","BOB Dividend","SBI Savings"
-"02/07/2025, 15:27","Expense","Refundable","-150.00","JPY","Cycle repair","Cash at Home"
-"02/07/2025, 13:43","Income","Gift","60.00","JPY","Dosa","Cash"
-"02/07/2025, 10:25","Transfer","Transfer","10000.00","JPY","","SBI Savings -> PNB Savings"
-"02/07/2025, 09:56","Income","Interest","31.00","JPY","","Indian Bank Savings"
-"02/07/2025, 08:43","Income","Refund","2730.00","JPY","","SBI Savings"
-"02/07/2025, 08:42","Transfer","Transfer","230.00","JPY","","SBI Savings -> PhonePe UPI Lite"
-"02/07/2025, 08:42","Expense","Refundable","-2500.00","JPY","Metro","SBI Savings"
-"01/07/2025, 20:10","Expense","Food","-40.00","JPY","Brownie sandwich","Groww UPI Lite"
-"01/07/2025, 20:09","Expense","Refundable","-50.00","JPY","Chakali Kodubale","Groww UPI Lite"
-"30/06/2025, 17:00","Expense","Refundable","-50.00","JPY","Milk","Cash at Home"
-"30/06/2025, 12:34","Expense","Food","-50.00","JPY","Idly + Fritz","Cash at Home"
-"30/06/2025, 12:30","Expense","Education","-4.00","JPY","Graph Sheets","Groww UPI Lite"
-"30/06/2025, 09:00","Expense","Education","-2.00","JPY","Springboard","Groww UPI Lite"
-"28/06/2025, 18:41","Expense","Food","-15.00","JPY","Chips","SBI Savings"
-"28/06/2025, 18:38","Transfer","Transfer","200.00","JPY","ATM Withdraw","SBI Savings -> Cash at Home"
-"28/06/2025, 17:53","Transfer","Transfer","9.57","JPY","","PhonePe UPI Lite -> SBI Savings"
-"28/06/2025, 17:52","Transfer","Transfer","150.00","JPY","","Cash at Home -> SBI Savings"
-"27/06/2025, 20:30","Income","Bonus","15.00","JPY","Dosa remaining amt","SBI Savings"
-"27/06/2025, 17:08","Expense","Food","-45.00","JPY","Masala Puri + Brownie","Cash"
-"27/06/2025, 07:19","Income","Allowance","100.00","JPY","","Cash at Home"
-"25/06/2025, 22:09","Income","Refund","40.00","JPY","Poster","SBI Savings"
-"25/06/2025, 18:28","Expense","Refundable","-30.00","JPY","Bun","PhonePe UPI Lite"
-"25/06/2025, 09:05","Expense","Education","-17.50","JPY","Idea Lab","PhonePe UPI Lite"
-"24/06/2025, 14:01","Expense","Transportation","-35.00","JPY","Bus","Cash"
-"24/06/2025, 08:07","Income","Allowance","50.00","JPY","","Cash"
-"23/06/2025, 17:30","Expense","Food","-100.00","JPY","Snacks","PhonePe UPI Lite"
-"23/06/2025, 11:22","Expense","Education","-20.00","JPY","Graph Sheets","Cash"
-"23/06/2025, 11:16","Expense","Refundable","-300.00","JPY","Metro","Cash"
-"23/06/2025, 08:08","Income","Allowance","50.00","JPY","","Cash"
-"22/06/2025, 18:38","Expense","Refundable","-92.00","JPY","Iodex","PhonePe UPI Lite"
-"22/06/2025, 14:40","Transfer","Transfer","1530.00","JPY","","SBI Savings -> PayTM UPI Lite"
-"22/06/2025, 13:36","Transfer","Transfer","250.00","JPY","","SBI Savings -> PhonePe UPI Lite"
-"22/06/2025, 12:06","Income","Refund","1750.00","JPY","","SBI Savings"
-"21/06/2025, 20:17","Income","Allowance","100.00","JPY","","Cash"
-"21/06/2025, 20:16","Expense","Transportation","-60.00","JPY","Metro","Groww UPI Lite"
-"21/06/2025, 20:16","Income","Allowance","200.00","JPY","","Cash"
-"21/06/2025, 10:26","Expense","Lost","-10.00","JPY","Lost","Cash"
-"21/06/2025, 10:25","Transfer","Transfer","5.00","JPY","Balance leftout","Cash at Home -> Cash"
-"20/06/2025, 17:23","Transfer","Transfer","30.00","JPY","","Groww UPI Lite -> SBI Savings"
-"20/06/2025, 17:00","Expense","Food","-55.00","JPY","Masala Puri + Brownie","Cash"
-"20/06/2025, 07:38","Income","Allowance","50.00","JPY","","Cash"
-"19/06/2025, 16:06","Expense","Food","-70.00","JPY","Lunch Mingos","Cash"
+Date,Type,Category,Amount,Currency,Memo,Wallet
+"16/10/2025, 14:14",Expense,Food,-10,JPY,Lotto Choco Pie,Cash
+"16/10/2025, 13:40",Income,Cashback,50,JPY,200 Points Redemption,PNB RuPay Credit Card
+"14/10/2025, 18:18",Income,Cashback,25,JPY,100 Points Redemption,PNB RuPay Credit Card
+"14/10/2025, 18:11",Expense,Food,-89,JPY,"5 BarOne, 2 Love Bites, 3 Cheese Biscuit, 1 Red Velvat, 1 ChocoShake",PNB RuPay Credit Card
+"14/10/2025, 18:11",Expense,Food,-50,JPY,5 Brownies,PNB RuPay Credit Card
+"14/10/2025, 18:10",Expense,Food,-55,JPY,Aloo Cheese Chilly Sandwich,PNB RuPay Credit Card
+"14/10/2025, 13:16",Expense,Food,-5,JPY,Lolipop,Cash
+"14/10/2025, 13:16",Expense,Food,-50,JPY,Bisi Bele Bath,PNB RuPay Credit Card
+"11/10/2025, 18:29",Expense,Food,-35,JPY,Masala Puri,PNB RuPay Credit Card
+"11/10/2025, 17:13",Income,Cashback,6,JPY,Fuse Chocolate Cashback,PayTM UPI Lite
+"10/10/2025, 13:45",Expense,Food,-60,JPY,Hot Choco Fudge,PayTM UPI Lite
+"10/10/2025, 08:23",Expense,Food,-10,JPY,2 apple cake,PNB RuPay Credit Card
+"09/10/2025, 08:15",Income,Interest,183,JPY,,SBI Savings
+"09/10/2025, 08:15",Expense,Investment,-241,JPY,Gold Mutual Fund,SBI Savings
+"08/10/2025, 13:41",Transfer,Transfer,50,JPY,,Cash -> SBI Savings
+"07/10/2025, 09:19",Expense,Refundable,-25,JPY,Pen,Groww UPI Lite
+"06/10/2025, 14:50",Expense,Food,-20,JPY,Bonda,PNB RuPay Credit Card
+"05/10/2025, 20:43",Transfer,Transfer,7.32,JPY,,SBI Savings -> PhonePe UPI Lite
+"05/10/2025, 09:18",Income,Bonus,12,JPY,,SBI Savings
+"04/10/2025, 20:48",Expense,Food,-10,JPY,2 Jumbo Ring,PNB RuPay Credit Card
+"04/10/2025, 12:54",Expense,Food,-10,JPY,2 Cupcakes,Cash
+"04/10/2025, 12:54",Expense,Food,-10,JPY,Swiss Roll,PNB RuPay Credit Card
+"04/10/2025, 10:03",Transfer,Transfer,2.65,JPY,,Mobikwik Wallet -> SBI Savings
+"04/10/2025, 09:51",Transfer,Transfer,393,JPY,Credit Card Payment,PNB Savings -> PNB RuPay Credit Card
+"03/10/2025, 14:29",Income,Cashback,1.21,JPY,,Mobikwik Wallet
+"02/10/2025, 18:33",Transfer,Transfer,15,JPY,,PhonePe UPI Lite -> PNB Savings
+"02/10/2025, 18:27",Expense,Food,-15,JPY,3 Jeera Papad,PNB RuPay Credit Card
+"02/10/2025, 18:26",Transfer,Transfer,50,JPY,,Cash at Home -> Cash
+"02/10/2025, 16:00",Income,Cashback,1.44,JPY,,Mobikwik Wallet
+"02/10/2025, 12:16",Expense,Investment,-1036,JPY,Gold Mutual Fund,SBI Savings
+"02/10/2025, 12:16",Income,Refund,236,JPY,,SBI Savings
+"02/10/2025, 12:15",Income,Bonus,800,JPY,Metro,SBI Savings
+"01/10/2025, 18:11",Expense,Food,-20,JPY,4 Cup Cake,PhonePe UPI Lite
+"01/10/2025, 18:10",Expense,Safety,-150,JPY,Wallet,Cash
+"01/10/2025, 18:10",Income,Bonus,200,JPY,,Cash
+"01/10/2025, 16:54",Transfer,Transfer,7,JPY,,SBI Savings -> Groww UPI Lite
+"01/10/2025, 16:53",Transfer,Transfer,2.6,JPY,,Mobikwik Wallet -> SBI Savings
+"01/10/2025, 16:53",Transfer,Transfer,5,JPY,,Indian Bank Savings -> SBI Savings
+"01/10/2025, 13:37",Expense,Investment,-400,JPY,Gold Mutual Fund,Fixed Deposit
+"01/10/2025, 13:37",Income,Cashback,1.29,JPY,,Mobikwik Wallet
+"01/10/2025, 09:20",Income,Interest,5,JPY,,Indian Bank Savings
+"01/10/2025, 08:32",Transfer,Transfer,10,JPY,,SBI Savings -> PNB Savings
+"01/10/2025, 08:32",Income,Interest,10,JPY,,SBI Savings
+"01/10/2025, 08:29",Transfer,Transfer,112.32,JPY,,PhonePe UPI Lite -> PNB Savings
+"01/10/2025, 07:50",Expense,Food,-80,JPY,Choco Burfi + Pista Burfi,PNB RuPay Credit Card
+"01/10/2025, 07:50",Expense,Food,-35,JPY,10 Melody 5 Moong dal,PNB RuPay Credit Card
+"29/09/2025, 17:16",Expense,Education,-3,JPY,Printout,PNB RuPay Credit Card
+"29/09/2025, 15:23",Income,Cashback,1.31,JPY,,Mobikwik Wallet
+"28/09/2025, 17:46",Expense,Investment,-106,JPY,Gold Mutual Fund,SBI Savings
+"28/09/2025, 17:45",Transfer,Transfer,7.54,JPY,,Mobikwik Wallet -> SBI Savings
+"28/09/2025, 17:45",Expense,Refundable,-20,JPY,Brush,Groww UPI Lite
+"28/09/2025, 17:42",Transfer,Transfer,301.26,JPY,,SBI Savings -> Groww UPI Lite
+"28/09/2025, 17:42",Transfer,Transfer,400,JPY,,Cash at Home -> SBI Savings
+"28/09/2025, 17:27",Income,Refund,50,JPY,,Cash at Home
+"28/09/2025, 17:24",Expense,Refundable,-7,JPY,Bun,Groww UPI Lite
+"28/09/2025, 14:09",Expense,Refundable,-48,JPY,Milk,Groww UPI Lite
+"28/09/2025, 14:08",Income,Cashback,1.25,JPY,,Mobikwik Wallet
+"27/09/2025, 15:13",Income,Cashback,1.33,JPY,,Mobikwik Wallet
+"27/09/2025, 14:43",Expense,Refundable,-85,JPY,Milk Curd,Groww UPI Lite
+"26/09/2025, 12:04",Income,Cashback,1.32,JPY,,Mobikwik Wallet
+"25/09/2025, 20:23",Income,Cashback,1.31,JPY,,Mobikwik Wallet
+"25/09/2025, 19:11",Expense,Food,-30,JPY,Butterscotch Softy,PNB RuPay Credit Card
+"25/09/2025, 19:11",Expense,Refundable,-30,JPY,Popcorn,Cash at Home
+"25/09/2025, 19:10",Income,Refund,170,JPY,,Cash at Home
+"24/09/2025, 20:05",Transfer,Transfer,8.24,JPY,,SBI Savings -> Groww UPI Lite
+"24/09/2025, 19:30",Expense,Food,-13.97,JPY,Lava Cake,Groww UPI Lite
+"24/09/2025, 19:28",Expense,Refundable,-60.53,JPY,Bakarvada,Groww UPI Lite
+"24/09/2025, 11:14",Income,Cashback,1.33,JPY,,Mobikwik Wallet
+"23/09/2025, 16:16",Income,Cashback,1,JPY,,Mobikwik Wallet
+"23/09/2025, 16:15",Expense,Refundable,-39,JPY,Data Add on,Groww UPI Lite
+"23/09/2025, 16:15",Transfer,Transfer,1.33,JPY,,Mobikwik Wallet -> SBI Savings
+"23/09/2025, 16:15",Income,Cashback,1.33,JPY,,Mobikwik Wallet
+"22/09/2025, 22:27",Income,Bonus,20,JPY,,Cash at Home
+"22/09/2025, 22:26",Transfer,Transfer,6.04,JPY,,Mobikwik Wallet -> SBI Savings
+"22/09/2025, 13:30",Income,Cashback,1.08,JPY,,Mobikwik Wallet
+"21/09/2025, 17:45",Income,Cashback,1.35,JPY,,Mobikwik Wallet
+"20/09/2025, 17:33",Income,Cashback,1.15,JPY,,Mobikwik Wallet
+"19/09/2025, 19:31",Transfer,Transfer,75,JPY,,SBI Savings -> PayTM UPI Lite
+"19/09/2025, 19:30",Expense,Investment,-500,JPY,Gold Mutual Fund,PayTM UPI Lite
+"19/09/2025, 19:29",Transfer,Transfer,75.7,JPY,,Groww UPI Lite -> SBI Savings
+"19/09/2025, 14:47",Expense,Refundable,-43,JPY,Holige,Groww UPI Lite
+"19/09/2025, 13:22",Expense,Refundable,-35,JPY,Cake,Groww UPI Lite
+"19/09/2025, 13:22",Expense,Refundable,-594.3,JPY,Domino's,Groww UPI Lite
+"19/09/2025, 13:21",Income,Cashback,1.24,JPY,,Mobikwik Wallet
+"19/09/2025, 09:56",Income,Refund,798,JPY,,Groww UPI Lite
+"19/09/2025, 09:55",Expense,Refundable,-78,JPY,Bread + Dolo 650,Groww UPI Lite
+"18/09/2025, 18:02",Income,Cashback,1.22,JPY,,Mobikwik Wallet
+"17/09/2025, 18:56",Expense,Investment,-122,JPY,Gold Mutual Fund,SBI Savings
+"17/09/2025, 18:54",Transfer,Transfer,11.59,JPY,,Mobikwik Wallet -> SBI Savings
+"17/09/2025, 18:53",Income,Cashback,1.41,JPY,,Mobikwik Wallet
+"17/09/2025, 18:41",Income,Bonus,100,JPY,,SBI Savings
+"17/09/2025, 18:40",Expense,Food,-20,JPY,Melody,PNB RuPay Credit Card
+"17/09/2025, 18:40",Expense,Refundable,-20,JPY,Bun,Groww UPI Lite
+"17/09/2025, 18:40",Expense,Refundable,-95,JPY,Dosa Batter,Groww UPI Lite
+"17/09/2025, 18:39",Transfer,Transfer,168,JPY,,SBI Savings -> Groww UPI Lite
+"17/09/2025, 18:39",Income,Refund,170,JPY,,SBI Savings
+"16/09/2025, 19:27",Income,Cashback,0.83,JPY,,Mobikwik Wallet
+"16/09/2025, 18:51",Expense,Food,-30,JPY,Vanilla Softy + Cream Roll,PhonePe UPI Lite
+"15/09/2025, 20:23",Expense,Food,-10,JPY,Moong Dal,SBI Savings
+"15/09/2025, 20:23",Expense,Refundable,-68,JPY,"Milk, Brush",Groww UPI Lite
+"15/09/2025, 19:35",Income,Cashback,1.34,JPY,,Mobikwik Wallet
+"15/09/2025, 18:32",Expense,Travel,-95,JPY,Aquarium,SBI Savings
+"15/09/2025, 17:54",Expense,Travel,-45,JPY,Planet on Sphere,SBI Savings
+"15/09/2025, 17:53",Expense,Travel,-45,JPY,Jungle 3d,SBI Savings
+"15/09/2025, 17:52",Expense,Travel,-100,JPY,Visveswaraya Museum,SBI Savings
+"15/09/2025, 13:24",Expense,Refundable,-22,JPY,Battery,SBI Savings
+"15/09/2025, 09:38",Transfer,Transfer,205,JPY,,Indian Bank Savings -> SBI Savings
+"15/09/2025, 09:38",Income,Interest,205,JPY,,Indian Bank Savings
+"14/09/2025, 21:37",Income,Bonus,50,JPY,,Cash at Home
+"14/09/2025, 17:48",Income,Cashback,0.67,JPY,,Mobikwik Wallet
+"13/09/2025, 16:56",Income,Cashback,0.58,JPY,,Mobikwik Wallet
+"13/09/2025, 14:11",Expense,Refundable,-140,JPY,Lunch,SBI Savings
+"13/09/2025, 14:10",Expense,Refundable,-30,JPY,Desert Cake,SBI Savings
+"12/09/2025, 20:22",Expense,Refundable,-20,JPY,Pen Pencil,SBI Savings
+"12/09/2025, 20:18",Transfer,Transfer,60,JPY,,SBI Savings -> PNB Savings
+"12/09/2025, 20:18",Transfer,Transfer,100,JPY,,SBI Savings -> Groww UPI Lite
+"12/09/2025, 17:56",Expense,Refundable,-30,JPY,"Kaara Boondi, Cornflakes",SBI Savings
+"12/09/2025, 17:56",Transfer,Transfer,500,JPY,,Cash at Home -> SBI Savings
+"12/09/2025, 13:35",Income,Cashback,0.7,JPY,,Mobikwik Wallet
+"12/09/2025, 11:56",Expense,Banking charges,-0.01,JPY,SMS Charges,Indian Bank Savings
+"11/09/2025, 20:41",Income,Refund,500,JPY,,Cash at Home
+"11/09/2025, 17:42",Expense,Refundable,-40,JPY,Pav,Groww UPI Lite
+"11/09/2025, 16:41",Income,Bonus,300,JPY,,Cash at Home
+"11/09/2025, 16:22",Income,Cashback,1.47,JPY,,Mobikwik Wallet
+"10/09/2025, 17:55",Expense,Food,-20,JPY,Vanilla Softy,PNB RuPay Credit Card
+"10/09/2025, 16:19",Income,Cashback,1.44,JPY,,Mobikwik Wallet
+"09/09/2025, 15:47",Income,Cashback,1.44,JPY,,Mobikwik Wallet
+"08/09/2025, 15:53",Expense,Investment,-2304,JPY,Nifty 50,SBI FD Saving
+"08/09/2025, 15:09",Expense,Refundable,-60,JPY,Lunch Mingos,Groww UPI Lite
+"08/09/2025, 14:23",Income,Cashback,1.71,JPY,,Mobikwik Wallet
+"08/09/2025, 14:06",Expense,Transportation,-12,JPY,Bus,Cash at Home
+"07/09/2025, 18:17",Expense,Food,-30,JPY,Gobi Manchuri,PNB RuPay Credit Card
+"07/09/2025, 15:07",Income,Interest,7,JPY,,PNB Savings
+"07/09/2025, 14:58",Transfer,Transfer,12.27,JPY,,Mobikwik Wallet -> SBI Savings
+"07/09/2025, 14:58",Expense,Refundable,-100,JPY,Aadhar Update,Cash at Home
+"07/09/2025, 14:57",Transfer,Transfer,265,JPY,,SBI Savings -> Groww UPI Lite
+"07/09/2025, 14:56",Income,Refund,275,JPY,,SBI Savings
+"07/09/2025, 14:51",Expense,Investment,-203,JPY,Gold Mutual Fund,SBI Savings
+"07/09/2025, 14:50",Transfer,Transfer,181,JPY,,Indian Bank Savings -> SBI Savings
+"07/09/2025, 14:50",Income,Cashback,1.7,JPY,,Mobikwik Wallet
+"07/09/2025, 14:46",Expense,Investment,-230,JPY,Gold Mutual Fund,SBI Savings
+"07/09/2025, 14:46",Transfer,Transfer,55,JPY,,SBI Savings -> Groww UPI Lite
+"07/09/2025, 14:42",Expense,Refundable,-130,JPY,Puliogare mix,Groww UPI Lite
+"07/09/2025, 14:41",Expense,Refundable,-135,JPY,Bise Bele Bath,Groww UPI Lite
+"07/09/2025, 14:41",Income,Refund,285,JPY,,SBI Savings
+"07/09/2025, 10:06",Income,Interest,181,JPY,,Indian Bank Savings
+"06/09/2025, 20:31",Expense,Refundable,-15,JPY,,Groww UPI Lite
+"06/09/2025, 11:24",Income,Cashback,1.69,JPY,,Mobikwik Wallet
+"05/09/2025, 18:47",Expense,Refundable,-40,JPY,Cornflake Misture,Groww UPI Lite
+"05/09/2025, 18:47",Expense,Gifts,-100,JPY,Mohith's Snacks,PNB RuPay Credit Card
+"05/09/2025, 11:54",Income,Cashback,1.4,JPY,,Mobikwik Wallet
+"04/09/2025, 19:26",Income,Gift,100,JPY,Mohith's Budget,PNB Savings
+"04/09/2025, 17:56",Expense,Refundable,-20,JPY,,Cash at Home
+"04/09/2025, 12:39",Income,Cashback,1.55,JPY,,Mobikwik Wallet
+"03/09/2025, 16:21",Expense,Investment,-112,JPY,Gold Mutual Fund,SBI Savings
+"03/09/2025, 15:33",Income,Dividend,44,JPY,ICICI Dividend,SBI Savings
+"03/09/2025, 12:39",Income,Bonus,68.2,JPY,,SBI Savings
+"03/09/2025, 12:39",Income,Cashback,3.2,JPY,,Mobikwik Wallet
+"02/09/2025, 08:44",Expense,Investment,-120,JPY,Gold Mutual Fund,SBI Savings
+"02/09/2025, 08:44",Transfer,Transfer,100,JPY,,PNB Savings -> SBI Savings
+"02/09/2025, 08:38",Income,Cashback,2.73,JPY,,Mobikwik Wallet
+"02/09/2025, 08:38",Transfer,Transfer,19.46,JPY,,Mobikwik Wallet -> SBI Savings
+"01/09/2025, 14:03",Income,Cashback,0.75,JPY,,Mobikwik Wallet
+"31/08/2025, 13:25",Income,Cashback,2.87,JPY,,Mobikwik Wallet
+"30/08/2025, 18:56",Expense,Food,-30,JPY,Bonda + Jeera papad,PNB RuPay Credit Card
+"30/08/2025, 17:47",Expense,Education,-155,JPY,Book : Rework,PayTM UPI Lite
+"30/08/2025, 17:47",Transfer,Transfer,700,JPY,,SBI FD Saving -> PayTM UPI Lite
+"30/08/2025, 10:47",Income,Cashback,3.07,JPY,,Mobikwik Wallet
+"30/08/2025, 10:06",Income,Interest,4,JPY,,SBI FD Saving
+"29/08/2025, 22:20",Expense,Refundable,-20,JPY,Lime juice,PNB RuPay Credit Card
+"29/08/2025, 10:24",Income,Bonus,0.22,JPY,,SBI Savings
+"29/08/2025, 10:21",Income,Cashback,2.92,JPY,,Mobikwik Wallet
+"29/08/2025, 10:20",Expense,Investment,-100,JPY,Gold Mutual Fund,SBI Savings
+"29/08/2025, 10:20",Transfer,Transfer,10,JPY,,Mobikwik Wallet -> SBI Savings
+"29/08/2025, 10:08",Income,Bonus,60,JPY,Books,SBI Savings
+"28/08/2025, 21:08",Transfer,Transfer,70,JPY,,SBI Savings -> Groww UPI Lite
+"28/08/2025, 21:07",Income,Refund,100,JPY,,SBI Savings
+"28/08/2025, 11:01",Income,Cashback,2.95,JPY,,Mobikwik Wallet
+"27/08/2025, 17:36",Expense,Investment,-1278,JPY,Nifty 50,SBI Savings
+"27/08/2025, 17:36",Income,Cashback,1.84,JPY,,Mobikwik Wallet
+"27/08/2025, 15:11",Transfer,Transfer,1278,JPY,,Indian Bank Savings -> SBI Savings
+"27/08/2025, 15:11",Income,Interest,1278,JPY,,Indian Bank Savings
+"26/08/2025, 14:38",Expense,Refundable,-70,JPY,Snacks,Groww UPI Lite
+"26/08/2025, 13:15",Income,Cashback,3.09,JPY,,Mobikwik Wallet
+"25/08/2025, 23:29",Expense,Investment,-225,JPY,Gold Mutual Fund,SBI Savings
+"25/08/2025, 23:29",Transfer,Transfer,310,JPY,,SBI Savings -> Groww UPI Lite
+"25/08/2025, 23:28",Income,Refund,435,JPY,,SBI Savings
+"25/08/2025, 19:20",Expense,Food,-15,JPY,Samosa,PNB Savings
+"25/08/2025, 16:10",Income,Cashback,2.51,JPY,,Mobikwik Wallet
+"24/08/2025, 20:00",Income,Bonus,32,JPY,,Cash at Home
+"24/08/2025, 19:24",Expense,Refundable,-310,JPY,Lunch,Groww UPI Lite
+"24/08/2025, 12:02",Income,Cashback,3.29,JPY,,Mobikwik Wallet
+"23/08/2025, 20:10",Expense,Investment,-240,JPY,Gold Mutual Fund,SBI Savings
+"23/08/2025, 20:10",Transfer,Transfer,256,JPY,,SBI Savings -> Groww UPI Lite
+"23/08/2025, 20:10",Income,Refund,496,JPY,,SBI Savings
+"23/08/2025, 18:38",Expense,Investment,-500,JPY,Gold Mutual Fund,SBI Savings
+"23/08/2025, 18:38",Income,Bonus,500,JPY,Visiting Grandparents,SBI Savings
+"23/08/2025, 18:37",Income,Bonus,70,JPY,,Cash at Home
+"23/08/2025, 12:36",Income,Cashback,3.26,JPY,,Mobikwik Wallet
+"22/08/2025, 11:36",Income,Cashback,2.91,JPY,,Mobikwik Wallet
+"21/08/2025, 16:02",Expense,Investment,-101,JPY,Cooperate Bond,SBI Savings
+"21/08/2025, 16:02",Transfer,Transfer,30.52,JPY,,Mobikwik Wallet -> SBI Savings
+"21/08/2025, 16:00",Expense,Food,-10,JPY,Bonda,PNB RuPay Credit Card
+"21/08/2025, 14:51",Expense,Refundable,-60,JPY,Aloo Parotha,Groww UPI Lite
+"21/08/2025, 12:12",Expense,Refundable,-46,JPY,Bus,Groww UPI Lite
+"21/08/2025, 12:11",Expense,Refundable,-150,JPY,Bus Pass,Groww UPI Lite
+"21/08/2025, 12:11",Income,Cashback,2.32,JPY,,Mobikwik Wallet
+"20/08/2025, 18:14",Income,Refund,61,JPY,,Groww UPI Lite
+"20/08/2025, 11:26",Income,Cashback,2.84,JPY,,Mobikwik Wallet
+"19/08/2025, 14:09",Income,Bonus,0.91,JPY,,SBI Savings
+"19/08/2025, 14:08",Expense,Investment,-517,JPY,Gold Mutual Fund,SBI Savings
+"19/08/2025, 14:08",Income,Cashback,2.73,JPY,,Mobikwik Wallet
+"19/08/2025, 02:43",Expense,Refundable,-32,JPY,Goodlife,Groww UPI Lite
+"18/08/2025, 20:40",Expense,Refundable,-29,JPY,Curd,Groww UPI Lite
+"18/08/2025, 14:37",Transfer,Transfer,557,JPY,,Indian Bank Savings -> SBI Savings
+"18/08/2025, 14:36",Income,Interest,557,JPY,,Indian Bank Savings
+"18/08/2025, 12:37",Transfer,Transfer,100,JPY,Credit Card Payment,PNB Savings -> PNB RuPay Credit Card
+"18/08/2025, 10:09",Transfer,Transfer,289.89,JPY,,SBI Savings -> PNB Savings
+"18/08/2025, 10:09",Income,Investment Redemption,289.84,JPY,,SBI Savings
+"18/08/2025, 09:10",Income,Cashback,3.66,JPY,,Mobikwik Wallet
+"17/08/2025, 12:15",Income,Allowance,3000,JPY,For Education,SBI FD Saving
+"17/08/2025, 12:00",Transfer,Transfer,281,JPY,,SBI Savings -> Groww UPI Lite
+"17/08/2025, 12:00",Income,Refund,411,JPY,,SBI Savings
+"17/08/2025, 11:59",Expense,Refundable,-281,JPY,Milk Curd Paneer,Groww UPI Lite
+"17/08/2025, 10:36",Income,Cashback,3.13,JPY,,Mobikwik Wallet
+"17/08/2025, 10:05",Transfer,Transfer,400,JPY,,PayTM UPI Lite -> PhonePe UPI Lite
+"16/08/2025, 17:25",Expense,Refundable,-120,JPY,Ironing clothes,Cash at Home
+"16/08/2025, 17:25",Income,Bonus,105,JPY,,Cash at Home
+"16/08/2025, 12:07",Income,Cashback,2.67,JPY,,Mobikwik Wallet
+"15/08/2025, 10:13",Income,Cashback,3.67,JPY,,Mobikwik Wallet
+"15/08/2025, 08:28",Transfer,Transfer,175,JPY,,SBI Savings -> Groww UPI Lite
+"15/08/2025, 08:28",Income,Refund,158,JPY,,SBI Savings
+"14/08/2025, 21:44",Expense,Refundable,-50,JPY,,Groww UPI Lite
+"14/08/2025, 20:50",Expense,Gifts,-20,JPY,Donation,Cash at Home
+"14/08/2025, 17:47",Expense,Refundable,-125,JPY,,Groww UPI Lite
+"14/08/2025, 17:46",Expense,Refundable,-103,JPY,,SBI Savings
+"14/08/2025, 17:46",Income,Refund,120,JPY,,SBI Savings
+"14/08/2025, 17:11",Expense,Refundable,-10,JPY,,PhonePe UPI Lite
+"14/08/2025, 15:55",Income,Bonus,4,JPY,,Cash at Home
+"14/08/2025, 15:11",Expense,Investment,-500,JPY,Small Cap Mutual Fund,SBI Savings
+"14/08/2025, 15:08",Income,Refund,500,JPY,,SBI Savings
+"14/08/2025, 15:08",Expense,Refundable,-250,JPY,Lunch,Cash at Home
+"14/08/2025, 13:15",Income,Cashback,3.38,JPY,,Mobikwik Wallet
+"13/08/2025, 16:48",Expense,Investment,-530,JPY,Gold Mutual Fund,SBI Savings
+"13/08/2025, 16:48",Transfer,Transfer,40,JPY,,SBI Savings -> Groww UPI Lite
+"13/08/2025, 16:47",Transfer,Transfer,480,JPY,,Mobikwik Wallet -> SBI Savings
+"13/08/2025, 16:47",Transfer,Transfer,90,JPY,,PhonePe UPI Lite -> SBI Savings
+"13/08/2025, 16:32",Income,Refund,100,JPY,,Cash at Home
+"13/08/2025, 13:55",Income,Cashback,6.56,JPY,,Mobikwik Wallet
+"13/08/2025, 10:33",Expense,Gifts,-70,JPY,Mohith's Snacks,PNB RuPay Credit Card
+"12/08/2025, 15:29",Transfer,Transfer,130,JPY,,SBI Savings -> Mobikwik Wallet
+"12/08/2025, 15:24",Expense,Food,-70,JPY,My Snacks,SBI Savings
+"12/08/2025, 15:24",Income,Gift,200,JPY,Mohith's Budget,SBI Savings
+"12/08/2025, 15:24",Income,Refund,90,JPY,,Cash at Home
+"12/08/2025, 13:42",Expense,Refundable,-40,JPY,Lunch,Groww UPI Lite
+"12/08/2025, 12:07",Income,Cashback,2.26,JPY,,Mobikwik Wallet
+"12/08/2025, 07:35",Expense,Investment,-600,JPY,Small Cap Mutual Fund,SBI Savings
+"12/08/2025, 07:35",Transfer,Transfer,1,JPY,,Mobikwik Wallet -> SBI Savings
+"12/08/2025, 07:35",Transfer,Transfer,55,JPY,,Groww UPI Lite -> SBI Savings
+"12/08/2025, 07:35",Transfer,Transfer,544,JPY,,Indian Bank Savings -> SBI Savings
+"11/08/2025, 21:48",Income,Interest,544,JPY,,Indian Bank Savings
+"11/08/2025, 18:10",Expense,Refundable,-100,JPY,,Cash at Home
+"11/08/2025, 17:46",Expense,Food,-10,JPY,Papad Pipe,PNB RuPay Credit Card
+"11/08/2025, 13:30",Income,Dividend,10,JPY,HDFC Dividend,Mobikwik Wallet
+"11/08/2025, 12:29",Transfer,Transfer,55,JPY,,SBI Savings -> Groww UPI Lite
+"11/08/2025, 08:31",Income,Cashback,0.62,JPY,,Mobikwik Wallet
+"11/08/2025, 08:31",Income,Cashback,0.51,JPY,,Mobikwik Wallet
+"11/08/2025, 08:31",Income,Cashback,0.4,JPY,,Mobikwik Wallet
+"11/08/2025, 08:31",Income,Cashback,0.4,JPY,,Mobikwik Wallet
+"11/08/2025, 08:30",Income,Cashback,0.75,JPY,,Mobikwik Wallet
+"10/08/2025, 21:49",Income,Refund,55,JPY,,SBI Savings
+"10/08/2025, 20:00",Income,Bonus,125,JPY,,Cash at Home
+"10/08/2025, 08:51",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"10/08/2025, 08:51",Income,Cashback,0.42,JPY,,Mobikwik Wallet
+"10/08/2025, 08:51",Income,Cashback,0.78,JPY,,Mobikwik Wallet
+"10/08/2025, 08:51",Income,Cashback,0.78,JPY,,Mobikwik Wallet
+"10/08/2025, 08:50",Income,Cashback,0.72,JPY,,Mobikwik Wallet
+"09/08/2025, 20:43",Expense,Investment,-330,JPY,Gold Mutual Fund,SBI Savings
+"09/08/2025, 20:35",Transfer,Transfer,329.49,JPY,,Indian Bank Savings -> SBI Savings
+"09/08/2025, 10:40",Income,Cashback,0.78,JPY,,Mobikwik Wallet
+"09/08/2025, 10:40",Income,Cashback,0.72,JPY,,Mobikwik Wallet
+"09/08/2025, 10:32",Income,Interest,329,JPY,,Indian Bank Savings
+"09/08/2025, 10:23",Income,Cashback,1.5,JPY,,Mobikwik Wallet
+"09/08/2025, 10:23",Income,Cashback,0.45,JPY,,Mobikwik Wallet
+"09/08/2025, 10:22",Income,Cashback,0.37,JPY,,Mobikwik Wallet
+"08/08/2025, 11:14",Income,Cashback,0.52,JPY,,Mobikwik Wallet
+"08/08/2025, 10:54",Income,Cashback,0.66,JPY,,Mobikwik Wallet
+"08/08/2025, 10:54",Income,Cashback,0.57,JPY,,Mobikwik Wallet
+"08/08/2025, 10:53",Income,Cashback,0.35,JPY,,Mobikwik Wallet
+"08/08/2025, 10:53",Income,Cashback,0.43,JPY,,Mobikwik Wallet
+"07/08/2025, 14:40",Income,Cashback,0.7,JPY,,Mobikwik Wallet
+"07/08/2025, 14:40",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"07/08/2025, 14:40",Income,Cashback,0.38,JPY,,Mobikwik Wallet
+"07/08/2025, 14:39",Income,Cashback,0.34,JPY,,Mobikwik Wallet
+"07/08/2025, 14:39",Income,Cashback,0.67,JPY,,Mobikwik Wallet
+"07/08/2025, 13:51",Expense,Food,-10,JPY,Tedhe Medhe,PNB RuPay Credit Card
+"06/08/2025, 12:36",Income,Cashback,0.38,JPY,,Mobikwik Wallet
+"06/08/2025, 12:36",Income,Cashback,0.49,JPY,,Mobikwik Wallet
+"06/08/2025, 12:36",Income,Cashback,0.31,JPY,,Mobikwik Wallet
+"06/08/2025, 12:36",Income,Cashback,0.57,JPY,,Mobikwik Wallet
+"06/08/2025, 12:35",Income,Cashback,0.69,JPY,,Mobikwik Wallet
+"05/08/2025, 20:04",Expense,Food,-10,JPY,Jeera Papad,PNB RuPay Credit Card
+"05/08/2025, 20:00",Income,Bonus,3,JPY,,Cash at Home
+"05/08/2025, 14:13",Income,Cashback,0.47,JPY,,Mobikwik Wallet
+"05/08/2025, 14:13",Income,Cashback,0.97,JPY,,Mobikwik Wallet
+"05/08/2025, 14:13",Income,Cashback,0.49,JPY,,Mobikwik Wallet
+"04/08/2025, 12:04",Income,Cashback,0.63,JPY,,Mobikwik Wallet
+"04/08/2025, 12:04",Income,Cashback,0.65,JPY,,Mobikwik Wallet
+"04/08/2025, 12:04",Income,Cashback,0.35,JPY,,Mobikwik Wallet
+"04/08/2025, 12:04",Income,Cashback,0.28,JPY,,Mobikwik Wallet
+"03/08/2025, 13:20",Income,Cashback,0.82,JPY,,Mobikwik Wallet
+"03/08/2025, 13:20",Income,Cashback,0.57,JPY,,Mobikwik Wallet
+"03/08/2025, 11:06",Income,Cashback,0.43,JPY,,Mobikwik Wallet
+"03/08/2025, 10:46",Income,Cashback,0.3,JPY,,Mobikwik Wallet
+"02/08/2025, 17:18",Transfer,Transfer,300,JPY,,Cash at Home -> Groww UPI Lite
+"02/08/2025, 16:44",Expense,Refundable,-55,JPY,Wheat Bread,Groww UPI Lite
+"02/08/2025, 13:13",Expense,Refundable,-40,JPY,Gone Mad + Masala Bun,Groww UPI Lite
+"02/08/2025, 11:23",Income,Cashback,0.66,JPY,,Mobikwik Wallet
+"02/08/2025, 11:17",Income,Cashback,0.4,JPY,,Mobikwik Wallet
+"02/08/2025, 11:12",Income,Cashback,9.86,JPY,,Mobikwik Wallet
+"02/08/2025, 11:12",Income,Cashback,0.79,JPY,,Mobikwik Wallet
+"02/08/2025, 11:12",Income,Cashback,0.44,JPY,,Mobikwik Wallet
+"01/08/2025, 20:51",Income,Refund,260,JPY,,Cash at Home
+"01/08/2025, 18:39",Expense,Refundable,-135,JPY,Idly + Paneer Fried Rice,Groww UPI Lite
+"01/08/2025, 16:32",Income,Cashback,0.41,JPY,,Mobikwik Wallet
+"01/08/2025, 12:01",Income,Cashback,0.92,JPY,,Mobikwik Wallet
+"01/08/2025, 11:55",Transfer,Transfer,300,JPY,,PayTM UPI Lite -> Mobikwik Wallet
+"01/08/2025, 11:54",Transfer,Transfer,100,JPY,,PayTM UPI Lite -> PhonePe UPI Lite
+"01/08/2025, 11:54",Income,Cashback,0.53,JPY,,Mobikwik Wallet
+"01/08/2025, 11:47",Income,Cashback,0.68,JPY,,Mobikwik Wallet
+"01/08/2025, 11:47",Income,Cashback,0.39,JPY,,Mobikwik Wallet
+"01/08/2025, 11:46",Transfer,Transfer,0.26,JPY,,Mobikwik Wallet -> SBI Savings
+"31/07/2025, 16:29",Income,Cashback,0.26,JPY,,Mobikwik Wallet
+"31/07/2025, 16:29",Transfer,Transfer,40.93,JPY,,Mobikwik Wallet -> SBI Savings
+"31/07/2025, 16:23",Transfer,Transfer,393,JPY,,Indian Bank Savings -> SBI Savings
+"31/07/2025, 13:37",Expense,Food,-5,JPY,Masala Papad,Mobikwik Wallet
+"31/07/2025, 13:02",Income,Cashback,0.42,JPY,,Mobikwik Wallet
+"31/07/2025, 13:02",Income,Cashback,0.28,JPY,,Mobikwik Wallet
+"31/07/2025, 12:57",Income,Cashback,0.4,JPY,,Mobikwik Wallet
+"31/07/2025, 12:57",Income,Cashback,0.4,JPY,,Mobikwik Wallet
+"31/07/2025, 12:54",Income,Dividend,1.25,JPY,IDFC Dividend,SBI Savings
+"30/07/2025, 19:26",Income,Interest,365,JPY,,Indian Bank Savings
+"30/07/2025, 10:49",Transfer,Transfer,1200,JPY,,SBI Savings -> Fixed Deposit
+"30/07/2025, 10:48",Transfer,Transfer,1200,JPY,,PayTM UPI Lite -> SBI Savings
+"30/07/2025, 10:45",Income,Cashback,0.28,JPY,,Mobikwik Wallet
+"30/07/2025, 10:44",Income,Cashback,0.26,JPY,,Mobikwik Wallet
+"29/07/2025, 11:22",Income,Cashback,0.4,JPY,,Mobikwik Wallet
+"29/07/2025, 11:21",Income,Cashback,0.4,JPY,,Mobikwik Wallet
+"29/07/2025, 11:21",Income,Cashback,0.38,JPY,,Mobikwik Wallet
+"29/07/2025, 11:21",Income,Cashback,0.39,JPY,,Mobikwik Wallet
+"28/07/2025, 13:19",Transfer,Transfer,50,JPY,,Cash at Home -> Groww UPI Lite
+"28/07/2025, 13:19",Income,Cashback,0.41,JPY,,Mobikwik Wallet
+"28/07/2025, 12:27",Income,Cashback,0.57,JPY,,Mobikwik Wallet
+"27/07/2025, 21:01",Transfer,Transfer,303,JPY,,SBI Savings -> Groww UPI Lite
+"27/07/2025, 20:59",Income,Refund,303,JPY,,SBI Savings
+"27/07/2025, 20:58",Income,Cashback,0.28,JPY,,Mobikwik Wallet
+"27/07/2025, 20:21",Expense,Refundable,-125,JPY,Auto,Groww UPI Lite
+"27/07/2025, 12:34",Income,Cashback,0.36,JPY,,Mobikwik Wallet
+"27/07/2025, 12:34",Income,Cashback,0.93,JPY,,Mobikwik Wallet
+"27/07/2025, 10:13",Expense,Refundable,-138,JPY,Auto,Groww UPI Lite
+"26/07/2025, 14:40",Income,Cashback,0.36,JPY,,Mobikwik Wallet
+"26/07/2025, 14:40",Income,Cashback,0.41,JPY,,Mobikwik Wallet
+"25/07/2025, 18:31",Income,Refund,70,JPY,,Cash at Home
+"25/07/2025, 17:59",Expense,Refundable,-80,JPY,Bun + Rusk,Groww UPI Lite
+"25/07/2025, 15:56",Income,Cashback,1,JPY,,Mobikwik Wallet
+"25/07/2025, 11:28",Income,Cashback,0.36,JPY,,Mobikwik Wallet
+"25/07/2025, 11:25",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"25/07/2025, 11:25",Income,Cashback,0.27,JPY,,Mobikwik Wallet
+"25/07/2025, 11:25",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"24/07/2025, 18:34",Expense,Food,-5,JPY,Full Toss,Mobikwik Wallet
+"24/07/2025, 15:35",Income,Cashback,0.93,JPY,,Mobikwik Wallet
+"24/07/2025, 12:17",Income,Cashback,0.67,JPY,,Mobikwik Wallet
+"24/07/2025, 12:16",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"24/07/2025, 12:09",Income,Cashback,0.48,JPY,,Mobikwik Wallet
+"24/07/2025, 11:48",Income,Cashback,0.28,JPY,,Mobikwik Wallet
+"23/07/2025, 18:04",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"23/07/2025, 18:02",Expense,Food,-30,JPY,Munch Cereal + Piknik + Soya Chips,Mobikwik Wallet
+"23/07/2025, 16:11",Transfer,Transfer,498,JPY,,SBI Savings -> Groww UPI Lite
+"23/07/2025, 16:11",Income,Refund,498,JPY,,SBI Savings
+"23/07/2025, 12:51",Income,Refund,100,JPY,,Cash at Home
+"23/07/2025, 12:28",Expense,Refundable,-60,JPY,Medicine,Cash at Home
+"22/07/2025, 11:30",Expense,Transportation,-6,JPY,Bus,Mobikwik Wallet
+"22/07/2025, 11:26",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"22/07/2025, 11:26",Expense,Transportation,-24,JPY,Bus,Mobikwik Wallet
+"22/07/2025, 11:10",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"22/07/2025, 11:09",Expense,Transportation,-12,JPY,Bus,Mobikwik Wallet
+"21/07/2025, 20:21",Transfer,Transfer,215,JPY,,Groww UPI Lite -> PayTM UPI Lite
+"21/07/2025, 20:06",Transfer,Transfer,137,JPY,,SBI Savings -> Groww UPI Lite
+"21/07/2025, 20:04",Income,Bonus,136.75,JPY,Idea Lab,SBI Savings
+"21/07/2025, 20:04",Income,Cashback,0.44,JPY,,Mobikwik Wallet
+"21/07/2025, 20:00",Expense,Refundable,-50,JPY,Poster,PayTM UPI Lite
+"21/07/2025, 17:38",Income,Cashback,0.61,JPY,,Mobikwik Wallet
+"21/07/2025, 17:37",Transfer,Transfer,2600,JPY,,Indian Bank Savings -> SBI Savings
+"20/07/2025, 18:13",Income,Cashback,0.5,JPY,,Mobikwik Wallet
+"20/07/2025, 18:12",Expense,Food,-10,JPY,Munch Cereal,Mobikwik Wallet
+"20/07/2025, 15:29",Income,Cashback,0.9,JPY,,Mobikwik Wallet
+"20/07/2025, 10:59",Income,Refund,20,JPY,,Cash at Home
+"20/07/2025, 10:08",Transfer,Transfer,200,JPY,,SBI Savings -> Groww UPI Lite
+"20/07/2025, 10:07",Income,Bonus,45,JPY,,Cash at Home
+"20/07/2025, 10:07",Transfer,Transfer,200,JPY,,Cash -> SBI Savings
+"19/07/2025, 23:26",Income,Cashback,10,JPY,,Mobikwik Wallet
+"18/07/2025, 20:58",Income,Cashback,7.5,JPY,,Mobikwik Wallet
+"18/07/2025, 20:28",Expense,Refundable,-165,JPY,Vada Pav + Bread + Vegetable,PayTM UPI Lite
+"18/07/2025, 18:07",Income,Gift,200,JPY,,Cash
+"18/07/2025, 13:44",Transfer,Transfer,1165,JPY,,PayTM UPI Lite -> SBI Savings
+"18/07/2025, 13:44",Transfer,Transfer,1280.37,JPY,,Groww UPI Lite -> SBI Savings
+"18/07/2025, 13:33",Transfer,Transfer,2,JPY,,SBI Savings -> Mobikwik Wallet
+"18/07/2025, 13:31",Transfer,Transfer,30,JPY,,Cash -> SBI Savings
+"18/07/2025, 13:31",Transfer,Transfer,120,JPY,,Cash at Home -> SBI Savings
+"18/07/2025, 13:31",Transfer,Transfer,500,JPY,,Emergency Cash -> SBI Savings
+"18/07/2025, 13:30",Income,Refund,2,JPY,Hall Ticket,SBI Savings
+"18/07/2025, 09:55",Expense,Education,-4,JPY,Hall Ticket,Mobikwik Wallet
+"18/07/2025, 09:55",Expense,Food,-40,JPY,Idly,Cash
+"18/07/2025, 08:17",Income,Allowance,70,JPY,,Cash
+"17/07/2025, 18:55",Expense,Lost,-0.01,JPY,Missing???,Mobikwik Wallet
+"17/07/2025, 18:51",Income,Cashback,2.55,JPY,,Mobikwik Wallet
+"17/07/2025, 18:31",Expense,Food,-30,JPY,Brownie,Mobikwik Wallet
+"17/07/2025, 18:31",Transfer,Transfer,100,JPY,,Cash at Home -> SBI Savings
+"17/07/2025, 18:30",Transfer,Transfer,500,JPY,,Emergency Cash -> SBI Savings
+"16/07/2025, 18:24",Income,Cashback,2.55,JPY,,Mobikwik Wallet
+"16/07/2025, 18:17",Income,Cashback,1,JPY,,Mobikwik Wallet
+"16/07/2025, 18:16",Expense,Food,-15,JPY,Choco Rasgulla + Papad pipe,Mobikwik Wallet
+"16/07/2025, 18:16",Income,Cashback,1,JPY,,Mobikwik Wallet
+"16/07/2025, 18:16",Expense,Food,-10,JPY,Marshmallow Choco Dip,Mobikwik Wallet
+"16/07/2025, 18:15",Transfer,Transfer,50,JPY,,SBI Savings -> Groww UPI Lite
+"16/07/2025, 18:15",Transfer,Transfer,50,JPY,,SBI Savings -> Mobikwik Wallet
+"16/07/2025, 18:15",Transfer,Transfer,100,JPY,Yono Cash Deposit,Cash -> SBI Savings
+"16/07/2025, 17:26",Income,Gift,100,JPY,,Cash
+"16/07/2025, 16:02",Transfer,Transfer,435,JPY,,SBI Savings -> Groww UPI Lite
+"16/07/2025, 16:01",Income,Refund,435,JPY,,SBI Savings
+"16/07/2025, 13:30",Transfer,Transfer,100,JPY,,SBI Savings -> PayTM UPI Lite
+"16/07/2025, 13:30",Income,Gift,100,JPY,,SBI Savings
+"15/07/2025, 18:17",Income,Cashback,8.1,JPY,,Mobikwik Wallet
+"15/07/2025, 16:38",Income,Cashback,3.94,JPY,,Mobikwik Wallet
+"15/07/2025, 13:50",Transfer,Transfer,334,JPY,,SBI Savings -> PayTM UPI Lite
+"15/07/2025, 13:49",Income,Refund,334,JPY,,SBI Savings
+"14/07/2025, 19:59",Transfer,Transfer,2,JPY,,Cash -> Cash at Home
+"14/07/2025, 19:59",Expense,Education,-70,JPY,Books,PhonePe UPI Lite
+"14/07/2025, 18:26",Expense,Refundable,-40,JPY,Jumper Wires,PayTM UPI Lite
+"14/07/2025, 17:41",Transfer,Transfer,172,JPY,,SBI Savings -> PayTM UPI Lite
+"14/07/2025, 16:36",Expense,Gifts,-162,JPY,Mohith's Profit,SBI Savings
+"14/07/2025, 16:36",Income,Refund,334,JPY,,SBI Savings
+"14/07/2025, 14:52",Expense,Refundable,-23,JPY,Bus,PayTM UPI Lite
+"14/07/2025, 14:21",Expense,Refundable,-320,JPY,Project,PayTM UPI Lite
+"14/07/2025, 12:28",Expense,Refundable,-23,JPY,Bus,PayTM UPI Lite
+"13/07/2025, 12:08",Expense,Investment,-2000,JPY,Money Multipler Deposit,Indian Bank Savings
+"13/07/2025, 08:22",Expense,Banking charges,-5.9,JPY,IMPS Transfer Fee,PNB Savings
+"13/07/2025, 08:22",Transfer,Transfer,2000,JPY,,PNB Savings -> Indian Bank Savings
+"13/07/2025, 08:21",Expense,Banking charges,-4.13,JPY,SMS Charges,PNB Savings
+"13/07/2025, 07:43",Transfer,Transfer,58.93,JPY,,PhonePe UPI Lite -> Mobikwik Wallet
+"12/07/2025, 18:06",Expense,Food,-10,JPY,Fritz,PhonePe UPI Lite
+"12/07/2025, 13:46",Expense,Refundable,-100,JPY,Haircut,Cash at Home
+"12/07/2025, 11:01",Expense,Safety,-17,JPY,Cyber Fraud Insurance,PhonePe UPI Lite
+"11/07/2025, 14:11",Income,Interest,292,JPY,,Indian Bank Savings
+"11/07/2025, 14:01",Income,Cashback,1,JPY,,Mobikwik Wallet
+"11/07/2025, 08:00",Expense,Others,-150,JPY,Petrol,PayTM UPI Lite
+"10/07/2025, 19:55",Income,Cashback,25,JPY,,Mobikwik Wallet
+"10/07/2025, 16:39",Expense,Transportation,-35,JPY,Bus,PhonePe UPI Lite
+"10/07/2025, 13:05",Expense,Food,-5,JPY,Cheese biscuit,Groww UPI Lite
+"10/07/2025, 13:05",Transfer,Transfer,17.4,JPY,,SBI Savings -> Groww UPI Lite
+"10/07/2025, 13:03",Expense,Food,-10,JPY,Cheese biscuit + Kurkure,Mobikwik Wallet
+"10/07/2025, 13:03",Income,Dividend,17.4,JPY,PNB Dividend,SBI Savings
+"10/07/2025, 09:24",Expense,Banking charges,-354,JPY,Debit Card Charges,Indian Bank Savings
+"09/07/2025, 15:20",Income,Gift,1,JPY,Transfer from Mohith,Mobikwik Wallet
+"09/07/2025, 15:08",Expense,Food,-50,JPY,Domino's,Cash
+"09/07/2025, 12:53",Transfer,Transfer,52,JPY,,Cash at Home -> Cash
+"09/07/2025, 12:53",Income,Allowance,100,JPY,,Cash at Home
+"08/07/2025, 20:13",Expense,Refundable,-50,JPY,Project,SBI Savings
+"08/07/2025, 15:38",Expense,Food,-20,JPY,Pani Puri,PhonePe UPI Lite
+"08/07/2025, 13:21",Transfer,Transfer,10,JPY,,SBI Savings -> Mobikwik Wallet
+"08/07/2025, 08:38",Expense,Investment,-3500,JPY,Fixed deposit,PNB Savings
+"08/07/2025, 08:24",Transfer,Transfer,3500,JPY,Cheque,Indian Bank Savings -> PNB Savings
+"08/07/2025, 08:14",Income,Interest,183,JPY,,Indian Bank Savings
+"07/07/2025, 19:20",Income,Cashback,1,JPY,,Mobikwik Wallet
+"07/07/2025, 19:19",Transfer,Transfer,10,JPY,First payment,Mobikwik Wallet -> SBI Savings
+"07/07/2025, 19:19",Transfer,Transfer,10,JPY,Test,SBI Savings -> Mobikwik Wallet
+"07/07/2025, 12:52",Income,Refund,10,JPY,,SBI Savings
+"05/07/2025, 17:00",Expense,Refundable,-10,JPY,Testing refund,PhonePe UPI Lite
+"05/07/2025, 09:52",Transfer,Transfer,310.82,JPY,,SBI Savings -> Groww UPI Lite
+"05/07/2025, 09:52",Transfer,Transfer,310.82,JPY,Auto Transfer,Groww Stock Wallet -> SBI Savings
+"04/07/2025, 18:04",Expense,Food,-10,JPY,Ice cream,PhonePe UPI Lite
+"04/07/2025, 14:00",Expense,Food,-50,JPY,Brownie,Cash
+"04/07/2025, 10:27",Transfer,Transfer,50,JPY,,Groww UPI Lite -> SBI Savings
+"04/07/2025, 07:42",Income,Allowance,50,JPY,,Cash
+"03/07/2025, 14:00",Expense,Food,-60,JPY,Chips + Omelette,Cash
+"03/07/2025, 08:55",Expense,Others,-24.1,JPY,Fee,Groww Stock Wallet
+"03/07/2025, 08:53",Transfer,Transfer,10000,JPY,,SBI Savings -> Groww Stock Wallet
+"03/07/2025, 08:51",Transfer,Transfer,10000,JPY,,PNB Savings -> SBI Savings
+"03/07/2025, 08:13",Income,Investment Redemption,28.48,JPY,,Groww Stock Wallet
+"02/07/2025, 18:56",Income,Allowance,3270,JPY,,SBI Savings
+"02/07/2025, 17:55",Transfer,Transfer,75.15,JPY,,SBI Savings -> Groww UPI Lite
+"02/07/2025, 17:55",Income,Dividend,75.15,JPY,BOB Dividend,SBI Savings
+"02/07/2025, 15:27",Expense,Refundable,-150,JPY,Cycle repair,Cash at Home
+"02/07/2025, 13:43",Income,Gift,60,JPY,Dosa,Cash
+"02/07/2025, 10:25",Transfer,Transfer,10000,JPY,,SBI Savings -> PNB Savings
+"02/07/2025, 09:56",Income,Interest,31,JPY,,Indian Bank Savings
+"02/07/2025, 08:43",Income,Refund,2730,JPY,,SBI Savings
+"02/07/2025, 08:42",Transfer,Transfer,230,JPY,,SBI Savings -> PhonePe UPI Lite
+"02/07/2025, 08:42",Expense,Refundable,-2500,JPY,Metro,SBI Savings
+"01/07/2025, 20:10",Expense,Food,-40,JPY,Brownie sandwich,Groww UPI Lite
+"01/07/2025, 20:09",Expense,Refundable,-50,JPY,Chakali Kodubale,Groww UPI Lite
+"30/06/2025, 17:00",Expense,Refundable,-50,JPY,Milk,Cash at Home
+"30/06/2025, 12:34",Expense,Food,-50,JPY,Idly + Fritz,Cash at Home
+"30/06/2025, 12:30",Expense,Education,-4,JPY,Graph Sheets,Groww UPI Lite
+"30/06/2025, 09:00",Expense,Education,-2,JPY,Springboard,Groww UPI Lite
+"28/06/2025, 18:41",Expense,Food,-15,JPY,Chips,SBI Savings
+"28/06/2025, 18:38",Transfer,Transfer,200,JPY,ATM Withdraw,SBI Savings -> Cash at Home
+"28/06/2025, 17:53",Transfer,Transfer,9.57,JPY,,PhonePe UPI Lite -> SBI Savings
+"28/06/2025, 17:52",Transfer,Transfer,150,JPY,,Cash at Home -> SBI Savings
+"27/06/2025, 20:30",Income,Bonus,15,JPY,Dosa remaining amt,SBI Savings
+"27/06/2025, 17:08",Expense,Food,-45,JPY,Masala Puri + Brownie,Cash
+"27/06/2025, 07:19",Income,Allowance,100,JPY,,Cash at Home
+"25/06/2025, 22:09",Income,Refund,40,JPY,Poster,SBI Savings
+"25/06/2025, 18:28",Expense,Refundable,-30,JPY,Bun,PhonePe UPI Lite
+"25/06/2025, 09:05",Expense,Education,-17.5,JPY,Idea Lab,PhonePe UPI Lite
+"24/06/2025, 14:01",Expense,Transportation,-35,JPY,Bus,Cash
+"24/06/2025, 08:07",Income,Allowance,50,JPY,,Cash
+"23/06/2025, 17:30",Expense,Food,-100,JPY,Snacks,PhonePe UPI Lite
+"23/06/2025, 11:22",Expense,Education,-20,JPY,Graph Sheets,Cash
+"23/06/2025, 11:16",Expense,Refundable,-300,JPY,Metro,Cash
+"23/06/2025, 08:08",Income,Allowance,50,JPY,,Cash
+"22/06/2025, 18:38",Expense,Refundable,-92,JPY,Iodex,PhonePe UPI Lite
+"22/06/2025, 14:40",Transfer,Transfer,1530,JPY,,SBI Savings -> PayTM UPI Lite
+"22/06/2025, 13:36",Transfer,Transfer,250,JPY,,SBI Savings -> PhonePe UPI Lite
+"22/06/2025, 12:06",Income,Refund,1750,JPY,,SBI Savings
+"21/06/2025, 20:17",Income,Allowance,100,JPY,,Cash
+"21/06/2025, 20:16",Expense,Transportation,-60,JPY,Metro,Groww UPI Lite
+"21/06/2025, 20:16",Income,Allowance,200,JPY,,Cash
+"21/06/2025, 10:26",Expense,Lost,-10,JPY,Lost,Cash
+"21/06/2025, 10:25",Transfer,Transfer,5,JPY,Balance leftout,Cash at Home -> Cash
+"20/06/2025, 17:23",Transfer,Transfer,30,JPY,,Groww UPI Lite -> SBI Savings
+"20/06/2025, 17:00",Expense,Food,-55,JPY,Masala Puri + Brownie,Cash
+"20/06/2025, 07:38",Income,Allowance,50,JPY,,Cash
+"19/06/2025, 16:06",Expense,Food,-70,JPY,Lunch Mingos,Cash
