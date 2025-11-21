@@ -1,3 +1,5 @@
+// === PART 1 START ===
+
 import React, { useState, useEffect } from 'react';
 import Papa from 'papaparse';
 import { 
@@ -17,6 +19,10 @@ export default function MoneyTracker() {
   const [viewMode, setViewMode] = useState('manage');
   const [csvData, setCsvData] = useState([]);
   const [showCsvAnalysis, setShowCsvAnalysis] = useState(false);
+
+  // AI States
+  const [mlData, setMlData] = useState(null);
+  const [loadingAI, setLoadingAI] = useState(false);
 
   const [newTransaction, setNewTransaction] = useState({
     date: new Date().toISOString().split('T')[0],
@@ -164,6 +170,25 @@ export default function MoneyTracker() {
     }
   };
 
+  // AI fetch function
+  const getAIPredictions = async () => {
+    try {
+        setLoadingAI(true);
+
+        const res = await axios.post(
+            `${API_URL}/ml/predict-expenses`,
+            {},
+            { headers: { Authorization: `Bearer ${token}` } }
+        );
+
+        setMlData(res.data);
+        setLoadingAI(false);
+    } catch (err) {
+        console.error(err);
+        setLoadingAI(false);
+    }
+  };
+
   const formatDate = (dateString) => {
     if (!dateString) return '';
     const date = new Date(dateString);
@@ -173,6 +198,9 @@ export default function MoneyTracker() {
       day: 'numeric'
     });
   };
+
+// === PART 1 END ===
+// === PART 2 START ===
 
   const calculateAdvancedStats = () => {
     const incomeTransactions = transactions.filter(t => t.type === 'Income');
@@ -418,7 +446,7 @@ export default function MoneyTracker() {
 
       {/* View Mode Tabs */}
       <div style={{display: 'flex', gap: '15px', marginBottom: '30px', justifyContent: 'center', flexWrap: 'wrap'}}>
-        {['manage', 'analytics', 'trends', 'import'].map(mode => (
+        {['manage', 'analytics', 'trends', 'import', 'ai'].map(mode => (
           <button 
             key={mode}
             onClick={() => setViewMode(mode)}
@@ -439,6 +467,7 @@ export default function MoneyTracker() {
             {mode === 'analytics' && '📊'} 
             {mode === 'trends' && '📈'} 
             {mode === 'import' && '📂'} 
+            {mode === 'ai' && '🤖'} 
             {' '}{mode}
           </button>
         ))}
@@ -513,7 +542,7 @@ export default function MoneyTracker() {
             </div>
 
             <div className="net-balance">
-              <h3>Total Balance: ₹{stats.totalBalance.toLocaleString()}</h3>
+              <h3>Total Balance: ₹{stats.totalBalance?.toLocaleString ? stats.totalBalance.toLocaleString() : stats.totalBalance}</h3>
             </div>
           </div>
 
@@ -788,7 +817,7 @@ export default function MoneyTracker() {
                     <Tooltip content={<CustomTooltip />} />
                     <Bar dataKey="value" fill="#10b981" radius={[8, 8, 0, 0]}>
                       {stats.top5Income.map((entry, index) => (
-                        <Cell key={`top-inc-${index}`} fill={INCOME_COLORS[index]} />
+                        <Cell key={`top-inc-${index}`} fill={INCOME_COLORS[index % INCOME_COLORS.length]} />
                       ))}
                     </Bar>
                   </BarChart>
@@ -1020,6 +1049,59 @@ export default function MoneyTracker() {
           )}
         </div>
       )}
+
+// === PART 2 END ===
+{/* ===================== AI TAB ====================== */}
+{viewMode === 'ai' && (
+  <div style={{ maxWidth: "800px", margin: "0 auto", marginTop: "20px" }}>
+    
+    <button 
+      onClick={getAIPredictions}
+      disabled={loadingAI}
+      style={{
+        width: "100%",
+        padding: "15px",
+        background: "linear-gradient(135deg, #D4AF37, #F4D03F)",
+        borderRadius: "10px",
+        fontWeight: "bold",
+        fontSize: "18px",
+        color: "#0D47A1",
+        border: "none"
+      }}
+    >
+      {loadingAI ? "🔮 AI is analyzing..." : "🤖 Generate AI Predictions"}
+    </button>
+
+    {mlData && mlData.success && (
+      <div style={{
+        marginTop: "25px",
+        padding: "20px",
+        background: "white",
+        borderRadius: "10px",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+      }}>
+
+        <h2>📅 Next 7 Days Expense Forecast</h2>
+        {mlData.predictions.map((p) => (
+          <p key={p.date} style={{ fontSize: "18px" }}>
+            <b>{p.date}</b> → ₹{p.predicted_amount} ({p.day_of_week})
+          </p>
+        ))}
+
+        <h3 style={{ marginTop: "20px" }}>
+          🧮 Total expected spending this week:  
+          <span style={{ color: "red" }}> ₹{mlData.total_predicted}</span>
+        </h3>
+      </div>
+    )}
+
+    {mlData && !mlData.success && (
+      <p style={{ marginTop: "20px", color: "red", fontWeight: "bold" }}>
+        ⚠️ {mlData.message}
+      </p>
+    )}
+  </div>
+)}
     </div>
   );
 }

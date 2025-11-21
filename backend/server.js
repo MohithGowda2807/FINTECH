@@ -10,8 +10,12 @@ require('dotenv').config();
 // This line imports the code from `backend/routes/chatbot.js`
 // =======================================================
 const chatbotRouter = require('./routes/chatbot');
-
 const app = express();
+
+const mlRoutes = require("./routes/mlRoutes");
+app.use("/api/ml", mlRoutes);
+
+
 
 
 // CORS Configuration
